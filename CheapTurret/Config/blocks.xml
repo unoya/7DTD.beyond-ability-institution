@@ -1,0 +1,26 @@
+<configs>
+	<append xpath="/blocks">
+		<block name="SimpleTurret">
+			<property name="Extends" value="autoTurret"/>
+			<property name="CustomIcon" value="autoTurret"/><property name="CustomIconTint" value="00bb00"/>
+			<property name="EconomicValue" value="100"/>
+			<property name="AmmoItem" value="any"/>
+			<property name="RequiredPower" value="5"/>
+			<property name="EntityDamage" value="1"/>
+			<property name="BustRoundCount" value="500"/>
+			<property name="BurstFireRate" value="0.09"/>
+			<property name="CooldownTime" value="0.5"/>
+			<property name="OvershootTime" value="0.1"/>
+			<property name="FallAsleepTime" value="1"/>
+			<property name="WakeUpTime" value="0.5"/>
+			<property name="YawRange" value="90"/>
+			<property name="PitchRange" value="90"/>
+			<property name="MaxDamage" value="100"/>
+			<property name="MaxDistance" value="20"/>
+			<property class="RepairItems">
+				<property name="resourceMechanicalParts" value="1"/>
+				<property name="resourceElectricParts" value="1"/>
+			</property>
+		</block>
+	</append>
+</configs>

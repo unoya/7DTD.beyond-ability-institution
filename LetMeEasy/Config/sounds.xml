@@ -1,0 +1,14 @@
+<configs>
+	<!-- 鑽孔機, 關閉噪音引起的仇恨值, 避免引來女鬼貞子 -->
+	<set xpath="/Sounds/SoundDataNode[@name='Auger_Idle']/Noise[@ID='3']/@range">150</set>
+	<set xpath="/Sounds/SoundDataNode[@name='Auger_Idle']/Noise[@ID='3']/@heat_map_strength">-1</set>
+	<set xpath="/Sounds/SoundDataNode[@name='Auger_Fire_Start']/Noise[@ID='4']/@range">150</set>
+	<set xpath="/Sounds/SoundDataNode[@name='Auger_Fire_Start']/Noise[@ID='4']/@heat_map_strength">-1</set>
+	<!-- 鍊鋸機, 關閉噪音引起的仇恨值, 避免引來女鬼貞子 -->
+	<set xpath="/Sounds/SoundDataNode[@name='chainsaw_idle']/Noise[@ID='3']/@range">150</set>
+	<set xpath="/Sounds/SoundDataNode[@name='chainsaw_idle']/Noise[@ID='3']/@heat_map_strength">-1</set>
+	<set xpath="/Sounds/SoundDataNode[@name='chainsaw_fire_start']/Noise[@ID='4']/@range">150</set>
+	<set xpath="/Sounds/SoundDataNode[@name='chainsaw_fire_start']/Noise[@ID='4']/@heat_map_strength">-1</set>
+	<set xpath="/Sounds/SoundDataNode[@name='chainsaw_fire_rev']/Noise[@ID='4']/@range">150</set>
+	<set xpath="/Sounds/SoundDataNode[@name='chainsaw_fire_rev']/Noise[@ID='4']/@heat_map_strength">-1</set>
+</configs>

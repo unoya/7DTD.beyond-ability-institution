@@ -1,0 +1,36 @@
+<configs>
+    <append xpath="/recipes">
+		<recipe name="hardChainLink" count="1" craft_time="1" craft_area="forge" craft_tool="toolAnvil" material_based="true">
+			<ingredient name="unit_iron" count="200"/>
+			<ingredient name="unit_clay" count="50"/>
+		</recipe>
+		<recipe name="hardChainLinkFenceBottomPole" count="1" craft_time="1" craft_area="forge" craft_tool="toolAnvil" material_based="true">
+			<ingredient name="unit_iron" count="200"/>
+			<ingredient name="unit_clay" count="50"/>
+		</recipe>
+		<recipe name="hardChainLinkFenceTop" count="1" craft_time="1" craft_area="forge" craft_tool="toolAnvil" material_based="true">
+			<ingredient name="unit_iron" count="200"/>
+			<ingredient name="unit_clay" count="50"/>
+		</recipe>
+		<recipe name="hardChainLinkFenceTopPole" count="1" craft_time="1" craft_area="forge" craft_tool="toolAnvil" material_based="true">
+			<ingredient name="unit_iron" count="200"/>
+			<ingredient name="unit_clay" count="50"/>
+		</recipe>
+		<recipe name="hardChainLinkPole" count="1" craft_time="1" craft_area="forge" craft_tool="toolAnvil" material_based="true">
+			<ingredient name="unit_iron" count="200"/>
+			<ingredient name="unit_clay" count="50"/>
+		</recipe>
+		<recipe name="hardChainLinkCornerTop" count="1" craft_time="1" craft_area="forge" craft_tool="toolAnvil" material_based="true">
+			<ingredient name="unit_iron" count="200"/>
+			<ingredient name="unit_clay" count="50"/>
+		</recipe>
+		<recipe name="hardChainLinkCornerBottom" count="1" craft_time="1" craft_area="forge" craft_tool="toolAnvil" material_based="true">
+			<ingredient name="unit_iron" count="200"/>
+			<ingredient name="unit_clay" count="50"/>
+		</recipe>
+		<recipe name="hardChainLinkFenceTopPole2" count="1" craft_time="1" craft_area="forge" craft_tool="toolAnvil" material_based="true">
+			<ingredient name="unit_iron" count="200"/>
+			<ingredient name="unit_clay" count="50"/>
+		</recipe>
+    </append>
+</configs>

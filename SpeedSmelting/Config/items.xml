@@ -1,0 +1,50 @@
+<configs>
+	<!-- 石頭 -->
+	<insertAfter xpath="/items/item[@name='resourceRockSmall']/property[@name='HoldType']">
+		<property name="MeltTimePerUnit" value="0.1"/>
+	</insertAfter>
+	<!-- 廢鐵 -->
+	<insertAfter xpath="/items/item[@name='resourceScrapIron']/property[@name='HoldType']">
+		<property name="MeltTimePerUnit" value="0.1"/>
+	</insertAfter>
+	<!-- 鐵礦 -->
+	<insertAfter xpath="/items/item[@name='resourceIronFragment']/property[@name='HoldType']">
+		<property name="MeltTimePerUnit" value="0.1"/>
+		<property name="CraftingIngredientTime" value="0.1"/>
+	</insertAfter>
+	<!-- 銅材 -->
+	<insertAfter xpath="/items/item[@name='resourceScrapBrass']/property[@name='HoldType']">
+		<property name="MeltTimePerUnit" value="0.1"/>
+		<property name="CraftingIngredientTime" value="0.1"/>
+	</insertAfter>
+	<!-- 鉛材 -->
+	<insertAfter xpath="/items/item[@name='resourceScrapLead']/property[@name='HoldType']">
+		<property name="MeltTimePerUnit" value="0.1"/>
+		<property name="CraftingIngredientTime" value="0.1"/>
+	</insertAfter>
+	<!-- 黏土 -->
+	<insertAfter xpath="/items/item[@name='resourceClayLump']/property[@name='HoldType']">
+		<property name="MeltTimePerUnit" value="0.1"/>
+	</insertAfter>
+	<!-- 碎玻璃	-->
+	<insertAfter xpath="/items/item[@name='resourceBrokenGlass']/property[@name='HoldType']">
+		<property name="MeltTimePerUnit" value="0.1"/>
+		<property name="CraftingIngredientTime" value="0.1"/>
+	</insertAfter>
+	<!-- 沙子 -->
+	<insertAfter xpath="/items/item[@name='resourceCrushedSand']/property[@name='HoldType']">
+		<property name="MeltTimePerUnit" value="0.1"/>
+	</insertAfter>
+	<!-- 水泥 -->
+	<insertAfter xpath="/items/item[@name='resourceCement']/property[@name='HoldType']">
+		<property name="MeltTimePerUnit" value="0.1"/>
+	</insertAfter>
+	<!-- 石頭, 更改輸出的時間 -->
+	<set xpath="/items/item[@name='resourceRockSmall']/property[@name='CraftingIngredientTime']/@value">0.1</set>
+	<!-- 廢鐵, 更改輸出的時間 -->
+	<set xpath="/items/item[@name='resourceScrapIron']/property[@name='CraftingIngredientTime']/@value">0.1</set>
+	<!-- 黏土, 更改輸出的時間 -->
+	<set xpath="/items/item[@name='resourceClayLump']/property[@name='CraftingIngredientTime']/@value">0.1</set>
+	<!-- 木材, 更改燃燒時間為3分鐘, 60等於1分鐘 -->
+	<set xpath="/items/item[@name='resourceWood']/property[@name='FuelValue']/@value">180</set>
+</configs>

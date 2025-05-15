@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+	<ModInfo>
+		<Name value="Hard Building" />
+		<Description value="More built-in hard buildings." />
+		<Author value="unoya" />
+		<Version value="1.0.0" />
+		<Website value="https://github.com/unoya" />
+	</ModInfo>
+</xml>

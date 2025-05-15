@@ -1,0 +1,26 @@
+<configs>
+	<!-- 鍛鐵, 更改輸出的時間 -->
+	<setattribute xpath="/recipes/recipe[@name='resourceForgedIron']" name="craft_time">0.1</setattribute>
+	<!-- 鍛鋼, 更改輸出的時間 -->
+	<setattribute xpath="/recipes/recipe[@name='resourceForgedSteel']" name="craft_time">0.1</setattribute>
+	<!-- 火箭彈頭, 更改輸出的時間 -->
+	<setattribute xpath="/recipes/recipe[@name='resourceRocketTip']" name="craft_time">0.1</setattribute>
+	<!-- 火箭彈殼, 更改輸出的時間 -->
+	<setattribute xpath="/recipes/recipe[@name='resourceRocketCasing']" name="craft_time">0.1</setattribute>
+	<!-- 鐵柵欄, 更改輸出的時間 -->
+	<setattribute xpath="/recipes/recipe[@name='ironBars']" name="craft_time">0.1</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='ironBarsCentered']" name="craft_time">0.1</setattribute>
+	<!-- 水泥, 更改輸出的時間 -->
+	<setattribute xpath="/recipes/recipe[@name='resourceCement']" name="craft_time">0.1</setattribute>
+	<!-- 鋼筋, 更改輸出的時間 -->
+	<setattribute xpath="/recipes/recipe[@name='rebarFrameBlock']" name="craft_time">0.1</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='rebarFrameCNRInside']" name="craft_time">0.1</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='rebarFramePillar100']" name="craft_time">0.1</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='rebarFrameRamp']" name="craft_time">0.1</setattribute>
+	<!-- 防彈玻璃, 更改輸出的時間 -->
+	<setattribute xpath="/recipes/recipe[@name='glassBulletproofBlock']" name="craft_time">0.1</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='glassBulletproofCTRPlate']" name="craft_time">0.1</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='glassBulletproofPlate']" name="craft_time">0.1</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='glassBulletproofPlateCurved']" name="craft_time">0.1</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='glassBulletproofRamp']" name="craft_time">0.1</setattribute>
+</configs>

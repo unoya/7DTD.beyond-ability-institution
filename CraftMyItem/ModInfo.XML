@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+	<ModInfo>
+		<Name value="CraftMyItem" />
+		<Description value="Some items that need to be searched for can now be created by yourself." />
+		<Author value="unoya" />
+		<Version value="1.3.0" />
+		<Website value="https://github.com/unoya" />
+	</ModInfo>
+</xml>

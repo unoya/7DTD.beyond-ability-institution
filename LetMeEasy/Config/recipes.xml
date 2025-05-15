@@ -1,0 +1,46 @@
+<configs>
+    <append xpath="/recipes">
+		<!-- 酸化物 -->
+		<recipe name="resourceAcid" count="1" craft_time="5" craft_area="chemistryStation">
+			<ingredient name="resourceGlue" count="1"/>
+			<ingredient name="resourceOil" count="5"/>
+			<ingredient name="resourceScrapPolymers" count="1"/>
+			<ingredient name="resourceCloth" count="5"/>
+		</recipe>
+		<!-- 燒杯 -->
+		<recipe name="toolBeaker" count="1" craft_time="10" craft_area="forge" material_based="true">
+			<ingredient name="unit_glass" count="500"/>
+			<ingredient name="unit_clay" count="100"/>
+		</recipe>
+    </append>
+	<!-- 鍛鐵, 增加輸出時間項目 -->
+	<setattribute xpath="/recipes/recipe[@name='resourceForgedIron']" name="craft_time">0.5</setattribute>
+	<!-- 鍛鋼, 增加輸出時間項目 -->
+	<setattribute xpath="/recipes/recipe[@name='resourceForgedSteel']" name="craft_time">0.5</setattribute>
+	<!-- 鐵柵欄, 增加輸出時間項目 -->
+	<setattribute xpath="/recipes/recipe[@name='ironBars']" name="craft_time">0.5</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='ironBarsCentered']" name="craft_time">0.5</setattribute>
+	<!-- 水泥, 增加輸出時間項目 -->
+	<setattribute xpath="/recipes/recipe[@name='resourceCement']" name="craft_time">0.5</setattribute>
+	<!-- 混合水泥, 增加輸出時間項目 -->
+	<setattribute xpath="/recipes/recipe[@name='resourceConcreteMix'][@craft_area='cementMixer']" name="craft_time">0.5</setattribute>
+	<!-- 鋼筋, 增加輸出時間項目 -->
+	<setattribute xpath="/recipes/recipe[@name='rebarFrameBlock']" name="craft_time">0.5</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='rebarFrameCNRInside']" name="craft_time">0.5</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='rebarFramePillar100']" name="craft_time">0.5</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='rebarFrameRamp']" name="craft_time">0.5</setattribute>
+	<!-- 防彈玻璃, 增加輸出時間項目 -->
+	<setattribute xpath="/recipes/recipe[@name='glassBulletproofBlock']" name="craft_time">0.5</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='glassBulletproofCTRPlate']" name="craft_time">0.5</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='glassBulletproofPlate']" name="craft_time">0.5</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='glassBulletproofPlateCurved']" name="craft_time">0.5</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='glassBulletproofRamp']" name="craft_time">0.5</setattribute>
+	<!-- 鉛素材, 更改轉化時間 -->
+	<setattribute xpath="/recipes/recipe[@name='resourceScrapLead'][@tooltip='ttScrapMetalLead']" name="craft_time">0.5</setattribute>
+	<!-- 銅素材, 更改轉化時間 -->
+	<setattribute xpath="/recipes/recipe[@name='resourceScrapBrass'][@tooltip='ttScrapMetalBrass']" name="craft_time">0.5</setattribute>
+	<!-- 瀝青, 調整合成的數量 -->
+	<set xpath="/recipes/recipe[@name='terrAsphalt'][@craft_area='cementMixer']/@count">20</set>
+	<!-- 廢鐵外牆板, 調整合成的數量 -->
+	<set xpath="/recipes/recipe[@name='scrapIronSheet']/@count">10</set>
+</configs>

@@ -1,0 +1,26 @@
+<configs>
+	<append xpath="/items">
+		<!-- 3發子彈模組藍圖 -->
+		<item name="modCrossbowMagazine3Schematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="ammoCrossbowBoltExplodingSchematic" />
+			<property name="CustomIconTint" value="be77ff"/>
+			<property name="EconomicValue" value="500"/>
+		</item>
+		<!-- 5發子彈模組藍圖 -->
+		<item name="modCrossbowMagazine5Schematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="ammoCrossbowBoltExplodingSchematic" />
+			<property name="CustomIconTint" value="be77ff"/>
+			<property name="EconomicValue" value="500"/>
+		</item>
+		<!-- 10發子彈模組藍圖 -->
+		<item name="modCrossbowMagazine10Schematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="ammoCrossbowBoltExplodingSchematic" />
+			<property name="CustomIconTint" value="be77ff"/>
+			<property name="EconomicValue" value="500"/>
+		</item>
+	</append>
+	<append xpath="/items/item[@name='gunCrossbow']/property[@name='Tags']/@value">,crossbow</append>
+</configs>

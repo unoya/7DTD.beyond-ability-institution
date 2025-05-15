@@ -1,0 +1,16 @@
+<configs>
+	<!-- 調整各區域動物生成的最大數量 -->
+	<set xpath="/spawning/biome[@name='city_wasteland']/spawn[@entitygroup='EnemyAnimalsWasteland']/@maxcount">3</set>
+	<set xpath="/spawning/biome[@name='wasteland_hub']/spawn[@entitygroup='EnemyAnimalsWasteland']/@maxcount">3</set>
+	<set xpath="/spawning/biome[@name='pine_forest']/spawn[@entitygroup='FriendlyAnimalsForest']/@maxcount">8</set>
+	<set xpath="/spawning/biome[@name='pine_forest']/spawn[@entitygroup='FriendlyAnimalsForest']/@respawndelay">1</set>
+	<set xpath="/spawning/biome[@name='desert']/spawn[@entitygroup='FriendlyAnimalsDesert']/@maxcount">8</set>
+	<set xpath="/spawning/biome[@name='desert']/spawn[@entitygroup='FriendlyAnimalsDesert']/@respawndelay">1</set>
+	<set xpath="/spawning/biome[@name='wasteland']/spawn[@entitygroup='EnemyAnimalsWasteland']/@maxcount">3</set>
+	<set xpath="/spawning/biome[@name='burnt_forest']/spawn[@entitygroup='EnemyAnimalsBurntForest']/@maxcount">3</set>
+	<set xpath="/spawning/biome[@name='burnt_forest']/spawn[@entitygroup='EnemyAnimalsBurntForest']/@respawndelay">1</set>
+	<set xpath="/spawning/biome[@name='snow']/spawn[@entitygroup='EnemyAnimalsSnow']/@maxcount">3</set>
+	<set xpath="/spawning/biome[@name='snow']/spawn[@entitygroup='EnemyAnimalsSnow']/@respawndelay">1</set>
+	<set xpath="/spawning/biome[@name='snow']/spawn[@entitygroup='FriendlyAnimalsSnow']/@maxcount">8</set>
+	<set xpath="/spawning/biome[@name='snow']/spawn[@entitygroup='FriendlyAnimalsSnow']/@respawndelay">1</set>
+</configs>

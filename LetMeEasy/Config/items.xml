@@ -1,0 +1,355 @@
+<configs>
+	<!-- 水泥, 更改輸出時間-->
+	<insertAfter xpath="/items/item[@name='resourceCement']/property[@name='HoldType']">
+		<property name="MeltTimePerUnit" value="0.5"/>
+	</insertAfter>
+	<!-- 石頭 -->
+	<insertAfter xpath="/items/item[@name='resourceRockSmall']/property[@name='HoldType']">
+		<property name="MeltTimePerUnit" value="0.5"/>
+	</insertAfter>
+	<!-- 黏土 -->
+	<insertAfter xpath="/items/item[@name='resourceClayLump']/property[@name='HoldType']">
+		<property name="MeltTimePerUnit" value="0.5"/>
+	</insertAfter>
+	<!-- 廢鐵 -->
+	<insertAfter xpath="/items/item[@name='resourceScrapIron']/property[@name='HoldType']">
+		<property name="MeltTimePerUnit" value="0.5"/>
+	</insertAfter>
+	<!-- 鐵礦 -->
+	<insertAfter xpath="/items/item[@name='resourceIronFragment']/property[@name='HoldType']">
+		<property name="MeltTimePerUnit" value="0.5"/>
+		<property name="CraftingIngredientTime" value="0.5"/>
+	</insertAfter>
+	<!-- 銅材 -->
+	<insertAfter xpath="/items/item[@name='resourceScrapBrass']/property[@name='HoldType']">
+		<property name="MeltTimePerUnit" value="0.5"/>
+		<property name="CraftingIngredientTime" value="0.5"/>
+	</insertAfter>
+	<!-- 鉛材 -->
+	<insertAfter xpath="/items/item[@name='resourceScrapLead']/property[@name='HoldType']">
+		<property name="MeltTimePerUnit" value="0.5"/>
+		<property name="CraftingIngredientTime" value="0.5"/>
+	</insertAfter>
+	<!-- 碎玻璃	-->
+	<insertAfter xpath="/items/item[@name='resourceBrokenGlass']/property[@name='HoldType']">
+		<property name="MeltTimePerUnit" value="0.5"/>
+		<property name="CraftingIngredientTime" value="0.5"/>
+	</insertAfter>
+
+	<!-- 木材, 更改燃燒時間為5分鐘, 60等於1分鐘 -->
+	<set xpath="/items/item[@name='resourceWood']/property[@name='FuelValue']/@value">300</set>
+
+	<!-- 玩家空手的攻擊速度和耐力 -->
+	<set xpath="/items/item[@name='meleeHandPlayer']/effect_group[@name='Base Effects']/passive_effect[@name='AttacksPerMinute']/@value">100</set>
+	<set xpath="/items/item[@name='meleeHandPlayer']/effect_group[@name='Base Effects']/passive_effect[@name='StaminaLoss']/@value">5</set>
+	<!-- 骨刀, 攻速, 耐力, 耐久值, 猛擊耐力 -->
+	<set xpath="/items/item[@name='meleeBoneShiv']/effect_group[@name='Base Effects']/passive_effect[@name='AttacksPerMinute']/@value">90</set>
+	<set xpath="/items/item[@name='meleeBoneShiv']/effect_group[@name='Base Effects']/passive_effect[@name='HarvestCount']/@value">1</set>
+	<set xpath="/items/item[@name='meleeBoneShiv']/effect_group[@name='Base Effects']/passive_effect[@name='StaminaLoss']/@value">6</set>
+	<set xpath="/items/item[@name='meleeBoneShiv']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">100,200</set>
+	<set xpath="/items/item[@name='meleeBoneShiv']/effect_group[@name='Power Attack']/passive_effect[@name='StaminaLoss']/@value">10</set>
+	<!-- 獵刀, 攻速, 耐力, 耐久值, 猛擊耐力 -->
+	<set xpath="/items/item[@name='meleeToolHuntingKnife']/effect_group[@name='Base Effects']/passive_effect[@name='AttacksPerMinute']/@value">80</set>
+	<set xpath="/items/item[@name='meleeToolHuntingKnife']/effect_group[@name='Base Effects']/passive_effect[@name='HarvestCount']/@value">2</set>
+	<set xpath="/items/item[@name='meleeToolHuntingKnife']/effect_group[@name='Base Effects']/passive_effect[@name='StaminaLoss']/@value">7</set>
+	<set xpath="/items/item[@name='meleeToolHuntingKnife']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">300,600</set>
+	<set xpath="/items/item[@name='meleeToolHuntingKnife']/effect_group[@name='Power Attack']/passive_effect[@name='StaminaLoss']/@value">12</set>
+	<!-- 山羊鎚, 延遲, 修復數量, 攻速, 耐力, 耐久值 -->
+	<set xpath="/items/item[@name='meleeToolClawHammer']/property[@class='Action1']/property[@name='Delay']/@value">0.2</set>
+	<set xpath="/items/item[@name='meleeToolClawHammer']/property[@class='Action1']/property[@name='Repair_amount']/@value">500</set>
+	<set xpath="/items/item[@name='meleeToolClawHammer']/effect_group[@name='Base Effects']/passive_effect[@name='AttacksPerMinute']/@value">85</set>
+	<set xpath="/items/item[@name='meleeToolClawHammer']/effect_group[@name='Base Effects']/passive_effect[@name='StaminaLoss']/@value">7</set>
+	<set xpath="/items/item[@name='meleeToolClawHammer']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">400,1000</set>
+	<!-- 石斧, 延遲, 修復數量, 攻速, 耐力, 耐久值 -->
+	<set xpath="/items/item[@name='meleeToolStoneAxe']/property[@class='Action1']/property[@name='Delay']/@value">0.2</set>
+	<set xpath="/items/item[@name='meleeToolStoneAxe']/property[@class='Action1']/property[@name='Repair_amount']/@value">200</set>
+	<set xpath="/items/item[@name='meleeToolStoneAxe']/effect_group[@name='Base Effects']/passive_effect[@name='AttacksPerMinute']/@value">80</set>
+	<set xpath="/items/item[@name='meleeToolStoneAxe']/effect_group[@name='Base Effects']/passive_effect[@name='StaminaLoss']/@value">6</set>
+	<set xpath="/items/item[@name='meleeToolStoneAxe']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">180,400</set>
+	<!-- 石斧特殊品, 攻速, 耐力, 耐久值-->
+	<set xpath="/items/item[@name='meleeToolStoneAxeTazas']/effect_group[@name='Base Effects']/passive_effect[@name='AttacksPerMinute']/@value">80</set>
+	<set xpath="/items/item[@name='meleeToolStoneAxeTazas']/effect_group[@name='Base Effects']/passive_effect[@name='StaminaLoss']/@value">6</set>
+	<set xpath="/items/item[@name='meleeToolStoneAxeTazas']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">210,500</set>
+	<!-- 木棒, 攻速, 耐力, 耐久值, 猛擊耐力 -->
+	<set xpath="/items/item[@name='meleeClubWood']/effect_group[@name='Base Effects']/passive_effect[@name='AttacksPerMinute']/@value">70</set>
+	<set xpath="/items/item[@name='meleeClubWood']/effect_group[@name='Base Effects']/passive_effect[@name='StaminaLoss']/@value">12</set>
+	<set xpath="/items/item[@name='meleeClubWood']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">100,250</set>
+	<set xpath="/items/item[@name='meleeClubWood']/effect_group[@name='Power Attack']/passive_effect[@name='StaminaLoss']/@value">16</set>
+	<!-- 鐵棒, 攻速, 耐力, 耐久值, 猛擊耐力 -->
+	<set xpath="/items/item[@name='meleeClubIron']/effect_group[@name='Base Effects']/passive_effect[@name='AttacksPerMinute']/@value">68</set>
+	<set xpath="/items/item[@name='meleeClubIron']/effect_group[@name='Base Effects']/passive_effect[@name='StaminaLoss']/@value">13</set>
+	<set xpath="/items/item[@name='meleeClubIron']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">300,600</set>
+	<set xpath="/items/item[@name='meleeClubIron']/effect_group[@name='Power Attack']/passive_effect[@name='StaminaLoss']/@value">20</set>
+	<!-- 火把, 攻速, 耐力 -->
+	<set xpath="/items/item[@name='meleeToolTorch']/effect_group[@name='Base Effects']/passive_effect[@name='AttacksPerMinute']/@value">70</set>
+	<set xpath="/items/item[@name='meleeToolTorch']/effect_group[@name='Base Effects']/passive_effect[@name='StaminaLoss']/@value">15</set>
+	<!-- 山刀, 攻速, 耐力, 耐久值, 猛擊耐力 -->
+	<set xpath="/items/item[@name='meleeToolMachete']/effect_group[@name='Base Effects']/passive_effect[@name='AttacksPerMinute']/@value">78</set>
+	<set xpath="/items/item[@name='meleeToolMachete']/effect_group[@name='Base Effects']/passive_effect[@name='HarvestCount']/@value">2</set>
+	<set xpath="/items/item[@name='meleeToolMachete']/effect_group[@name='Base Effects']/passive_effect[@name='StaminaLoss']/@value">8</set>
+	<set xpath="/items/item[@name='meleeToolMachete']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">360,900</set>
+	<set xpath="/items/item[@name='meleeToolMachete']/effect_group[@name='Power Attack']/passive_effect[@name='StaminaLoss']/@value">14</set>
+	<!-- 鐵鎬, 攻速, 耐力, 耐久值, 猛擊耐力 -->
+	<set xpath="/items/item[@name='meleeToolPickaxeIron']/effect_group[@name='Base Effects']/passive_effect[@name='AttacksPerMinute']/@value">78</set>
+	<set xpath="/items/item[@name='meleeToolPickaxeIron']/effect_group[@name='Base Effects']/passive_effect[@name='StaminaLoss']/@value">14</set>
+	<set xpath="/items/item[@name='meleeToolPickaxeIron']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">260,920</set>
+	<set xpath="/items/item[@name='meleeToolPickaxeIron']/effect_group[@name='Power Attack']/passive_effect[@name='StaminaLoss']/@value">21</set>
+	<!-- 扳手, 可收割, 可拆解, 拆卸獲取經驗值, 延遲, 修復數量, 攻速, 收割倍率, 耐力, 耐久值 -->
+	<set xpath="/items/item[@name='meleeToolWrench']/property[@class='Action0']/property[@name='ToolCategory.harvestingTools']/@value">1</set>
+	<set xpath="/items/item[@name='meleeToolWrench']/property[@class='Action0']/property[@name='ToolCategory.Disassemble']/@value">1</set>
+	<set xpath="/items/item[@name='meleeToolWrench']/property[@class='Action1']/property[@name='Delay']/@value">0.2</set>
+	<set xpath="/items/item[@name='meleeToolWrench']/property[@class='Action1']/property[@name='Repair_amount']/@value">1000</set>
+	<set xpath="/items/item[@name='meleeToolWrench']/effect_group[@name='Base Effects']/passive_effect[@name='AttacksPerMinute']/@value">100</set>
+	<set xpath="/items/item[@name='meleeToolWrench']/effect_group[@name='Base Effects']/passive_effect[@name='HarvestCount']/@value">4</set>
+	<set xpath="/items/item[@name='meleeToolWrench']/effect_group[@name='Base Effects']/passive_effect[@name='StaminaLoss']/@value">10</set>
+	<set xpath="/items/item[@name='meleeToolWrench']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">400,1000</set>
+	<!-- 石鏟, 攻速, 耐力, 耐久值, 猛擊耐力 -->
+	<set xpath="/items/item[@name='meleeToolShovelStone']/effect_group[@name='Base Effects']/passive_effect[@name='AttacksPerMinute']/@value">80</set>
+	<set xpath="/items/item[@name='meleeToolShovelStone']/effect_group[@name='Base Effects']/passive_effect[@name='StaminaLoss']/@value">6</set>
+	<set xpath="/items/item[@name='meleeToolShovelStone']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">180,400</set>
+	<set xpath="/items/item[@name='meleeToolShovelStone']/effect_group[@name='Power Attack']/passive_effect[@name='StaminaLoss']/@value">8</set>
+	<!-- 鐵鏟, 攻速, 耐力, 耐久值, 猛擊耐力 -->
+	<set xpath="/items/item[@name='meleeToolShovelIron']/effect_group[@name='Base Effects']/passive_effect[@name='AttacksPerMinute']/@value">78</set>
+	<set xpath="/items/item[@name='meleeToolShovelIron']/effect_group[@name='Base Effects']/passive_effect[@name='StaminaLoss']/@value">14</set>
+	<set xpath="/items/item[@name='meleeToolShovelIron']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">250,950</set>
+	<set xpath="/items/item[@name='meleeToolShovelIron']/effect_group[@name='Power Attack']/passive_effect[@name='StaminaLoss']/@value">21</set>
+	<!-- 鋼鏟, 攻速, 耐力, 耐久值, 猛擊耐力 -->
+	<set xpath="/items/item[@name='meleeToolShovelSteel']/effect_group[@name='Base Effects']/passive_effect[@name='AttacksPerMinute']/@value">78</set>
+	<set xpath="/items/item[@name='meleeToolShovelSteel']/effect_group[@name='Base Effects']/passive_effect[@name='StaminaLoss']/@value">15</set>
+	<set xpath="/items/item[@name='meleeToolShovelSteel']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">450,1500</set>
+	<set xpath="/items/item[@name='meleeToolShovelSteel']/effect_group[@name='Power Attack']/passive_effect[@name='StaminaLoss']/@value">24</set>
+	<!-- 大鐵鎚, 收獲率, 收獲率, 攻速, 耐力, 耐久值, 猛擊耐力, 宰殺收獲率 -->
+	<set xpath="/items/item[@name='meleeToolSledgehammer']/property[@class='Action0']/property[@name='ToolCategory.harvestingTools']/@value">1</set>
+	<set xpath="/items/item[@name='meleeToolSledgehammer']/property[@class='Action1']/property[@name='ToolCategory.harvestingTools']/@value">1</set>
+	<set xpath="/items/item[@name='meleeToolSledgehammer']/effect_group[@name='Base Effects']/passive_effect[@name='AttacksPerMinute']/@value">65</set>
+	<set xpath="/items/item[@name='meleeToolSledgehammer']/effect_group[@name='Base Effects']/passive_effect[@name='StaminaLoss']/@value">10</set>
+	<set xpath="/items/item[@name='meleeToolSledgehammer']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">500,1500</set>
+	<set xpath="/items/item[@name='meleeToolSledgehammer']/effect_group[@name='Base Effects']/passive_effect[@name='HarvestCount'][@tags='allHarvest']/@value">2</set>
+	<set xpath="/items/item[@name='meleeToolSledgehammer']/effect_group[@name='Base Effects']/passive_effect[@name='HarvestCount'][@tags='allToolsHarvest']/@value">2</set>
+	<set xpath="/items/item[@name='meleeToolSledgehammer']/effect_group[@name='Base Effects']/passive_effect[@name='HarvestCount'][@tags='oreWoodHarvest']/@value">2</set>
+	<set xpath="/items/item[@name='meleeToolSledgehammer']/effect_group[@name='Power Attack']/passive_effect[@name='StaminaLoss']/@value">15</set>
+	<append xpath="/items/item[@name='meleeToolSledgehammer']/effect_group[@name='Base Effects']">
+		<passive_effect name="HarvestCount" operation="base_set" value="3" tags="butcherHarvest"/>
+	</append>
+	<!-- 鐵消防斧, 宰殺率, 宰殺率, 攻速, 耐力, 耐久值, 猛擊耐力 -->
+	<set xpath="/items/item[@name='meleeToolFireaxeIron']/property[@class='Action0']/property[@name='ToolCategory.Butcher']/@value">1</set>
+	<set xpath="/items/item[@name='meleeToolFireaxeIron']/property[@class='Action1']/property[@name='ToolCategory.Butcher']/@value">1</set>
+	<set xpath="/items/item[@name='meleeToolFireaxeIron']/effect_group[@name='Base Effects']/passive_effect[@name='HarvestCount']/@value">3</set>
+	<set xpath="/items/item[@name='meleeToolFireaxeIron']/effect_group[@name='Base Effects']/passive_effect[@name='AttacksPerMinute']/@value">78</set>
+	<set xpath="/items/item[@name='meleeToolFireaxeIron']/effect_group[@name='Base Effects']/passive_effect[@name='StaminaLoss']/@value">14</set>
+	<set xpath="/items/item[@name='meleeToolFireaxeIron']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">260,900</set>
+	<set xpath="/items/item[@name='meleeToolFireaxeIron']/effect_group[@name='Power Attack']/passive_effect[@name='StaminaLoss']/@value">21</set>
+	<!-- 鋼消防斧, 收穫的數量百分比, 攻速, 耐力, 耐久值, 猛擊耐力 -->
+	<set xpath="/items/item[@name='meleeToolFireaxeSteel']/effect_group[@name='Base Effects']/passive_effect[@name='HarvestCount']/@value">4</set>
+	<set xpath="/items/item[@name='meleeToolFireaxeSteel']/effect_group[@name='Base Effects']/passive_effect[@name='AttacksPerMinute']/@value">78</set>
+	<set xpath="/items/item[@name='meleeToolFireaxeSteel']/effect_group[@name='Base Effects']/passive_effect[@name='StaminaLoss']/@value">15</set>
+	<set xpath="/items/item[@name='meleeToolFireaxeSteel']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">400,1500</set>
+	<set xpath="/items/item[@name='meleeToolFireaxeSteel']/effect_group[@name='Power Attack']/passive_effect[@name='StaminaLoss']/@value">24</set>
+	<!-- 鋼鎬, 攻速, 耐力, 耐久值, 猛擊耐力 -->
+	<set xpath="/items/item[@name='meleeToolPickaxeSteel']/effect_group[@name='Base Effects']/passive_effect[@name='AttacksPerMinute']/@value">78</set>
+	<set xpath="/items/item[@name='meleeToolPickaxeSteel']/effect_group[@name='Base Effects']/passive_effect[@name='StaminaLoss']/@value">14</set>
+	<set xpath="/items/item[@name='meleeToolPickaxeSteel']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">400,1600</set>
+	<set xpath="/items/item[@name='meleeToolPickaxeSteel']/effect_group[@name='Power Attack']/passive_effect[@name='StaminaLoss']/@value">21</set>
+	<!-- 園藝耙, 採收率, 修復數量, 延遲, 攻速, 耐力, 耐久值 -->
+	<set xpath="/items/item[@name='meleeToolHoeIron']/property[@class='Action0']/property[@name='ToolCategory.cropHarvest']/@value">1</set>
+	<set xpath="/items/item[@name='meleeToolHoeIron']/property[@class='Action1']/property[@name='Repair_amount']/@value">200</set>
+	<set xpath="/items/item[@name='meleeToolHoeIron']/property[@class='Action1']/property[@name='Delay']/@value">0.2</set>
+	<set xpath="/items/item[@name='meleeToolHoeIron']/effect_group[@name='Base Effects']/passive_effect[@name='AttacksPerMinute']/@value">55</set>
+	<set xpath="/items/item[@name='meleeToolHoeIron']/effect_group[@name='Base Effects']/passive_effect[@name='StaminaLoss']/@value">8</set>
+	<set xpath="/items/item[@name='meleeToolHoeIron']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">300,600</set>
+	<!-- 鋸木機, 裝填速度, 對方塊的傷害量, 汽油容量, 耐久值, 每次損壞值 -->
+	<set xpath="/items/item[@name='meleeToolChainsaw']/property[@class='Action0']/property[@name='Reload_time']/@value">1</set>
+	<set xpath="/items/item[@name='meleeToolChainsaw']/effect_group[@name='Base Effects']/passive_effect[@name='BlockDamage']/@value">27,81</set>
+	<set xpath="/items/item[@name='meleeToolChainsaw']/effect_group[@name='Base Effects']/passive_effect[@name='MagazineSize']/@value">3000</set>
+	<set xpath="/items/item[@name='meleeToolChainsaw']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">5000,12000</set>
+	<set xpath="/items/item[@name='meleeToolChainsaw']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationPerUse']/@value">1</set>
+	<!-- 鑽孔機, 裝填速度, 對方塊的傷害量, 汽油容量, 耐久值, 每次損壞值 -->
+	<set xpath="/items/item[@name='meleeToolAuger']/property[@class='Action0']/property[@name='Reload_time']/@value">1</set>
+	<set xpath="/items/item[@name='meleeToolAuger']/effect_group[@name='Base Effects']/passive_effect[@name='BlockDamage']/@value">22,66</set>
+	<set xpath="/items/item[@name='meleeToolAuger']/effect_group[@name='Base Effects']/passive_effect[@name='MagazineSize']/@value">3000</set>
+	<set xpath="/items/item[@name='meleeToolAuger']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">5000,12000</set>
+	<set xpath="/items/item[@name='meleeToolAuger']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationPerUse']/@value">1</set>
+	<!-- 手槍, 最大射程, 彈匣容量, 十字準星復歸速度, 耐久值 -->
+	<set xpath="/items/item[@name='gunPistol']/effect_group[@name='Base Effects']/passive_effect[@name='MaxRange']/@value">100</set>
+	<!--<set xpath="/items/item[@name='gunPistol']/effect_group[@name='Base Effects']/passive_effect[@name='MagazineSize']/@value">50</set>-->
+	<set xpath="/items/item[@name='gunPistol']/effect_group[@name='Base Effects']/passive_effect[@name='WeaponHandling']/@value">10</set>
+	<set xpath="/items/item[@name='gunPistol']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">500,1000</set>
+	<!-- 馬格農, 延遲, 裝填速度, 最大射程, 彈匣容量, 十字準星復歸速度, 耐久值, 每次損壞值 -->
+	<set xpath="/items/item[@name='gun44Magnum']/property[@class='Action0']/property[@name='Delay']/@value">0.2</set>
+	<set xpath="/items/item[@name='gun44Magnum']/property[@class='Action0']/property[@name='Reload_time']/@value">1</set>
+	<set xpath="/items/item[@name='gun44Magnum']/effect_group[@name='Base Effects']/passive_effect[@name='MaxRange']/@value">100</set>
+	<!--<set xpath="/items/item[@name='gun44Magnum']/effect_group[@name='Base Effects']/passive_effect[@name='MagazineSize']/@value">50</set>-->
+	<set xpath="/items/item[@name='gun44Magnum']/effect_group[@name='Base Effects']/passive_effect[@name='WeaponHandling']/@value">10</set>
+	<set xpath="/items/item[@name='gun44Magnum']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">5000,9000</set>
+	<set xpath="/items/item[@name='gun44Magnum']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationPerUse']/@value">5</set>
+	<!-- 衝鋒槍, 裝填速度, 最大射程, 彈匣容量, 十字準星復歸速度, 耐久值, 每次損壞值 -->
+	<set xpath="/items/item[@name='gunSMG5']/property[@class='Action0']/property[@name='Reload_time']/@value">0.5</set>
+	<set xpath="/items/item[@name='gunSMG5']/effect_group[@name='Base Effects']/passive_effect[@name='MaxRange']/@value">90</set>
+	<!--<set xpath="/items/item[@name='gunSMG5']/effect_group[@name='Base Effects']/passive_effect[@name='MagazineSize']/@value">200</set>-->
+	<set xpath="/items/item[@name='gunSMG5']/effect_group[@name='Base Effects']/passive_effect[@name='WeaponHandling']/@value">10</set>
+	<set xpath="/items/item[@name='gunSMG5']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">9000,18000</set>
+	<set xpath="/items/item[@name='gunSMG5']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationPerUse']/@value">5</set>
+	<!-- 短距散彈槍, 延遲, 裝填速度, 最大射程, 彈匣容量, 十字準星復歸速度, 耐久值, 每次損壞值 -->
+	<set xpath="/items/item[@name='gunBlunderbuss']/property[@class='Action0']/property[@name='Delay']/@value">0.4</set>
+	<set xpath="/items/item[@name='gunBlunderbuss']/property[@class='Action0']/property[@name='Reload_time']/@value">1.8</set>
+	<set xpath="/items/item[@name='gunBlunderbuss']/effect_group[@name='Base Effects']/passive_effect[@name='MaxRange']/@value">40</set>
+	<!--<set xpath="/items/item[@name='gunBlunderbuss']/effect_group[@name='Base Effects']/passive_effect[@name='MagazineSize']/@value">10</set>-->
+	<set xpath="/items/item[@name='gunBlunderbuss']/effect_group[@name='Base Effects']/passive_effect[@name='WeaponHandling']/@value">10</set>
+	<set xpath="/items/item[@name='gunBlunderbuss']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">2000,4000</set>
+	<set xpath="/items/item[@name='gunBlunderbuss']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationPerUse']/@value">10</set>
+	<!-- 散彈槍, 延遲, 裝填速度, 彈匣容量, 十字準星復歸速度, 耐久值, 每次損壞值 -->
+	<set xpath="/items/item[@name='gunPumpShotgun']/property[@class='Action0']/property[@name='Delay']/@value">0.4</set>
+	<set xpath="/items/item[@name='gunPumpShotgun']/property[@class='Action0']/property[@name='Reload_time']/@value">1.2</set>
+	<!--<set xpath="/items/item[@name='gunPumpShotgun']/effect_group[@name='Base Effects']/passive_effect[@name='MagazineSize']/@value">24</set>-->
+	<set xpath="/items/item[@name='gunPumpShotgun']/effect_group[@name='Base Effects']/passive_effect[@name='WeaponHandling']/@value">10</set>
+	<set xpath="/items/item[@name='gunPumpShotgun']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">3000,5000</set>
+	<set xpath="/items/item[@name='gunPumpShotgun']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationPerUse']/@value">5</set>
+	<!-- 獵槍, 延遲, 裝填速度, 彈匣容量, 十字準星復歸速度, 耐久值, 每次損壞值 -->
+	<set xpath="/items/item[@name='gunHuntingRifle']/property[@class='Action0']/property[@name='Delay']/@value">0.2</set>
+	<set xpath="/items/item[@name='gunHuntingRifle']/property[@class='Action0']/property[@name='Reload_time']/@value">1.2</set>
+	<!--<set xpath="/items/item[@name='gunHuntingRifle']/effect_group[@name='Base Effects']/passive_effect[@name='MagazineSize']/@value">20</set>-->
+	<set xpath="/items/item[@name='gunHuntingRifle']/effect_group[@name='Base Effects']/passive_effect[@name='WeaponHandling']/@value">10</set>
+	<set xpath="/items/item[@name='gunHuntingRifle']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">4200,8400</set>
+	<set xpath="/items/item[@name='gunHuntingRifle']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationPerUse']/@value">5</set>
+	<!-- 狙擊槍, 延遲, 裝填速度, 最大射程, 彈匣容量, 十字準星復歸速度, 耐久值, 每次損壞值 -->
+	<set xpath="/items/item[@name='gunMR10']/property[@class='Action0']/property[@name='Delay']/@value">0.1</set>
+	<set xpath="/items/item[@name='gunMR10']/property[@class='Action0']/property[@name='Reload_time']/@value">0.8</set>
+	<set xpath="/items/item[@name='gunMR10']/effect_group[@name='Base Effects']/passive_effect[@name='MaxRange']/@value">180</set>
+	<!--<set xpath="/items/item[@name='gunMR10']/effect_group[@name='Base Effects']/passive_effect[@name='MagazineSize']/@value">30</set>-->
+	<set xpath="/items/item[@name='gunMR10']/effect_group[@name='Base Effects']/passive_effect[@name='WeaponHandling']/@value">10</set>
+	<set xpath="/items/item[@name='gunMR10']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">6200,12000</set>
+	<set xpath="/items/item[@name='gunMR10']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationPerUse']/@value">8</set>
+	<!-- AK47突擊步槍, 延遲, 最大射程, 彈匣容量, 十字準星復歸速度, 耐久值, 每次損壞值 -->
+	<set xpath="/items/item[@name='gunAK47']/property[@class='Action0']/property[@name='Delay']/@value">0.05</set>
+	<set xpath="/items/item[@name='gunAK47']/effect_group[@name='Base Effects']/passive_effect[@name='MaxRange']/@value">100</set>
+	<!--<set xpath="/items/item[@name='gunAK47']/effect_group[@name='Base Effects']/passive_effect[@name='MagazineSize']/@value">240</set>-->
+	<set xpath="/items/item[@name='gunAK47']/effect_group[@name='Base Effects']/passive_effect[@name='WeaponHandling']/@value">10</set>
+	<set xpath="/items/item[@name='gunAK47']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">8200,21000</set>
+	<set xpath="/items/item[@name='gunAK47']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationPerUse']/@value">10</set>
+	<!-- 火箭發射器, 延遲, 最大射程, 彈匣容量, 十字準星復歸速度, 耐久值, 每次損壞值 -->
+	<set xpath="/items/item[@name='gunRocketLauncher']/property[@class='Action0']/property[@name='Delay']/@value">0.5</set>
+	<set xpath="/items/item[@name='gunRocketLauncher']/effect_group[@name='Base Effects']/passive_effect[@name='MaxRange']/@value">120</set>
+	<set xpath="/items/item[@name='gunRocketLauncher']/effect_group[@name='Base Effects']/passive_effect[@name='MagazineSize']/@value">10</set>
+	<set xpath="/items/item[@name='gunRocketLauncher']/effect_group[@name='Base Effects']/passive_effect[@name='WeaponHandling']/@value">10</set>
+	<set xpath="/items/item[@name='gunRocketLauncher']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">7000,20000</set>
+	<set xpath="/items/item[@name='gunRocketLauncher']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationPerUse']/@value">20</set>
+	<!-- 木弓, 延遲, 最大應變時間, 十字準星復歸速度, 耐久值 -->
+	<set xpath="/items/item[@name='gunWoodenBow']/property[@class='Action0']/property[@name='Delay']/@value">0.5</set>
+	<set xpath="/items/item[@name='gunWoodenBow']/property[@class='Action0']/property[@name='Max_strain_time']/@value">0.1</set>
+	<set xpath="/items/item[@name='gunWoodenBow']/effect_group[@name='Base Effects']/passive_effect[@name='WeaponHandling']/@value">10</set>
+	<set xpath="/items/item[@name='gunWoodenBow']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">800,2500</set>
+	<!-- 複合弓, 延遲, 最大應變時間, 十字準星復歸速度, 耐久值 -->
+	<set xpath="/items/item[@name='gunCompoundBow']/property[@class='Action0']/property[@name='Delay']/@value">0.2</set>
+	<set xpath="/items/item[@name='gunCompoundBow']/property[@class='Action0']/property[@name='Max_strain_time']/@value">0.15</set>
+	<set xpath="/items/item[@name='gunCompoundBow']/effect_group[@name='Base Effects']/passive_effect[@name='WeaponHandling']/@value">10</set>
+	<set xpath="/items/item[@name='gunCompoundBow']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">1200,4200</set>
+	<!-- 十字弓, 延遲, 彈匣容量, 十字準星復歸速度, 耐久值 -->
+	<set xpath="/items/item[@name='gunCrossbow']/property[@class='Action0']/property[@name='Delay']/@value">0.35</set>
+	<!--<set xpath="/items/item[@name='gunCrossbow']/effect_group[@name='Base Effects']/passive_effect[@name='MagazineSize']/@value">24</set>-->
+	<set xpath="/items/item[@name='gunCrossbow']/effect_group[@name='Base Effects']/passive_effect[@name='WeaponHandling']/@value">10</set>
+	<set xpath="/items/item[@name='gunCrossbow']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">1000,3500</set>
+	<!-- 釘槍, 延遲, 裝填數度, 延遲, 修復數量, 彈匣容量, 十字準星復歸速度, 耐久值 -->
+	<set xpath="/items/item[@name='gunToolNailgun']/property[@class='Action0']/property[@name='Delay']/@value">0.1</set>
+	<set xpath="/items/item[@name='gunToolNailgun']/property[@class='Action0']/property[@name='Reload_time']/@value">1</set>
+	<set xpath="/items/item[@name='gunToolNailgun']/property[@class='Action1']/property[@name='Delay']/@value">0.05</set>
+	<set xpath="/items/item[@name='gunToolNailgun']/property[@class='Action1']/property[@name='Repair_amount']/@value">1000</set>
+	<set xpath="/items/item[@name='gunToolNailgun']/effect_group[@name='Base Effects']/passive_effect[@name='MagazineSize']/@value">100</set>
+	<set xpath="/items/item[@name='gunToolNailgun']/effect_group[@name='Base Effects']/passive_effect[@name='WeaponHandling']/@value">10</set>
+	<set xpath="/items/item[@name='gunToolNailgun']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">4000,10000</set>
+	<!-- 散彈槍子彈, 對實體物件的傷害, 散射範圍數量 -->
+	<set xpath="/items/item[@name='ammoShotgunShell']/effect_group[@name='Base Effects']/passive_effect[@name='RoundRayCount']/@value">16</set>
+	<set xpath="/items/item[@name='ammoShotgunSlug']/effect_group[@name='Base Effects']/passive_effect[@name='EntityDamage']/@value">160</set>
+	<set xpath="/items/item[@name='ammoShotgunSlug']/effect_group[@name='Base Effects']/passive_effect[@name='RoundRayCount']/@value">8</set>
+	<!-- 火箭發射器子彈, 地心引力, 對實體物件的傷害, 爆發範圍 -->
+	<set xpath="/items/item[@name='ammoRocketHE']/property[@class='Action1']/property[@name='Gravity']/@value">-0.1</set>
+	<set xpath="/items/item[@name='ammoRocketHE']/effect_group[@name='Base Effects']/passive_effect[@name='EntityDamage']/@value">700</set>
+	<set xpath="/items/item[@name='ammoRocketFrag']/effect_group[@name='Base Effects']/passive_effect[@name='EntityDamage']/@value">700</set>
+	<set xpath="/items/item[@name='ammoRocketFrag']/effect_group[@name='Base Effects']/display_value[@name='ExRadius']/@value">8</set>
+	<!-- 雷管炸彈, 對實體物件的傷害, 方塊半徑, 半徑內實體數量, 爆炸力道 -->
+	<set xpath="/items/item[@name='thrownAmmoPipeBomb']/property[@name='Explosion.EntityDamage']/@value">220</set>
+	<set xpath="/items/item[@name='thrownAmmoPipeBomb']/property[@name='Explosion.RadiusBlocks']/@value">6</set>
+	<set xpath="/items/item[@name='thrownAmmoPipeBomb']/property[@name='Explosion.RadiusEntities']/@value">10</set>
+	<set xpath="/items/item[@name='thrownAmmoPipeBomb']/property[@name='Explosion.BlastPower']/@value">300</set>
+	<!-- 炸藥, 對實體物件的傷害, 方塊半徑, 半徑內實體數量, 爆炸力道 -->
+	<set xpath="/items/item[@name='thrownDynamite']/property[@name='Explosion.BlockDamage']/@value">1800</set>
+	<set xpath="/items/item[@name='thrownDynamite']/property[@name='Explosion.EntityDamage']/@value">640</set>
+	<set xpath="/items/item[@name='thrownDynamite']/property[@name='Explosion.RadiusBlocks']/@value">6</set>
+	<set xpath="/items/item[@name='thrownDynamite']/property[@name='Explosion.RadiusEntities']/@value">12</set>
+	<!-- 火瓶, 亮度, 對方塊的傷害, 對實體物件的傷害, 方塊半徑, 半徑內實體數量, 爆炸力道, 投擲最大力道 -->
+	<set xpath="/items/item[@name='thrownAmmoMolotovCocktail']/property[@name='LightValue']/@value">0.6</set>
+	<set xpath="/items/item[@name='thrownAmmoMolotovCocktail']/property[@name='Explosion.BlockDamage']/@value">10</set>
+	<set xpath="/items/item[@name='thrownAmmoMolotovCocktail']/property[@name='Explosion.EntityDamage']/@value">10</set>
+	<set xpath="/items/item[@name='thrownAmmoMolotovCocktail']/property[@name='Explosion.RadiusBlocks']/@value">6</set>
+	<set xpath="/items/item[@name='thrownAmmoMolotovCocktail']/property[@name='Explosion.RadiusEntities']/@value">8</set>
+	<set xpath="/items/item[@name='thrownAmmoMolotovCocktail']/property[@name='Explosion.BlastPower']/@value">140</set>
+	<set xpath="/items/item[@name='thrownAmmoMolotovCocktail']/property[@class='Action0']/property[@name='Throw_strength_max']/@value">50</set>
+	<!-- 迷你摩托車, 耐久值 -->
+	<set xpath="/items/item[@name='vehicleMinibikePlaceable']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">3000,6000</set>
+	<!-- 腳踏車, 耐久值 -->
+	<set xpath="/items/item[@name='vehicleBicyclePlaceable']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">1400,3000</set>
+	<!-- 重型摩托車, 耐久值 -->
+	<set xpath="/items/item[@name='vehicleMotorcyclePlaceable']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">6000,12000</set>
+	<!-- 四輪驅動吉普車, 耐久值 -->
+	<set xpath="/items/item[@name='vehicle4x4TruckPlaceable']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">8000,15000</set>
+	<!-- 直升機, 耐久值 -->
+	<set xpath="/items/item[@name='vehicleGyrocopterPlaceable']/effect_group[@name='Base Effects']/passive_effect[@name='DegradationMax']/@value">3000,9000</set>
+	<!-- 礦工帽, 耐水性, 物理傷害抗性, 負面狀態抗性, 耐久值, 行動力減少, 走路時耐力, 跑步時耐力, 水抗性, 火抗性 -->
+	<set xpath="/items/item[@name='armorMiningHelmet']/property[@name='Waterproof']/@value">0.99</set>
+	<set xpath="/items/item[@name='armorMiningHelmet']/effect_group/passive_effect[@name='PhysicalDamageResist']/@value">30</set>
+	<set xpath="/items/item[@name='armorMiningHelmet']/effect_group/passive_effect[@name='BuffResistance']/@value">0.5</set>
+	<set xpath="/items/item[@name='armorMiningHelmet']/effect_group/passive_effect[@name='DegradationMax']/@value">2400,6000</set>
+	<set xpath="/items/item[@name='armorMiningHelmet']/effect_group/passive_effect[@name='Mobility']/@value">-10</set>
+	<set xpath="/items/item[@name='armorMiningHelmet']/effect_group/passive_effect[@name='StaminaChangeOT'][@tags='walking']/@operation">perc_add</set>
+	<set xpath="/items/item[@name='armorMiningHelmet']/effect_group/passive_effect[@name='StaminaChangeOT'][@tags='running']/@operation">perc_add</set>
+	<append xpath="/items/item[@name='armorMiningHelmet']/effect_group">
+		<passive_effect name="HypothermalResist" operation="base_add" value="10"/>
+		<passive_effect name="HyperthermalResist" operation="base_add" value="10"/>
+		<passive_effect name="HarvestCount" operation="perc_add" value=".5,2" tier="1,6"/>
+	</append>
+	<!-- 書呆子眼鏡, 縮短加工時間, 增加經驗值的倍率 -->
+	<set xpath="/items/item[@name='nerdGlasses']/effect_group/passive_effect[@name='CraftingTime']/@value">-0.5</set>
+	<set xpath="/items/item[@name='nerdGlasses']/effect_group/passive_effect[@name='PlayerExpGain']/@value">0.5</set>
+	<set xpath="/items/item[@name='nerdGlasses']/effect_group/display_value[@name='dCraftingTime']/@value">-0.5</set>
+	<set xpath="/items/item[@name='nerdGlasses']/effect_group/display_value[@name='dPlayerExpGain']/@value">0.5</set>
+	<!-- 維修工具包, 修復時間, 修復數量 -->
+	<set xpath="/items/item[@name='resourceRepairKit']/property[@name='RepairTime']/@value">1</set>
+	<set xpath="/items/item[@name='resourceRepairKit']/property[@name='RepairAmount']/@value">5000</set>
+	<!-- 小石頭, 修復數量, 修復時間 -->
+	<set xpath="/items/item[@name='resourceRockSmall']/property[@name='RepairAmount']/@value">1000</set>
+	<set xpath="/items/item[@name='resourceRockSmall']/property[@name='RepairTime']/@value">0.1</set>
+	<!-- 木頭, 修復數量, 合成時間 -->
+	<set xpath="/items/item[@name='resourceWood']/property[@name='RepairAmount']/@value">1000</set>
+	<set xpath="/items/item[@name='resourceWood']/property[@name='CraftingIngredientTime']/@value">0.1</set>
+	<!-- 廢鐵, 修復數量, 修復時間 -->
+	<set xpath="/items/item[@name='resourceScrapIron']/property[@name='RepairAmount']/@value">1000</set>
+	<set xpath="/items/item[@name='resourceScrapIron']/property[@name='RepairTime']/@value">0.1</set>
+	<!-- 鍛鐵, 修復數量, 修復時間 -->
+	<set xpath="/items/item[@name='resourceForgedIron']/property[@name='RepairAmount']/@value">1000</set>
+	<set xpath="/items/item[@name='resourceForgedIron']/property[@name='RepairTime']/@value">0.1</set>
+	<!-- 鍛鋼, 修復數量, 修復時間 -->
+	<set xpath="/items/item[@name='resourceForgedSteel']/property[@name='RepairAmount']/@value">1000</set>
+	<set xpath="/items/item[@name='resourceForgedSteel']/property[@name='RepairTime']/@value">0.1</set>
+	<!-- 皮革, 修復數量 -->
+	<set xpath="/items/item[@name='resourceLeather']/property[@name='RepairAmount']/@value">1000</set>
+	<!-- 布料, 修復數量 -->
+	<set xpath="/items/item[@name='resourceCloth']/property[@name='RepairAmount']/@value">1000</set>
+	<!-- 軍用纖維, 合成時間, 修復時間, 修復數量 -->
+	<set xpath="/items/item[@name='resourceMilitaryFiber']/property[@name='CraftingIngredientTime']/@value">1</set>
+	<set xpath="/items/item[@name='resourceMilitaryFiber']/property[@name='RepairTime']/@value">0.1</set>
+	<set xpath="/items/item[@name='resourceMilitaryFiber']/property[@name='RepairAmount']/@value">1000</set>
+	<!-- 電氣零件, 合成時間 -->
+	<set xpath="/items/item[@name='resourceElectricParts']/property[@name='CraftingIngredientTime']/@value">0.5</set>
+	<!-- 電子零件, 合成時間 -->
+	<set xpath="/items/item[@name='resourceElectronicParts']/property[@name='CraftingIngredientTime']/@value">0.5</set>
+	<!-- 機械零件, 合成時間 -->
+	<set xpath="/items/item[@name='resourceMechanicalParts']/property[@name='CraftingIngredientTime']/@value">0.5</set>
+	<!-- 絕緣體, 合成時間 -->
+	<set xpath="/items/item[@name='resourceInsulator']/property[@name='CraftingIngredientTime']/@value">0.5</set>
+	<!-- 太陽能板, 耐久值 -->
+	<set xpath="/items/item[@name='solarCell']/property[@class='Attributes']/property[@name='DegradationMax']/@value">10000,60000</set>
+	<!-- 酸化物排進化學技能群組中 -->
+	<append xpath="/items/item[@name='resourceAcid']">
+		<property name="CraftingSkillGroup" value="craftSkillScience"/>
+	</append>
+	<append xpath="/items/item[@name='resourceAcid']/property[@name='Group']/@value">,Chemicals</append>
+</configs>

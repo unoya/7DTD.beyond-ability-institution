@@ -1,0 +1,8 @@
+<configs>
+	<!-- 增加模組到商人的交易清單裡, 第二級武器 -->
+	<append xpath="/traders/trader_item_groups/trader_item_group[@name='modGunT2']">
+		<item name="modCrossbowMagazine3"/>
+		<item name="modCrossbowMagazine5"/>
+		<item name="modCrossbowMagazine10"/>
+	</append>
+</configs>

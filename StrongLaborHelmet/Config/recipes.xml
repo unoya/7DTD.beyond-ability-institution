@@ -1,0 +1,11 @@
+<configs>
+    <append xpath="/recipes">
+		<recipe name="StrongLaborHelmet" count="1" craft_time="600" craft_area="workbench">
+			<ingredient name="armorSwatHelmet" count="1"/>
+			<ingredient name="meleeToolFlashlight02" count="1"/>
+			<ingredient name="resourceElectricParts" count="10000"/>
+			<ingredient name="resourceDuctTape" count="10000"/>
+			<ingredient name="resourceScrapPolymers" count="10000"/>
+		</recipe>
+    </append>
+</configs>

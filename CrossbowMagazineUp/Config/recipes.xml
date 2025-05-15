@@ -1,0 +1,28 @@
+<configs>
+    <append xpath="/recipes">
+		<!-- 3彈匣模組 -->
+		<recipe name="modCrossbowMagazine3" count="1" craft_time="300" craft_area="workbench">
+			<ingredient name="modCrossbowMagazine3Schematic" count="1"/>
+			<ingredient name="resourceForgedIron" count="1000"/>
+			<ingredient name="resourceGlue" count="10"/>
+			<ingredient name="resourceMechanicalParts" count="100"/>
+			<ingredient name="resourceSpring" count="10"/>
+		</recipe>
+		<!-- 5彈匣模組 -->
+		<recipe name="modCrossbowMagazine5" count="1" craft_time="300" craft_area="workbench">
+			<ingredient name="modCrossbowMagazine5Schematic" count="1"/>
+			<ingredient name="resourceForgedIron" count="1000"/>
+			<ingredient name="resourceGlue" count="10"/>
+			<ingredient name="resourceMechanicalParts" count="100"/>
+			<ingredient name="resourceSpring" count="10"/>
+		</recipe>
+		<!-- 10彈匣模組 -->
+		<recipe name="modCrossbowMagazine10" count="1" craft_time="300" craft_area="workbench">
+			<ingredient name="modCrossbowMagazine10Schematic" count="1"/>
+			<ingredient name="resourceForgedIron" count="1000"/>
+			<ingredient name="resourceGlue" count="10"/>
+			<ingredient name="resourceMechanicalParts" count="100"/>
+			<ingredient name="resourceSpring" count="10"/>
+		</recipe>
+    </append>
+</configs>

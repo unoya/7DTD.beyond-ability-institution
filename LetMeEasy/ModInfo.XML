@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+	<ModInfo>
+		<Name value="LetMeEasy" />
+		<Description value="Adjust many of the original set value, make the game easier to survive." />
+		<Author value="unoya" />
+		<Version value="1.0.0" />
+		<Website value="https://github.com/unoya" />
+	</ModInfo>
+</xml>

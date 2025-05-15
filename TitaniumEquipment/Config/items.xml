@@ -1,0 +1,70 @@
+<configs>
+	<append xpath="/items">
+		<!-- 鈦重型護甲 -->
+		<item name="modArmorTitaniumHeavyPlatingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="modArmorSteelPlatingSchematic" />
+			<property name="CustomIconTint" value="00e3e3"/>
+			<property name="EconomicValue" value="500"/>
+		</item>
+		<!-- 鈦輕型護甲 -->
+		<item name="modArmorTitaniumLightPlatingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="modArmorReinforcedPaddingSchematic" />
+			<property name="CustomIconTint" value="00e3e3"/>
+			<property name="EconomicValue" value="500"/>
+		</item>
+		<!-- 鈦大錘 -->
+		<item name="TitaniumSledgehammer">
+			<property name="Extends" value="meleeToolSledgehammer"/>
+			<property name="Tags" value="blunt,melee,heavy,sledge,weapon,meleeWeapon,perkHeavyMetal,titanium"/>
+			<property name="CustomIcon" value="meleeToolSledgehammer" />
+			<property name="CustomIconTint" value="00e3e3"/>
+			<property name="EconomicValue" value="3000"/>
+			<property name="CritChance" value="0.5"/>
+			<property class="Action0">
+				<property name="Class" value="DynamicMelee"/>
+				<property name="Sphere" value="0.17"/>
+				<property name="Sound_start" value="SlowSwoosh"/>
+				<property name="ToolCategory.harvestingTools" value="1" param1="1"/>
+			</property>
+			<property class="Action1">
+				<property name="Class" value="DynamicMelee"/>
+				<property name="Sphere" value="0.17"/>
+				<property name="Sound_start" value="SlowSwoosh"/>
+				<property name="ToolCategory.harvestingTools" value="1" param1="1"/>
+				<property name="UsePowerAttackAnimation" value="true"/>
+			</property>
+			<effect_group name="Base Effects">
+				<passive_effect name="MaxRange" operation="base_set" value="2.9"/>
+				<passive_effect name="BlockRange" operation="base_set" value="3.5"/>
+				<passive_effect name="EntityDamage" operation="base_set" value="50,80" tier="1,6"/>
+				<passive_effect name="BlockDamage" operation="base_set" value="90,120" tier="1,6"/>
+				<passive_effect name="AttacksPerMinute" operation="base_set" value="70"/>
+				<passive_effect name="StaminaLoss" operation="base_set" value="15" tags="primary"/>
+				<passive_effect name="DegradationMax" operation="base_set" value="600,2000" tier="1,6"/>
+				<passive_effect name="ModSlots" operation="base_set" value="0,5" tier="1,6"/>
+				<passive_effect name="ModPowerBonus" operation="perc_add" value=".4" tags="EntityDamage,BlockDamage"/>
+				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
+				<passive_effect name="HarvestCount" operation="base_set" value="2" tags="allHarvest"/>
+				<passive_effect name="HarvestCount" operation="base_set" value="2" tags="allToolsHarvest"/>
+				<passive_effect name="HarvestCount" operation="base_set" value="2" tags="oreWoodHarvest"/>
+				<passive_effect name="HarvestCount" operation="base_set" value="2" tags="butcherHarvest"/>
+			</effect_group>
+			<effect_group name="Power Attack">
+				<passive_effect name="EntityDamage" operation="perc_add" value="1" tags="secondary"/>
+				<passive_effect name="BlockDamage" operation="perc_add" value="1" tags="secondary"/>
+				<passive_effect name="AttacksPerMinute" operation="perc_subtract" value="0" tags="secondary"/>
+				<passive_effect name="StaminaLoss" operation="base_add" value="30" tags="secondary"/>
+				<triggered_effect trigger="onSelfSecondaryActionStart" action="PlaySound" target="self" sound="swoosh">
+					<requirement name="RandomRoll" seed_type="Random" target="self" min_max="0,100" operation="LTE" value="80"/>
+					<requirement name="IsMale" target="self"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionStart" action="PlaySound" target="self" sound="swoosh">
+					<requirement name="RandomRoll" seed_type="Random" target="self" min_max="0,100" operation="LTE" value="80"/>
+					<requirement name="IsMale" target="self" invert="true"/>
+				</triggered_effect>
+			</effect_group>
+		</item>
+	</append>
+</configs>

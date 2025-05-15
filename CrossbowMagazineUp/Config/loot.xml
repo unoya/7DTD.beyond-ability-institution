@@ -1,0 +1,46 @@
+<configs>
+	<insertBefore xpath="/lootcontainers/lootgroup[@name='questChallenge']">
+		<lootgroup name="CrossbowMagazineSchematic" count="1">
+			<item name="modCrossbowMagazine3Schematic"/>
+			<item name="modCrossbowMagazine5Schematic"/>
+			<item name="modCrossbowMagazine10Schematic"/>
+		</lootgroup>
+		<lootgroup name="CrossbowMagazineMods" count="1">
+			<item name="modCrossbowMagazine3"/>
+			<item name="modCrossbowMagazine5"/>
+			<item name="modCrossbowMagazine10"/>
+		</lootgroup>
+	</insertBefore>
+	<!-- 二級武器群組 -->
+	<append xpath="/lootcontainers/lootgroup[@name='modGunT2']">
+		<item group="CrossbowMagazineMods"/>
+	</append>
+	<!-- 任務獎勵的藍圖 -->
+	<append xpath="/lootcontainers/lootgroup[@name='questSchematics']">
+		<item group="CrossbowMagazineSchematic"/>
+	</append>
+	<!-- 書櫃(通用) -->
+	<append xpath="/lootcontainers/lootgroup[@name='commonBooks']">
+		<item group="CrossbowMagazineSchematic"/>
+	</append>
+	<!-- 背包 -->
+	<append xpath="/lootcontainers/lootgroup[@name='backpacks']">
+		<item group="CrossbowMagazineMods" prob="0.2"/>
+	</append>
+	<!-- 軍用彈藥箱 -->
+	<append xpath="/lootcontainers/lootcontainer[@id='40']">
+		<item group="CrossbowMagazineSchematic"/>
+	</append>
+	<!-- 不安全的堅硬箱或槍櫃 -->
+	<append xpath="/lootcontainers/lootcontainer[@id='42']">
+		<item group="CrossbowMagazineSchematic"/>
+	</append>
+	<!-- 小武器背包 -->
+	<append xpath="/lootcontainers/lootcontainer[@id='100']">
+		<item group="CrossbowMagazineMods" prob="0.2"/>
+	</append>
+	<!-- 大武器背包 -->
+	<append xpath="/lootcontainers/lootcontainer[@id='101']">
+		<item group="CrossbowMagazineMods" prob="0.3"/>
+	</append>
+</configs>

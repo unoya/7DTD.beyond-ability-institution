@@ -1,0 +1,8 @@
+<configs>
+	<!-- 強化水泥塊, 最大耐久值, 防爆性能 -->
+	<set xpath="/materials/material[@id='MrConcrete']/property[@name='MaxDamage']/@value">7000</set>
+	<set xpath="/materials/material[@id='MrConcrete']/property[@name='explosionresistance']/@value">2.2</set>
+	<!-- 鋼板塊, 最大耐久值, 防爆性能 -->
+	<set xpath="/materials/material[@id='Msteel']/property[@name='MaxDamage']/@value">10000</set>
+	<set xpath="/materials/material[@id='Msteel']/property[@name='explosionresistance']/@value">2.5</set>
+</configs>
