@@ -1,0 +1,257 @@
+<configs>
+	<append xpath="/entitygroups">
+		<!--
+			name="zombieElementFlame" prob="0.3"/>
+			name="zombieElementElectricShock" prob="0.05"/>
+			name="zombieElementHighlyToxic" prob="0.2"/>
+			name="zombieElementNarcosis" prob="0.1"/>
+			name="zombieElementDark" prob="0.1"/>
+		-->
+		<entitygroup name="ZombiesElementDay">
+			<!-- 火元素殭屍 -->
+			<entity name="zombieBoeElementFlame" prob="0.1"/>
+			<entity name="zombieFemaleFatElementFlame" prob="0.1"/>
+			<entity name="zombieJoeElementFlame" prob="0.1"/>
+			<entity name="zombieBikerElementFlame" prob="0.1"/>
+			<!--<entity name="zombieBurntElementFlame" prob="0.1"/>-->
+			<entity name="zombieBusinessManElementFlame" prob="0.1"/>
+			<entity name="zombieFarmerElementFlame" prob="0.1"/>
+			<entity name="zombieNurseElementFlame" prob="0.1"/>
+			<!--<entity name="zombieSnowElementFlame" prob="0.1"/>-->
+			<entity name="zombieSpiderElementFlame" prob="0.1"/>
+			<entity name="zombieUtilityWorkerElementFlame" prob="0.1"/>
+			<entity name="zombieCheerleaderElementFlame" prob="0.1"/>
+			<entity name="zombieSkateboarderElementFlame" prob="0.1"/>
+			<entity name="zombieSoldierElementFlame" prob="0.1"/>
+			<!-- 電元素殭屍 -->
+			<entity name="zombieBoeElementElectric" prob="0.1"/>
+			<entity name="zombieFemaleFatElementElectric" prob="0.1"/>
+			<entity name="zombieJoeElementElectric" prob="0.1"/>
+			<entity name="zombieBikerElementElectric" prob="0.1"/>
+			<!--<entity name="zombieBurntElementElectric" prob="0.1"/>-->
+			<entity name="zombieBusinessManElementElectric" prob="0.1"/>
+			<entity name="zombieFarmerElementElectric" prob="0.1"/>
+			<entity name="zombieNurseElementElectric" prob="0.1"/>
+			<!--<entity name="zombieSnowElementElectric" prob="0.1"/>-->
+			<entity name="zombieSpiderElementElectric" prob="0.1"/>
+			<entity name="zombieUtilityWorkerElementElectric" prob="0.1"/>
+			<entity name="zombieCheerleaderElementElectric" prob="0.1"/>
+			<entity name="zombieSkateboarderElementElectric" prob="0.1"/>
+			<entity name="zombieSoldierElementElectric" prob="0.1"/>
+			<!-- 毒元素殭屍 -->
+			<entity name="zombieBoeElementPoison" prob="0.1"/>
+			<entity name="zombieFemaleFatElementPoison" prob="0.1"/>
+			<entity name="zombieJoeElementPoison" prob="0.1"/>
+			<entity name="zombieBikerElementPoison" prob="0.1"/>
+			<!--<entity name="zombieBurntElementPoison" prob="0.1"/>-->
+			<entity name="zombieBusinessManElementPoison" prob="0.1"/>
+			<entity name="zombieFarmerElementPoison" prob="0.1"/>
+			<entity name="zombieNurseElementPoison" prob="0.1"/>
+			<!--<entity name="zombieSnowElementPoison" prob="0.1"/>-->
+			<entity name="zombieSpiderElementPoison" prob="0.1"/>
+			<entity name="zombieUtilityWorkerElementPoison" prob="0.1"/>
+			<entity name="zombieCheerleaderElementPoison" prob="0.1"/>
+			<entity name="zombieSkateboarderElementPoison" prob="0.1"/>
+			<entity name="zombieSoldierElementPoison" prob="0.1"/>
+			<!-- 麻醉型殭屍 -->
+			<entity name="zombieBoeElementNarcosis" prob="0.1"/>
+			<entity name="zombieFemaleFatElementNarcosis" prob="0.1"/>
+			<entity name="zombieJoeElementNarcosis" prob="0.1"/>
+			<entity name="zombieBikerElementNarcosis" prob="0.1"/>
+			<!--<entity name="zombieBurntElementNarcosis" prob="0.1"/>-->
+			<entity name="zombieBusinessManElementNarcosis" prob="0.1"/>
+			<entity name="zombieFarmerElementNarcosis" prob="0.1"/>
+			<entity name="zombieNurseElementNarcosis" prob="0.1"/>
+			<!--<entity name="zombieSnowElementNarcosis" prob="0.1"/>-->
+			<entity name="zombieSpiderElementNarcosis" prob="0.1"/>
+			<entity name="zombieUtilityWorkerElementNarcosis" prob="0.1"/>
+			<entity name="zombieCheerleaderElementNarcosis" prob="0.1"/>
+			<entity name="zombieSkateboarderElementNarcosis" prob="0.1"/>
+			<entity name="zombieSoldierElementNarcosis" prob="0.1"/>
+			<!-- 勾魂殭屍 -->
+			<entity name="zombieBoeElementDark" prob="0.1"/>
+			<entity name="zombieFemaleFatElementDark" prob="0.1"/>
+			<entity name="zombieJoeElementDark" prob="0.1"/>
+			<entity name="zombieBikerElementDark" prob="0.1"/>
+			<!--<entity name="zombieBurntElementDark" prob="0.1"/>-->
+			<entity name="zombieBusinessManElementDark" prob="0.1"/>
+			<entity name="zombieFarmerElementDark" prob="0.1"/>
+			<entity name="zombieNurseElementDark" prob="0.1"/>
+			<!--<entity name="zombieSnowElementDark" prob="0.1"/>-->
+			<entity name="zombieSpiderElementDark" prob="0.1"/>
+			<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+			<entity name="zombieCheerleaderElementDark" prob="0.1"/>
+			<entity name="zombieSkateboarderElementDark" prob="0.1"/>
+			<entity name="zombieSoldierElementDark" prob="0.1"/>
+			<!-- 冰凍殭屍 -->
+			<entity name="zombieBoeElementCold" prob="0.1"/>
+			<entity name="zombieFemaleFatElementCold" prob="0.1"/>
+			<entity name="zombieJoeElementCold" prob="0.1"/>
+			<entity name="zombieBikerElementCold" prob="0.1"/>
+			<!--<entity name="zombieBurntElementCold" prob="0.1"/>-->
+			<entity name="zombieBusinessManElementCold" prob="0.1"/>
+			<entity name="zombieFarmerElementCold" prob="0.1"/>
+			<entity name="zombieNurseElementCold" prob="0.1"/>
+			<!--<entity name="zombieSnowElementCold" prob="0.1"/>-->
+			<entity name="zombieSpiderElementCold" prob="0.1"/>
+			<entity name="zombieUtilityWorkerElementCold" prob="0.1"/>
+			<entity name="zombieCheerleaderElementCold" prob="0.1"/>
+			<entity name="zombieSkateboarderElementCold" prob="0.1"/>
+			<entity name="zombieSoldierElementCold" prob="0.1"/>
+		</entitygroup>
+		<!-- 限定燒焦殭屍群組 -->
+		<entitygroup name="ZombiesElementFlameGroups">
+			<entity name="zombieBurntElementFlame" prob="0.1"/>
+			<entity name="zombieBurntElementFlameLeader" prob="0.05"/>
+			<entity name="zombieBurntElementElectric" prob="0.1"/>
+			<entity name="zombieBurntElementElectricLeader" prob="0.05"/>
+			<entity name="zombieBurntElementPoison" prob="0.1"/>
+			<entity name="zombieBurntElementPoisonLeader" prob="0.05"/>
+			<entity name="zombieBurntElementNarcosis" prob="0.1"/>
+			<entity name="zombieBurntElementNarcosisLeader" prob="0.05"/>
+			<entity name="zombieBurntElementDark" prob="0.1"/>
+			<entity name="zombieBurntElementDarkLeader" prob="0.05"/>
+			<entity name="zombieBurntElementCold" prob="0.1"/>
+			<entity name="zombieBurntElementColdLeader" prob="0.05"/>
+			<entity name="zombieBurntElementFlameBoss" prob="0.01"/>
+		</entitygroup>
+		<!-- 限定伐木工人群組 -->
+		<entitygroup name="ZombiesElementColdGroups">
+			<entity name="zombieSnowElementCold" prob="0.1"/>
+			<entity name="zombieSnowElementColdLeader" prob="0.05"/>
+			<entity name="zombieSnowElementFlame" prob="0.1"/>
+			<entity name="zombieSnowElementFlameLeader" prob="0.05"/>
+			<entity name="zombieSnowElementElectric" prob="0.1"/>
+			<entity name="zombieSnowElementElectricLeader" prob="0.05"/>
+			<entity name="zombieSnowElementPoison" prob="0.1"/>
+			<entity name="zombieSnowElementPoisonLeader" prob="0.05"/>
+			<entity name="zombieSnowElementNarcosis" prob="0.1"/>
+			<entity name="zombieSnowElementNarcosisLeader" prob="0.05"/>
+			<entity name="zombieSnowElementDark" prob="0.1"/>
+			<entity name="zombieSnowElementDarkLeader" prob="0.05"/>
+		</entitygroup>
+	</append>
+	
+	<append xpath="/entitygroups/entitygroup[@name='ZombieFeralRadiatedGroup']">
+		<entity name="zombieFatCopElementFlameBoss" prob="0.01"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.01"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.01"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.01"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.01"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.01"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.01"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.01"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.01"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.01"/>
+		<entity name="zombieWightElementColdBoss" prob="0.01"/>
+	</append>
+	
+	<append xpath="/entitygroups/entitygroup[@name='ZombiesAll']">
+			<entity name="zombieFatCopElementFlameBoss" prob="0.01"/>
+			<entity name="zombieFatCopElementElectricBoss" prob="0.01"/>
+			<entity name="zombieFatCopElementPoisonBoss" prob="0.01"/>
+			<entity name="zombieFatCopElementNarcosisBoss" prob="0.01"/>
+			<entity name="zombieFatCopElementColdBoss" prob="0.01"/>
+			
+			<entity name="zombieWightElementFlameBoss" prob="0.02"/>
+			<entity name="zombieWightElementElectricBoss" prob="0.02"/>
+			<entity name="zombieWightElementPoisonBoss" prob="0.02"/>
+			<entity name="zombieWightElementNarcosisBoss" prob="0.02"/>
+			<entity name="zombieWightElementDarkBoss" prob="0.02"/>
+			<entity name="zombieWightElementColdBoss" prob="0.02"/>
+	</append>
+	
+	<append xpath="/entitygroups/entitygroup[@name='ZombiesNight']">
+			<!-- 火元素殭屍 -->
+			<entity name="zombieBoeElementFlameLeader" prob="0.5"/>
+			<entity name="zombieFemaleFatElementFlameLeader" prob="0.5"/>
+			<entity name="zombieJoeElementFlameLeader" prob="0.5"/>
+			<entity name="zombieBikerElementFlameLeader" prob="0.5"/>
+			<!--<entity name="zombieBurntElementFlameLeader" prob="0.5"/>-->
+			<entity name="zombieBusinessManElementFlameLeader" prob="0.5"/>
+			<entity name="zombieFarmerElementFlameLeader" prob="0.5"/>
+			<entity name="zombieNurseElementFlameLeader" prob="0.5"/>
+			<!--<entity name="zombieSnowElementFlameLeader" prob="0.5"/>-->
+			<entity name="zombieSpiderElementFlameLeader" prob="0.5"/>
+			<entity name="zombieUtilityWorkerElementFlameLeader" prob="0.5"/>
+			<entity name="zombieCheerleaderElementFlameLeader" prob="0.5"/>
+			<entity name="zombieSkateboarderElementFlameLeader" prob="0.5"/>
+			<entity name="zombieSoldierElementFlameLeader" prob="0.5"/>
+			<!-- 電元素殭屍 -->
+			<entity name="zombieBoeElementElectricLeader" prob="0.5"/>
+			<entity name="zombieFemaleFatElementElectricLeader" prob="0.5"/>
+			<entity name="zombieJoeElementElectricLeader" prob="0.5"/>
+			<entity name="zombieBikerElementElectricLeader" prob="0.5"/>
+			<!--<entity name="zombieBurntElementElectricLeader" prob="0.5"/>-->
+			<entity name="zombieBusinessManElementElectricLeader" prob="0.5"/>
+			<entity name="zombieFarmerElementElectricLeader" prob="0.5"/>
+			<entity name="zombieNurseElementElectricLeader" prob="0.5"/>
+			<!--<entity name="zombieSnowElementElectricLeader" prob="0.5"/>-->
+			<entity name="zombieSpiderElementElectricLeader" prob="0.5"/>
+			<entity name="zombieUtilityWorkerElementElectricLeader" prob="0.5"/>
+			<entity name="zombieCheerleaderElementElectricLeader" prob="0.5"/>
+			<entity name="zombieSkateboarderElementElectricLeader" prob="0.5"/>
+			<entity name="zombieSoldierElementElectricLeader" prob="0.5"/>
+			<!-- 劇毒型殭屍 -->
+			<entity name="zombieBoeElementPoisonLeader" prob="0.5"/>
+			<entity name="zombieFemaleFatElementPoisonLeader" prob="0.5"/>
+			<entity name="zombieJoeElementPoisonLeader" prob="0.5"/>
+			<entity name="zombieBikerElementPoisonLeader" prob="0.5"/>
+			<!--<entity name="zombieBurntElementPoisonLeader" prob="0.5"/>-->
+			<entity name="zombieBusinessManElementPoisonLeader" prob="0.5"/>
+			<entity name="zombieFarmerElementPoisonLeader" prob="0.5"/>
+			<entity name="zombieNurseElementPoisonLeader" prob="0.5"/>
+			<!--<entity name="zombieSnowElementPoisonLeader" prob="0.5"/>-->
+			<entity name="zombieSpiderElementPoisonLeader" prob="0.5"/>
+			<entity name="zombieUtilityWorkerElementPoisonLeader" prob="0.5"/>
+			<entity name="zombieCheerleaderElementPoisonLeader" prob="0.5"/>
+			<entity name="zombieSkateboarderElementPoisonLeader" prob="0.5"/>
+			<entity name="zombieSoldierElementPoisonLeader" prob="0.5"/>
+			<!-- 麻醉型殭屍 -->
+			<entity name="zombieBoeElementNarcosisLeader" prob="0.5"/>
+			<entity name="zombieFemaleFatElementNarcosisLeader" prob="0.5"/>
+			<entity name="zombieJoeElementNarcosisLeader" prob="0.5"/>
+			<entity name="zombieBikerElementNarcosisLeader" prob="0.5"/>
+			<!--<entity name="zombieBurntElementNarcosisLeader" prob="0.5"/>-->
+			<entity name="zombieBusinessManElementNarcosisLeader" prob="0.5"/>
+			<entity name="zombieFarmerElementNarcosisLeader" prob="0.5"/>
+			<entity name="zombieNurseElementNarcosisLeader" prob="0.5"/>
+			<!--<entity name="zombieSnowElementNarcosisLeader" prob="0.5"/>-->
+			<entity name="zombieSpiderElementNarcosisLeader" prob="0.5"/>
+			<entity name="zombieUtilityWorkerElementNarcosisLeader" prob="0.5"/>
+			<entity name="zombieCheerleaderElementNarcosisLeader" prob="0.5"/>
+			<entity name="zombieSkateboarderElementNarcosisLeader" prob="0.5"/>
+			<entity name="zombieSoldierElementNarcosisLeader" prob="0.5"/>
+			<!-- 勾魂殭屍 -->
+			<entity name="zombieBoeElementDarkLeader" prob="0.5"/>
+			<entity name="zombieFemaleFatElementDarkLeader" prob="0.5"/>
+			<entity name="zombieJoeElementDarkLeader" prob="0.5"/>
+			<entity name="zombieBikerElementDarkLeader" prob="0.5"/>
+			<!--<entity name="zombieBurntElementDarkLeader" prob="0.5"/>-->
+			<entity name="zombieBusinessManElementDarkLeader" prob="0.5"/>
+			<entity name="zombieFarmerElementDarkLeader" prob="0.5"/>
+			<entity name="zombieNurseElementDarkLeader" prob="0.5"/>
+			<!--<entity name="zombieSnowElementDarkLeader" prob="0.5"/>-->
+			<entity name="zombieSpiderElementDarkLeader" prob="0.5"/>
+			<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.5"/>
+			<entity name="zombieCheerleaderElementDarkLeader" prob="0.5"/>
+			<entity name="zombieSkateboarderElementDarkLeader" prob="0.5"/>
+			<entity name="zombieSoldierElementDarkLeader" prob="0.5"/>
+			<!-- 冰凍殭屍 -->
+			<entity name="zombieBoeElementColdLeader" prob="0.5"/>
+			<entity name="zombieFemaleFatElementColdLeader" prob="0.5"/>
+			<entity name="zombieJoeElementColdLeader" prob="0.5"/>
+			<entity name="zombieBikerElementColdLeader" prob="0.5"/>
+			<!--<entity name="zombieBurntElementColdLeader" prob="0.5"/>-->
+			<entity name="zombieBusinessManElementColdLeader" prob="0.5"/>
+			<entity name="zombieFarmerElementColdLeader" prob="0.5"/>
+			<entity name="zombieNurseElementColdLeader" prob="0.5"/>
+			<!--<entity name="zombieSnowElementColdLeader" prob="0.5"/>-->
+			<entity name="zombieSpiderElementColdLeader" prob="0.5"/>
+			<entity name="zombieUtilityWorkerElementColdLeader" prob="0.5"/>
+			<entity name="zombieCheerleaderElementColdLeader" prob="0.5"/>
+			<entity name="zombieSkateboarderElementColdLeader" prob="0.5"/>
+			<entity name="zombieSoldierElementColdLeader" prob="0.5"/>
+	</append>
+	
+</configs>

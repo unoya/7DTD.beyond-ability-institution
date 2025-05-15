@@ -1,0 +1,97 @@
+<configs>
+	<!-- 增加自訂任務到交易清單裡 -->
+	<insertBefore xpath="/traders/trader_item_groups/trader_item_group[@name='modMeleeT1']">
+		<trader_item_group name="questCustomChallenge" count="10">
+			<item name="qc_mission0001" count="1" prob="0.2"/>
+			<item name="qc_mission0002" count="1" prob="0.2"/>
+			<item name="qc_mission0003" count="1" prob="0.2"/>
+			<item name="qc_mission0004" count="1" prob="0.2"/>
+			<item name="qc_mission0005" count="1" prob="0.2"/>
+			<item name="qc_mission0006" count="1" prob="0.2"/>
+			<item name="qc_mission0007" count="1" prob="0.2"/>
+			<item name="qc_mission0008" count="1" prob="0.2"/>
+			<item name="qc_mission0009" count="1" prob="0.2"/>
+			<item name="qc_mission0010" count="1" prob="0.2"/>
+			<item name="qc_mission0011" count="1" prob="0.2"/>
+			<item name="qc_mission0012" count="1" prob="0.05"/>
+			<item name="qc_mission0012_1" count="1" prob="0.05"/>
+			<item name="qc_mission0013" count="1" prob="0.2"/>
+			<item name="qc_mission0014" count="1" prob="0.2"/>
+			<item name="qc_mission0015" count="1" prob="0.2"/>
+			<item name="qc_mission0016" count="1" prob="0.2"/>
+			<item name="qc_mission0017" count="1" prob="0.05"/>
+			<item name="qc_mission0017_1" count="1" prob="0.05"/>
+			<item name="qc_mission0017_2" count="1" prob="0.05"/>
+			<item name="qc_mission0017_3" count="1" prob="0.05"/>
+			<item name="qc_mission0017_4" count="1" prob="0.05"/>
+			<item name="qc_mission0017_5" count="1" prob="0.05"/>
+			<item name="qc_mission0018" count="1" prob="0.2"/>
+			<item name="qc_mission0019" count="1" prob="0.2"/>
+			<item name="qc_mission0020" count="1" prob="0.2"/>
+			<item name="qc_mission0021" count="1" prob="0.2"/>
+			<item name="qc_mission0022" count="1" prob="0.2"/>
+			<item name="qc_mission0023" count="1" prob="0.2"/>
+			<item name="qc_mission0024" count="1" prob="0.2"/>
+			<item name="qc_mission0025" count="1" prob="0.2"/>
+			<item name="qc_mission0026" count="1" prob="0.2"/>
+			<item name="qc_mission0027" count="1" prob="0.2"/>
+			<item name="qc_mission0028" count="1" prob="0.2"/>
+			<item name="qc_mission0029" count="1" prob="0.2"/>
+			<item name="qc_mission0030" count="1" prob="0.2"/>
+			<item name="qc_mission0031" count="1" prob="0.2"/>
+			<item name="qc_mission0032" count="1" prob="0.2"/>
+			<item name="qc_mission0033" count="1" prob="0.2"/>
+			<item name="qc_mission0034" count="1" prob="0.3"/>
+		</trader_item_group>
+	</insertBefore>
+	
+	<!-- 增加強化型藥品到清單裡 -->
+	<insertBefore xpath="/traders/trader_item_groups/trader_item_group[@name='modMeleeT1']">
+		<trader_item_group name="advancedDrug" count="5">
+			<item name="advancedPainkillers"/>
+		</trader_item_group>
+	</insertBefore>
+	<!-- 增加元素子彈到商人的交易清單裡 -->
+	<append xpath="/traders/trader_item_groups/trader_item_group[@name='ammo']">
+		<item name="ammoFlameBullet" count="10,50"/>
+		<item name="ammoElectricShockBullet" count="10,50"/>
+		<item name="ammoBloodlettingBullet" count="10,50"/>
+		<item name="ammoNarcosisBullet" count="10,50"/>
+		<item name="ammoFusedSteelBullet" count="10,50"/>
+		<item name="ammoHolyLightBullet" count="10,50"/>
+		<item name="ammoIceBiteBullet" count="10,50"/>
+	</append>
+	<!-- 增加元素模組到商人的交易清單裡 -->
+	<append xpath="/traders/trader_item_groups/trader_item_group[@name='modGunT2']">
+		<item name="modFlameBullet"/>
+		<item name="modElectricShockBullet"/>
+		<item name="modBloodlettingBullet"/>
+		<item name="modNarcosisBullet"/>
+		<item name="modFusedSteelBullet"/>
+		<item name="modHolyLightBullet"/>
+		<item name="modIceBiteBullet"/>
+	</append>
+	<!-- 增加高彈匣模組,長射槍管模組,崩分離析模組到商人的交易清單裡 -->
+	<append xpath="/traders/trader_item_groups/trader_item_group[@name='modGunT3']">
+		<item name="modGunHighMagazineExtender"/>
+		<item name="modGunLongDistanceBarrel"/>
+		<item name="modCollapseSeparation"/>
+	</append>
+	<!-- 增加自訂的任務圖紙到商人的交易清單裡
+	<append xpath="/traders/trader_item_groups/trader_item_group[@name='questChallenge']">
+		<item name="qc_mission0001" count="10" prob="0.2"/>
+	</append>
+	 增加強化型藥品到商人的交易清單裡
+	<append xpath="/traders/trader_item_groups/trader_item_group[@name='medicine']">
+		<item group="advancedDrug"/>
+	</append>
+	-->
+	<!-- 更改世界各地的販賣機增加其它販賣項目 -->
+	<append xpath="/traders/trader_info[@id='4']/trader_items">
+		<item name="medicalFirstAidKit" count="1"/><!-- 醫療箱 -->
+		<item name="medicalFirstAidBandage" count="3"/><!-- 急救繃帶 -->
+		<item group="questCustomChallenge"/> <!-- 自訂的任務圖紙 -->
+		<item group="advancedDrug"/>
+	</append>
+	
+</configs>

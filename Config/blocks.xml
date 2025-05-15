@@ -1,0 +1,507 @@
+<configs>
+	<append xpath="/blocks">
+		<!-- 強化型刀片陷阱 -->
+		<block name="hardBladeTrap">
+			<property name="Extends" value="bladeTrap"/>
+			<property name="CustomIcon" value="bladeTrap"/><property name="CustomIconTint" value="00db00"/>
+			<property name="DescriptionKey" value="hardBladeTrapDesc"/>
+			<property name="Damage" value="70"/>
+			<property name="DamageReceived" value="5"/>
+			<property name="BreakingPercentage" value="0.5"/>
+			<property name="BrokenPercentage" value="0.5"/>
+			<property name="MaxDamage" value="7000"/>
+			<property name="RequiredPower" value="5"/>
+			<property name="Group" value="Tools/Traps,Science"/>
+			<property name="ActivationDistance" value="6"/>
+			<property class="RepairItems">
+				<property name="resourceForgedSteel" value="50"/>
+				<property name="resourceMechanicalParts" value="100"/>
+				<property name="resourceElectricParts" value="100"/>
+			</property>
+			<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
+			<drop event="Harvest" name="resourceMechanicalParts" count="10,30" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceElectricParts" count="10,30" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceScrapIron" count="50,200" tag="allHarvest"/>
+			<drop event="Destroy" count="0"/>
+			<drop event="Fall" name="scrapMetalPile" count="10" prob="0.75" stick_chance="1"/>
+			<property name="Stacknumber" value="100"/>
+			<property name="TakeDelay" value="10"/>
+			<property name="EconomicValue" value="2000"/>
+		</block>
+		<!-- 強化型電擊柵欄 -->		
+		<block name="hardElecFencepost">
+			<property name="Extends" value="electricfencepost"/>
+			<property name="CustomIcon" value="electricfencepost"/><property name="CustomIconTint" value="00db00"/>
+			<property name="DescriptionKey" value="hardElecFencepostDesc"/>
+			<property name="MaxDamage" value="7000"/>
+			<property name="DamageReceived" value="1"/>
+			<property name="RequiredPower" value="5"/>
+			<property name="Buff" value="buffShocked"/>
+			<property name="BuffChance" value="1"/>
+			<property name="Group" value="Tools/Traps,Science"/>
+			<property class="RepairItems">
+				<property name="resourceForgedIron" value="50"/>
+				<property name="resourceElectricParts" value="100"/>
+			</property>
+			<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
+			<drop event="Harvest" name="resourceElectricParts" count="10,30" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceScrapIron" count="50,100" tag="allHarvest"/>
+			<drop event="Destroy" count="0"/>
+			<drop event="Fall" name="scrapMetalPile" count="10" prob="0.75" stick_chance="1"/>
+			<property name="EconomicValue" value="2000"/>
+		</block>
+		<!-- 強化型鐵絲網 -->
+		<block name="hardChainLink">
+			<property name="CustomIcon" value="chainLink"/>
+			<property name="Group" value="Building"/>
+			<property name="Material" value="McustomSteel"/>
+			<property name="Texture" value="194"/>
+			<property name="CreativeMode" value="None"/>
+			<property class="RepairItems"> <property name="resourceForgedIron" value="2"/> </property>
+			<property name="Shape" value="Ext3dModel"/> <property name="Texture" value="293"/>
+			<property name="Mesh" value="models"/>
+			<property name="LightOpacity" value="0.5"/> <!-- 光透度 -->
+			<property name="Model" value="Buildings/chainlink_bottom" param1="main_mesh"/>
+			<property name="Collide" value="movement,melee,rocket"/> <!-- 定義會產生碰撞的事件 -->
+			<property name="Texture" value="516"/>
+			<property name="ImposterExclude" value="true"/>
+			<property name="OnlySimpleRotations" value="true"/>
+			<property name="FilterTags" value="fdecor,fother"/>
+			<property name="Weight" value="10"/>
+			<property name="EconomicValue" value="12"/>
+			<drop event="Destroy" count="0"/>
+			<drop event="Fall" count="0" prob="0"/>
+			<drop event="Harvest" name="resourceScrapIron" count="10" prob="1" tag="allHarvest"/>
+		</block>
+		
+		<block name="hardChainLinkFenceBottomPole">
+			<property name="Extends" value="hardChainLink"/>
+			<property name="Model" value="Buildings/chainlink_bottom_pole" param1="main_mesh"/>
+			<property name="CustomIcon" value="chainLinkFenceBottomPole"/>
+		</block>
+		
+		<block name="hardChainLinkFenceTop">
+			<property name="Extends" value="hardChainLink"/>
+			<property name="Model" value="Buildings/chainlink_top" param1="main_mesh"/>
+			<property name="CustomIcon" value="chainLinkFenceTop"/>
+		</block>
+		
+		<block name="hardChainLinkFenceTopPole">
+			<property name="Extends" value="hardChainLink"/>
+			<property name="Model" value="Buildings/chainlink_top_pole" param1="main_mesh"/>
+			<property name="CustomIcon" value="chainLinkFenceTopPole"/>
+		</block>
+		
+		<block name="hardChainLinkPole">
+			<property name="Extends" value="hardChainLink"/>
+			<property name="Model" value="Buildings/chainlink_pole" param1="main_mesh"/>
+			<property name="Path" value="edge"/>
+			<property name="CustomIcon" value="chainLinkPole"/>
+		</block>
+		
+		<block name="hardChainLinkCornerTop">
+			<property name="Extends" value="hardChainLink"/>
+			<property name="Model" value="Buildings/chainlink_corner_top" param1="main_mesh"/>
+			<property name="CustomIcon" value="chainLinkCornerTop"/>
+		</block>
+		
+		<block name="hardChainLinkCornerBottom">
+			<property name="Extends" value="hardChainLink"/>
+			<property name="Model" value="Buildings/chainlink_corner_bottom" param1="main_mesh"/>
+			<property name="CustomIcon" value="chainLinkCornerBottom"/>
+		</block>
+		
+		<block name="hardChainLinkFenceTopPole2">
+			<property name="Extends" value="hardChainLink"/>
+			<property name="Model" value="Buildings/chainlink_top_pole2" param1="main_mesh"/>
+			<property name="CustomIcon" value="chainLinkFenceTopPole2"/>
+		</block>
+		<!--強化型木釘, 不可升級-->
+		<block name="hardWoodLogSpike">
+			<property name="CustomIcon" value="woodLogSpike1"/>
+			<property name="CustomIconTint" value="00db00"/>
+			<property name="DescriptionKey" value="hardWoodLogSpikeDesc"/>
+			<property name="Class" value="TrunkTip"/>
+			<property name="Damage" value="150"/>
+			<property name="Damage_received" value="5"/>
+			<property name="Material" value="MhardWoodLogSpike"/>
+			<property name="Shape" value="New"/>
+			<property name="LightOpacity" value="6"/>
+			<property name="Path" value="solid"/>
+			<property name="Model" value="cone1m"/>
+			<property name="Texture" value="21,21,22,22,22,22"/>
+			<property name="UseGlobalUV" value="Local"/>
+			<property name="ImposterExchange" value="imposterPyramid" param1="10"/>
+			<property name="ImposterDontBlock" value="true"/>
+			<property name="FuelValue" value="300"/>
+			<property name="CanPickup" value="true"/>
+			<!--property name="DontDamageOnTouch" value="true" /-->
+			<!--<property name="BuffsWhenWalkedOn" value="buffBurningTarget05"/>-->
+			<property class="RepairItems">
+				<property name="resourceWood" value="100"/>
+			</property>
+			<property name="CustomUpgradeSound" value="place_block_wood"/>
+			<drop event="Destroy" name="resourceWood" count="2,6" prob="1"/>
+			<drop event="Fall" name="terrDestroyedWoodDebris" count="1" prob="0.75" stick_chance="1"/>
+			<property name="Group" value="Tools/Traps,Science"/>
+			<property name="EconomicValue" value="30"/>
+			<property name="EconomicBundleSize" value="20"/>
+			<property name="FilterTags" value="fdecor,ftraps"/>
+		</block>
+		<!--  強化型有刺鐵線-->
+		<block name="hardBarbedWireSheet">
+			<property name="CustomIcon" value="barbedWireSheet"/>
+			<property name="CustomIconTint" value="00db00"/>
+			<property name="DescriptionKey" value="hardBarbedWireSheetDesc"/>
+			<property name="Class" value="Damage"/>
+			<property name="Damage" value="10"/>
+			<property name="DamageType" value="BarbedWire"/>
+			<property name="Damage_received" value="5"/>
+			<property name="Material" value="MhardBarbedWire"/>
+			<property name="Shape" value="New"/>
+			<property name="Mesh" value="cutout"/>
+			<property name="LightOpacity" value="0"/>
+			<property name="Model" value="billboard"/>
+			<property name="Place" value="TowardsPlacerInverted"/>
+			<property name="Collide" value="movement,melee,rocket"/>
+			<property name="Texture" value="68"/>
+			<property name="ImposterExclude" value="true"/>
+			<property name="ShapeMinBB" value="0.3,0,0.3"/>
+			<property name="Group" value="Tools/Traps,Science"/>
+			<property name="CanPickup" value="true"/>
+			<property class="RepairItems">
+				<property name="resourceScrapIron" value="100"/>
+			</property>
+			<drop event="Destroy" name="resourceScrapIron" count="1,12" prob="1"/>
+			<property name="EconomicValue" value="15"/>
+			<property name="FilterTags" value="fdecor,ftraps"/>
+		</block>
+		<!-- 強化型有刺鐵絲柵欄 -->
+		<block name="hardBarbedFence">
+			<property name="CustomIcon" value="barbedFence"/>
+			<property name="CustomIconTint" value="00db00"/>
+			<property name="DescriptionKey" value="hardBarbedFenceDesc"/>
+			<property name="Class" value="TrunkTip"/>
+			<property name="Material" value="MhardBarbedFence"/>
+			<property name="StabilitySupport" value="false"/>
+			<property name="Damage" value="10"/>
+			<property name="DamageType" value="BarbedWire"/>
+			<property name="Damage_received" value="5"/>
+			<property name="Shape" value="New"/>
+			<property name="Mesh" value="cutout"/>
+			<property name="AllowAllRotations" value="true"/>
+			<property name="LightOpacity" value="0"/>
+			<property name="Model" value="trap_barbed_fence_shape"/>
+			<property name="Place" value="TowardsPlacer"/>
+			<property name="IsTerrainDecoration" value="true"/>
+			<property name="Collide" value="melee,rocket"/>
+			<property name="Texture" value="518"/>
+			<property name="OnlySimpleRotations" value="true"/>
+			<property name="FuelValue" value="150"/>
+			<property name="CanPickup" value="true"/>
+			<property class="RepairItems">
+				<property name="resourceWood" value="20"/>
+				<property name="resourceScrapIron" value="8"/>
+			</property>
+			<drop event="Harvest" name="resourceWood" count="8" tag="allHarvest"/>
+			<drop event="Harvest" name="resourceScrapIron" count="3" tag="allHarvest"/>
+			<drop event="Destroy" count="0"/>
+			<property name="CanPlayersSpawnOn" value="false"/>
+			<property name="Group" value="Tools/Traps,Science"/>
+			<property name="EconomicValue" value="11"/>
+			<property name="FilterTags" value="fdecor,ftraps"/>
+			<property name="UseGlobalUV" value="Local"/>
+		</block>
+		<!-- 強化型木刺柵欄 -->
+		<block name="hardSpikesBarbedFence">
+			<property name="CustomIcon" value="trapSpikesNew"/>
+			<property name="CustomIconTint" value="00db00"/>
+			<property name="DescriptionKey" value="hardSpikesBarbedFenceDesc"/>
+			<property name="Class" value="TrunkTip"/>
+			<property name="Damage" value="50"/>
+			<property name="Damage_received" value="5"/>
+			<property name="Material" value="MhardSpikesBarbedFence"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Model" value="Entities/Traps/trap_spikes01Prefab" />
+			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+			<property name="FuelValue" value="300"/>
+			<property name="CanPickup" value="true"/>
+			<property name="IsTerrainDecoration" value="true"/>
+			<property class="RepairItems">
+				<property name="resourceWood" value="1"/>
+			</property>
+			<drop event="Destroy" name="resourceWood" count="1,3"/>
+			<drop event="Fall" name="terrDestroyedWoodDebris" count="1" prob="0.75" stick_chance="1"/>
+			<property name="Group" value="Tools/Traps,Science"/>
+			<property name="EconomicValue" value="10"/>
+			<property name="EconomicBundleSize" value="50"/>
+			<property name="FilterTags" value="fdecor,ftraps"/>
+		</block>
+		<!-- 強化型鐵刺柵欄 -->
+		<block name="hardSteelSpikesBarbedFence">
+			<property name="CustomIcon" value="trapSpikesScrapIronMaster"/>
+			<property name="CustomIconTint" value="00db00"/>
+			<property name="DescriptionKey" value="hardSteelSpikesBarbedFenceDesc"/>
+			<property name="Class" value="TrunkTip"/>
+			<property name="Damage" value="330"/>
+			<property name="Damage_received" value="5"/>
+			<property name="Material" value="MhardSteelSpikesBarbedFence"/>
+			<property name="DisplayType" value="blockHardened" />
+			<property name="Shape" value="Ext3dModel"/> <property name="Texture" value="293"/>
+			<property name="Mesh" value="models"/>
+			<property name="Model" value="Traps/trap_iron_spikes_dmg0" param1="main_mesh"/>
+			<property name="IsTerrainDecoration" value="true"/>
+			<property name="ImposterExclude" value="true"/>
+			<property name="Collide" value="movement,melee"/>
+			<property name="LightOpacity" value="6"/>
+			<property name="Path" value="solid"/>
+			<property name="CanPickup" value="true"/>
+			<property class="RepairItems">
+				<property name="resourceForgedIron" value="2"/>
+			</property>
+			<property name="CustomUpgradeSound" value="place_block_metal"/>
+			<drop event="Destroy" name="resourceScrapIron" count="10,20"/>
+			<drop event="Fall" count="0"/>
+			<property name="Group" value="Tools/Traps,Science"/>
+			<property name="EconomicValue" value="30"/>
+			<property name="EconomicBundleSize" value="20"/>
+			<property name="FilterTags" value="fdecor,ftraps"/>
+		</block>
+		<!-- 強化型飛鏢陷阱 -->
+		<block name="hardDartTrap">
+			<property name="CustomIcon" value="dartTrap"/>
+			<property name="CustomIconTint" value="00db00"/>
+			<property name="DescriptionKey" value="hardDartTrapDesc"/>
+			<property name="Class" value="Launcher"/>
+			<property name="DisplayType" value="blockElectricalHardened" />
+			<property name="Material" value="Mmetal_hard"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Mesh" value="models"/>
+			<property name="Path" value="solid"/>
+			<property name="Model" value="Entities/Electrical/arrowTrapPrefab"/> <property name="HandleFace" value="South"/>
+			<property name="PlaySound" value="darttrap_fire"/>
+			<property name="EndSound" value="darttrap_end"/>
+			<property name="ImposterExchange" value="imposterBlock" param1="109"/>
+			<property name="BurstFireRate" value="0.25"/>
+			<property name="ShowTargeting" value="false"/>
+			<property name="Collide" value="sight,movement,melee,bullet,arrow,rocket"/>
+			<property name="AmmoItem" value="ammoDartSteel"/>
+			<!--<property name="AmmoItem" value="ammoCrossbowBoltExploding"/>-->
+			<property name="RequiredPower" value="12"/>
+			<property name="Group" value="Tools/Traps,Science"/>
+			<property class="RepairItems">
+				<property name="resourceForgedIron" value="16"/>
+				<property name="resourceMechanicalParts" value="3"/>
+				<property name="resourceElectricParts" value="2"/>
+			</property>
+			<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
+			<drop event="Harvest" name="resourceMechanicalParts" count="1,3" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceElectricParts" count="1,2" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceScrapIron" count="20,100" tag="allHarvest"/>
+			<drop event="Destroy" count="0"/>
+			<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
+			<property name="Stacknumber" value="100"/>
+			<property name="TakeDelay" value="10"/>
+			<property name="EconomicValue" value="220"/>
+			<property name="FilterTags" value="fdecor,felectrical,ftraps"/>
+		</block>
+		<!-- 電擊型感應板 -->
+		<block name="hardElectricPressureplate">
+			<property name="CustomIcon" value="pressureplate"/>
+			<property name="CustomIconTint" value="66b3ff"/>
+			<property name="DescriptionKey" value="hardElectricPressureplateDesc"/>
+			<property name="Class" value="PressurePlate"/>
+			<property name="DisplayType" value="blockHardened" />
+			<property name="Material" value="Mmetal_medium"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Mesh" value="models"/>
+			<property name="Model" value="Entities/Electrical/pressure_platePrefab"/> <property name="HandleFace" value="Bottom"/>
+			<property name="ImposterExchange" value="imposterPlate" param1="143"/>
+			<property name="CanPickup" value="false"/>
+			<property name="IsTerrainDecoration" value="true"/><!-- 是否為裝飾物 -->
+			<property name="OnlySimpleRotations" value="true"/><!-- 只使用簡易的旋轉功能 -->
+			<property name="MultiBlockDim" value="1,1,1"/>
+			<property name="RequiredPower" value="0"/>
+			<property name="DisplayType" value="blockElectrical" />
+			<property name="Group" value="Science"/>
+			<property name="BuffsWhenWalkedOn" value="buffTrapShock"/>
+			<property name="MaxDamage" value="500"/>
+			<property class="RepairItems">
+				<property name="resourceForgedIron" value="10"/>
+				<property name="resourceMechanicalParts" value="10"/>
+				<property name="resourceElectricParts" value="10"/>
+			</property>
+			<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
+			<drop event="Harvest" name="resourceElectricParts" count="0,1" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceMechanicalParts" count="0,1" tag="salvageHarvest"/>
+			<drop event="Destroy" name="resourceScrapIron" count="5,20" prob="1"/>
+			<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
+			<property name="TakeDelay" value="10"/>
+			<property name="EconomicValue" value="124"/>
+			<property name="FilterTags" value="fdecor,felectrical,ftraps"/>
+		</block>
+		<!-- 焰燒型感應板 -->
+		<block name="hardFlamePressureplate">
+			<property name="CustomIcon" value="pressureplate"/>
+			<property name="CustomIconTint" value="ff2d2d"/>
+			<property name="DescriptionKey" value="hardFlamePressureplateDesc"/>
+			<property name="Class" value="PressurePlate"/>
+			<property name="DisplayType" value="blockHardened" />
+			<property name="Material" value="Mmetal_medium"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Mesh" value="models"/>
+			<property name="Model" value="Entities/Electrical/pressure_platePrefab"/> <property name="HandleFace" value="Bottom"/>
+			<property name="ImposterExchange" value="imposterPlate" param1="143"/>
+			<property name="CanPickup" value="false"/>
+			<property name="IsTerrainDecoration" value="true"/>
+			<property name="OnlySimpleRotations" value="true"/>
+			<property name="MultiBlockDim" value="1,1,1"/>
+			<property name="RequiredPower" value="0"/>
+			<property name="DisplayType" value="blockElectrical" />
+			<property name="Group" value="Science"/>
+			<property name="BuffsWhenWalkedOn" value="buffTrapBurning"/>
+			<property name="MaxDamage" value="500"/>
+			<property class="RepairItems">
+				<property name="resourceForgedIron" value="10"/>
+				<property name="resourceMechanicalParts" value="10"/>
+				<property name="resourceElectricParts" value="10"/>
+			</property>
+			<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
+			<drop event="Harvest" name="resourceElectricParts" count="0,1" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceMechanicalParts" count="0,1" tag="salvageHarvest"/>
+			<drop event="Destroy" name="resourceScrapIron" count="5,20" prob="1"/>
+			<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
+			<property name="TakeDelay" value="10"/>
+			<property name="EconomicValue" value="124"/>
+			<property name="FilterTags" value="fdecor,felectrical,ftraps"/>
+		</block>
+		<!-- 強化型輪轂地雷 -->
+		<block name="hardMineHubcap">
+			<property name="CustomIcon" value="mineHubcap"/>
+			<property name="CustomIconTint" value="00db00"/>
+			<property name="DescriptionKey" value="hardMineHubcapDesc"/>
+			<property name="Class" value="Mine"/>
+			<property name="Material" value="MLandMine"/>
+			<property name="Model" value="Traps/trap_mine_hubcap" param1="main_mesh"/>
+			<property name="Shape" value="Ext3dModel"/> <property name="Texture" value="293"/>
+			<property name="Mesh" value="models"/>
+			<property name="IsTerrainDecoration" value="true"/>
+			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+			<property name="Explosion.ParticleIndex" value="1"/>
+			<property name="Explosion.RadiusBlocks" value="3"/>
+			<property name="Explosion.RadiusEntities" value="10"/>
+			<property name="Explosion.BlockDamage" value="0"/>
+			<property name="Explosion.EntityDamage" value="1000"/>
+			<property name="Explosion.DamageBonus.stone" value="0"/>
+			<property name="Explosion.DamageBonus.metal" value="0"/>
+			<property name="Explosion.DamageBonus.earth" value="0"/>
+			<property name="Explosion.DamageBonus.wood" value="0"/>
+			<property name="Explosion.DamageBonus.water" value="0"/>
+			<property name="CanPickup" value="true"/>
+			<drop event="Destroy" count="0"/>
+			<property name="Group" value="Science"/>
+			<property name="FilterTags" value="fdecor,ftraps"/>
+			<property name="Stacknumber" value="2000"/>
+			<property name="MaxDamage" value="5"/>
+			<property name="EconomicValue" value="146"/>
+		</block>
+		<!-- 電擊型輪轂地雷 -->
+		<block name="hardElectricMineHubcap">
+			<property name="CustomIcon" value="mineHubcap"/>
+			<property name="CustomIconTint" value="66b3ff"/>
+			<property name="DescriptionKey" value="hardElectricMineHubcapDesc"/>
+			<property name="Class" value="Mine"/>
+			<property name="Material" value="MLandMine"/>
+			<property name="Model" value="Traps/trap_mine_hubcap" param1="main_mesh"/>
+			<property name="Shape" value="Ext3dModel"/> <property name="Texture" value="293"/>
+			<property name="Mesh" value="models"/>
+			<property name="IsTerrainDecoration" value="true"/>
+			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+			<property name="Explosion.ParticleIndex" value="1"/>
+			<property name="Explosion.RadiusBlocks" value="1"/>
+			<property name="Explosion.RadiusEntities" value="10"/>
+			<property name="Explosion.BlockDamage" value="0"/>
+			<property name="Explosion.EntityDamage" value="0"/>
+			<property name="Explosion.DamageBonus.stone" value="0"/>
+			<property name="Explosion.DamageBonus.metal" value="0"/>
+			<property name="Explosion.DamageBonus.earth" value="0"/>
+			<property name="Explosion.DamageBonus.wood" value="0"/>
+			<property name="Explosion.DamageBonus.water" value="0"/>
+			<property name="CanPickup" value="true"/>
+			<property name="BuffsWhenWalkedOn" value="buffShockHardElectricMineHubcap"/>
+			<drop event="Destroy" count="0"/>
+			<property name="Group" value="Science"/>
+			<property name="FilterTags" value="fdecor,ftraps"/>
+			<property name="Stacknumber" value="2000"/>
+			<property name="MaxDamage" value="5"/>
+			<property name="EconomicValue" value="146"/>
+		</block>
+		<!-- 焰燒型輪轂地雷 -->
+		<block name="hardFlameMineHubcap">
+			<property name="CustomIcon" value="mineHubcap"/>
+			<property name="CustomIconTint" value="ff2d2d"/>
+			<property name="DescriptionKey" value="hardFlameMineHubcapDesc"/>
+			<property name="Class" value="Mine"/>
+			<property name="Material" value="MLandMine"/>
+			<property name="Model" value="Traps/trap_mine_hubcap" param1="main_mesh"/>
+			<property name="Shape" value="Ext3dModel"/> <property name="Texture" value="293"/>
+			<property name="Mesh" value="models"/>
+			<property name="IsTerrainDecoration" value="true"/>
+			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+			<property name="Explosion.ParticleIndex" value="1"/>
+			<property name="Explosion.RadiusBlocks" value="1"/>
+			<property name="Explosion.RadiusEntities" value="10"/>
+			<property name="Explosion.BlockDamage" value="0"/>
+			<property name="Explosion.EntityDamage" value="0"/>
+			<property name="Explosion.DamageBonus.stone" value="0"/>
+			<property name="Explosion.DamageBonus.metal" value="0"/>
+			<property name="Explosion.DamageBonus.earth" value="0"/>
+			<property name="Explosion.DamageBonus.wood" value="0"/>
+			<property name="Explosion.DamageBonus.water" value="0"/>
+			<property name="CanPickup" value="true"/>
+			<property name="BuffsWhenWalkedOn" value="buffFlameHardFlameMineHubcap"/>
+			<drop event="Destroy" count="0"/>
+			<property name="Group" value="Science"/>
+			<property name="FilterTags" value="fdecor,ftraps"/>
+			<property name="Stacknumber" value="2000"/>
+			<property name="MaxDamage" value="5"/>
+			<property name="EconomicValue" value="146"/>
+		</block>
+		<!-- 毒爆型輪轂地雷 -->
+		<block name="hardPosionMineHubcap">
+			<property name="CustomIcon" value="mineHubcap"/>
+			<property name="CustomIconTint" value="a6ffff"/>
+			<property name="DescriptionKey" value="hardPosionMineHubcapDesc"/>
+			<property name="Class" value="Mine"/>
+			<property name="Material" value="MLandMine"/>
+			<property name="Model" value="Traps/trap_mine_hubcap" param1="main_mesh"/>
+			<property name="Shape" value="Ext3dModel"/> <property name="Texture" value="293"/>
+			<property name="Mesh" value="models"/>
+			<property name="IsTerrainDecoration" value="true"/>
+			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+			<property name="Explosion.ParticleIndex" value="7"/>
+			<property name="Explosion.RadiusBlocks" value="1"/>
+			<property name="Explosion.RadiusEntities" value="10"/>
+			<property name="Explosion.BlockDamage" value="0"/>
+			<property name="Explosion.EntityDamage" value="0"/>
+			<property name="Explosion.DamageBonus.stone" value="0"/>
+			<property name="Explosion.DamageBonus.metal" value="0"/>
+			<property name="Explosion.DamageBonus.earth" value="0"/>
+			<property name="Explosion.DamageBonus.wood" value="0"/>
+			<property name="Explosion.DamageBonus.water" value="0"/>
+			<property name="CanPickup" value="true"/>
+			<property name="BuffsWhenWalkedOn" value="buffPosionHardPosionMineHubcap"/>
+			<drop event="Destroy" count="0"/>
+			<property name="Group" value="Science"/>
+			<property name="FilterTags" value="fdecor,ftraps"/>
+			<property name="Stacknumber" value="2000"/>
+			<property name="MaxDamage" value="5"/>
+			<property name="EconomicValue" value="146"/>
+		</block>
+
+	</append>
+	<!-- 野外的鵝卵石中型, 增加掉落銅素材 -->
+	<insertAfter xpath="/blocks/block[@name='rockResource']/property[@name='PassThroughDamage']">
+		<drop event="Harvest" name="resourceScrapBrass" count="16" prob="0.5" tag="oreWoodHarvest"/>
+	</insertAfter>
+</configs>

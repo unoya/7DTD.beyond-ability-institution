@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xml>
 	<ModInfo>
-		<Name value="Titanium Equipment" />
-		<Description value="Titanium-based equipment is more powerful and harder." />
+		<Name value="Beyond Ability Institution" />
+		<Description value="More magical attack effects and abilities." />
 		<Author value="unoya" />
-		<Version value="1.0.0" />
+		<Version value="A17" />
 		<Website value="https://github.com/unoya" />
 	</ModInfo>
 </xml>

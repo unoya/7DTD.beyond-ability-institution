@@ -1,0 +1,497 @@
+<configs>
+	<append xpath="/item_modifiers">
+		<!--
+		目前己知為gun類的遠程武器如下:
+		gunPistol (pistol,shortRange類)
+		gun44Magnum (revolver,shortRange類)
+		gunSMG5 (shortRange類)
+		gunBlunderbuss (shotgun,shortRange類)
+		gunPumpShotgun (shotgun,shortRange類)
+		gunHuntingRifle
+		gunMR10
+		gunAK47
+		
+		如果以ranged類為主的話, 上述的武器會包括, 也會包含如下的武器:
+		gunRocketLauncher (launcher類)
+		gunWoodenBow (bow類)
+		gunCompoundBow (bow類)
+		gunCrossbow
+		
+		近戰武器(meleeWeapon類):
+		meleeBoneShiv
+		meleeToolHuntingKnife
+		meleeClubWood
+		meleeClubIron
+		meleeCandyCaneClub
+		meleeToolMachete
+		meleeToolSledgehammer
+		
+		工具類 (tool類):
+		meleeToolClawHammer
+		meleeToolStoneAxe
+		meleeToolStoneAxeTazas
+		meleeToolPickaxeIron
+		meleeToolWrench
+		meleeToolShovelStone
+		meleeToolShovelIron
+		meleeToolShovelSteel
+		meleeToolFireaxeIron
+		meleeToolFireaxeSteel
+		meleeToolPickaxeSteel
+		meleeToolChainsaw
+		meleeToolAuger
+		gunToolNailgun
+		-->
+		<!-- 燃燒子彈模組 -->
+		<item_modifier name="modFlameBullet" installable_tags="gun,bow,crossbow,meleeWeapon,tool,perkFireElement" modifier_tags="hot_damage" type="attachment">
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="modGunMeleeFeelTheHeat"/>
+			<property name="CustomIconTint" value="ff5151"/>
+			<property name="EconomicValue" value="750000"/>
+			<property name="DescriptionKey" value="modFlameBulletDesc"/>
+			<property name="Tags" value="heat"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal" buff="buffBurningTarget">
+					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="LT" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffBurningTarget01">
+					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="Equals" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="3" target_tags="zombie,animal" buff="buffBurningTarget02">
+					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="Equals" value="2"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="4" target_tags="zombie,animal" buff="buffBurningTarget03">
+					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="Equals" value="3"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="5" target_tags="zombie,animal" buff="buffBurningTarget04">
+					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="Equals" value="4"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="5" target_tags="zombie,animal" buff="buffBurningTarget05">
+					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="Equals" value="5"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group tiered="false">
+				<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="GTE" value="1"/>
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
+					<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="Equals" value="1"/>
+				</requirement>
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50">
+					<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="Equals" value="2"/>
+				</requirement>
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="80">
+					<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="Equals" value="3"/>
+				</requirement>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal" buff="buffElementBurningSpread">
+					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="LT" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffElementBurningSpread01">
+					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="Equals" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="3" target_tags="zombie,animal" buff="buffElementBurningSpread02">
+					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="Equals" value="2"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="4" target_tags="zombie,animal" buff="buffElementBurningSpread03">
+					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="Equals" value="3"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="5" target_tags="zombie,animal" buff="buffElementBurningSpread04">
+					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="Equals" value="4"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="5" target_tags="zombie,animal" buff="buffElementBurningSpread05">
+					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="Equals" value="5"/>
+				</triggered_effect>
+			</effect_group>
+		</item_modifier>
+		<!-- 電擊子彈模組 -->
+		<item_modifier name="modElectricShockBullet" installable_tags="gun,bow,crossbow,meleeWeapon,tool,perkElectricElement" modifier_tags="electric_damage" type="attachment">
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="modGunMeleeFeelTheHeat"/>
+			<property name="CustomIconTint" value="0080ff"/>
+			<property name="EconomicValue" value="750000"/>
+			<property name="DescriptionKey" value="modElectricShockBulletDesc"/>
+			<property name="Tags" value="electrical"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal" buff="buffShockTarget">
+					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="LT" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffShockTarget01">
+					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="Equals" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffShockTarget02">
+					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="Equals" value="2"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffShockTarget03">
+					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="Equals" value="3"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="3" target_tags="zombie,animal" buff="buffShockTarget04">
+					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="Equals" value="4"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="5" target_tags="zombie,animal" buff="buffShockTarget05">
+					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="Equals" value="5"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group tiered="false">
+				<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="GTE" value="1"/>
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
+					<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="Equals" value="1"/>
+				</requirement>
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50">
+					<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="Equals" value="2"/>
+				</requirement>
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="80">
+					<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="Equals" value="3"/>
+				</requirement>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal" buff="buffElementShockSpread">
+					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="LT" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffElementShockSpread01">
+					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="Equals" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffElementShockSpread02">
+					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="Equals" value="2"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffElementShockSpread03">
+					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="Equals" value="3"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="3" target_tags="zombie,animal" buff="buffElementShockSpread04">
+					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="Equals" value="4"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="5" target_tags="zombie,animal" buff="buffElementShockSpread05">
+					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="Equals" value="5"/>
+				</triggered_effect>
+			</effect_group>
+		</item_modifier>
+		<!-- 放血子彈模組 -->
+		<item_modifier name="modBloodlettingBullet" installable_tags="gun,bow,crossbow,meleeWeapon,tool,perkTrauma" modifier_tags="bloodloss_damage" type="attachment">
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="modGunMeleeFeelTheHeat"/>
+			<property name="CustomIconTint" value="c6a300"/>
+			<property name="EconomicValue" value="750000"/>
+			<property name="DescriptionKey" value="modBloodlettingBulletDesc"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal" buff="buffBloodEffect">
+					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="LT" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffBloodEffect01">
+					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="Equals" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffBloodEffect02">
+					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="Equals" value="2"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="3" target_tags="zombie,animal" buff="buffBloodEffect03">
+					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="Equals" value="3"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="3" target_tags="zombie,animal" buff="buffBloodEffect04">
+					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="Equals" value="4"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="4" target_tags="zombie,animal" buff="buffBloodEffect05">
+					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="Equals" value="5"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group tiered="false">
+				<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="GTE" value="1"/>
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
+					<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="Equals" value="1"/>
+				</requirement>
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50">
+					<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="Equals" value="2"/>
+				</requirement>
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="80">
+					<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="Equals" value="3"/>
+				</requirement>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal" buff="buffElementBleedSpread">
+					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="LT" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffElementBleedSpread01">
+					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="Equals" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffElementBleedSpread02">
+					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="Equals" value="2"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="3" target_tags="zombie,animal" buff="buffElementBleedSpread03">
+					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="Equals" value="3"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="3" target_tags="zombie,animal" buff="buffElementBleedSpread04">
+					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="Equals" value="4"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="4" target_tags="zombie,animal" buff="buffElementBleedSpread05">
+					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="Equals" value="5"/>
+				</triggered_effect>
+			</effect_group>
+		</item_modifier>
+		<!-- 麻醉子彈模組 -->
+		<item_modifier name="modNarcosisBullet" installable_tags="gun,bow,crossbow,meleeWeapon,tool,perkNarcosis" modifier_tags="narcosis_damage" type="attachment">
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="modGunMeleeFeelTheHeat"/>
+			<property name="CustomIconTint" value="008800"/>
+			<property name="EconomicValue" value="750000"/>
+			<property name="DescriptionKey" value="modNarcosisBulletDesc"/>
+			<effect_group tiered="false">
+			<!--
+				<triggered_effect trigger="onSelfDamagedOther" action="Ragdoll" target="other" target_tags="zombie,animal" duration="5">
+					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="LT" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="Ragdoll" target="otherAOE" range="2" target_tags="zombie,animal" duration="6">
+					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="Equals" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="Ragdoll" target="otherAOE" range="2" target_tags="zombie,animal" duration="7">
+					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="Equals" value="2"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="Ragdoll" target="otherAOE" range="3" target_tags="zombie,animal" duration="8">
+					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="Equals" value="3"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="Ragdoll" target="otherAOE" range="4" target_tags="zombie,animal" duration="10">
+					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="Equals" value="4"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="Ragdoll" target="otherAOE" range="5" target_tags="zombie,animal" duration="12">
+					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="Equals" value="5"/>
+				</triggered_effect>
+			-->
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" buff="buffNarcosisEffect">
+					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="LT" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" buff="buffNarcosisEffect01">
+					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="Equals" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" buff="buffNarcosisEffect02">
+					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="Equals" value="2"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" buff="buffNarcosisEffect03">
+					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="Equals" value="3"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" buff="buffNarcosisEffect04">
+					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="Equals" value="4"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" buff="buffNarcosisEffect05">
+					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="Equals" value="5"/>
+				</triggered_effect>
+			</effect_group>
+		</item_modifier>
+		<!-- 熔鋼子彈模組 -->
+		<item_modifier name="modFusedSteelBullet" installable_tags="gun,bow,crossbow,meleeWeapon,tool,perkFusedSteel" modifier_tags="destory_damage" type="attachment">
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="modGunMeleeFeelTheHeat"/>
+			<property name="CustomIconTint" value="6c6c6c"/>
+			<property name="EconomicValue" value="750000"/>
+			<property name="DescriptionKey" value="modFusedSteelBulletDesc"/>
+			<effect_group tiered="false">
+				<passive_effect name="EntityDamage" operation="base_set" value="0"/>
+			</effect_group>
+			<effect_group tiered="false">
+				<passive_effect name="BlockDamage" operation="base_set" value="9999999">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10">
+						<requirement name="ProgressionLevel" progression_name="perkFusedSteel" operation="LT" value="1"/>
+					</requirement>
+				</passive_effect>
+				<passive_effect name="BlockDamage" operation="base_set" value="9999999">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20">
+						<requirement name="ProgressionLevel" progression_name="perkFusedSteel" operation="Equals" value="1"/>
+					</requirement>
+				</passive_effect>
+				<passive_effect name="BlockDamage" operation="base_set" value="9999999">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40">
+						<requirement name="ProgressionLevel" progression_name="perkFusedSteel" operation="Equals" value="2"/>
+					</requirement>
+				</passive_effect>
+				<passive_effect name="BlockDamage" operation="base_set" value="9999999">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
+						<requirement name="ProgressionLevel" progression_name="perkFusedSteel" operation="Equals" value="3"/>
+					</requirement>
+				</passive_effect>
+				<passive_effect name="BlockDamage" operation="base_set" value="9999999">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="80">
+						<requirement name="ProgressionLevel" progression_name="perkFusedSteel" operation="Equals" value="4"/>
+					</requirement>
+				</passive_effect>
+				<passive_effect name="BlockDamage" operation="base_set" value="9999999">
+					<requirement name="ProgressionLevel" progression_name="perkFusedSteel" operation="Equals" value="5"/>
+				</passive_effect>
+			</effect_group>
+		</item_modifier>
+		<!-- 聖光彈模組 -->
+		<item_modifier name="modHolyLightBullet" installable_tags="gun,bow,crossbow,meleeWeapon,tool,perkHolyLight" modifier_tags="holylight_damage" type="attachment">
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="modGunMeleeFeelTheHeat"/>
+			<property name="CustomIconTint" value="00DDDD"/>
+			<property name="EconomicValue" value="750000"/>
+			<property name="DescriptionKey" value="modHolyLightBulletDesc"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal" buff="buffHolyLightEffect">
+					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="LT" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffHolyLightEffect01">
+					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="Equals" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffHolyLightEffect02">
+					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="Equals" value="2"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="3" target_tags="zombie,animal" buff="buffHolyLightEffect03">
+					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="Equals" value="3"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="4" target_tags="zombie,animal" buff="buffHolyLightEffect04">
+					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="Equals" value="4"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="5" target_tags="zombie,animal" buff="buffHolyLightEffect05">
+					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="Equals" value="5"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group tiered="false">
+				<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="GTE" value="1"/>
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
+					<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="Equals" value="1"/>
+				</requirement>
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50">
+					<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="Equals" value="2"/>
+				</requirement>
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="80">
+					<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="Equals" value="3"/>
+				</requirement>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal" buff="buffElementHolyLightSpread">
+					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="LT" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffElementHolyLightSpread01">
+					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="Equals" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffElementHolyLightSpread02">
+					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="Equals" value="2"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="3" target_tags="zombie,animal" buff="buffElementHolyLightSpread03">
+					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="Equals" value="3"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="4" target_tags="zombie,animal" buff="buffElementHolyLightSpread04">
+					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="Equals" value="4"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="5" target_tags="zombie,animal" buff="buffElementHolyLightSpread05">
+					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="Equals" value="5"/>
+				</triggered_effect>
+			</effect_group>		
+		</item_modifier>
+		<!-- 霜咬彈模組 -->
+		<item_modifier name="modIceBiteBullet" installable_tags="gun,bow,crossbow,meleeWeapon,tool,perkIceBite" modifier_tags="icebite_damage" type="attachment">
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="modGunMeleeFeelTheHeat"/>
+			<property name="CustomIconTint" value="CC00FF"/>
+			<property name="EconomicValue" value="750000"/>
+			<property name="DescriptionKey" value="modIceBiteBulletDesc"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffSlowDown">
+					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="LT" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffSlowDown1">
+					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="Equals" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffSlowDown2">
+					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="Equals" value="2"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffSlowDown3">
+					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="Equals" value="3"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffSlowDown4">
+					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="Equals" value="4"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffSlowDown5">
+					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="Equals" value="5"/>
+				</triggered_effect>
+			</effect_group>		
+			<effect_group tiered="false">
+				<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="GTE" value="1"/>
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
+					<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="Equals" value="1"/>
+				</requirement>
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50">
+					<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="Equals" value="2"/>
+				</requirement>
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="80">
+					<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="Equals" value="3"/>
+				</requirement>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffElementSlowDownSpread">
+					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="LT" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffElementSlowDownSpread01">
+					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="Equals" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffElementSlowDownSpread02">
+					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="Equals" value="2"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffElementSlowDownSpread03">
+					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="Equals" value="3"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffElementSlowDownSpread04">
+					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="Equals" value="4"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffElementSlowDownSpread05">
+					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="Equals" value="5"/>
+				</triggered_effect>
+			</effect_group>		
+		</item_modifier>
+		<!-- 崩分離析模組 -->
+		<item_modifier name="modCollapseSeparation" installable_tags="gun,bow,crossbow,meleeWeapon,tool" modifier_tags="mutilation_damage" type="attachment">
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="modMeleeSerratedBlade"/>
+			<property name="CustomIconTint" value="00DD00"/>
+			<property name="EconomicValue" value="750000"/>
+			<property name="DescriptionKey" value="modCollapseSeparationDesc"/>
+			<effect_group tiered="false">
+				<passive_effect name="DismemberChance" operation="base_add" value="1"/><!-- 斷肢率 -->
+			</effect_group>
+		</item_modifier>
+		<!-- 高彈匣模組, 可應用於手槍, 衝鋒槍, 短距散彈槍, 霰彈槍, 獵槍, 狙擊槍, 突擊步槍, 電鋸, 電鑽 -->
+		<item_modifier name="modGunHighMagazineExtender" installable_tags="highMagazine" modifier_tags="high_magazine" type="attachment">
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="modGunMagazineExtender"/>
+			<property name="CustomIconTint" value="d3a4ff"/>
+			<property name="EconomicValue" value="1500000"/>
+			<property name="CraftingSkillGroup" value="craftSkillGuns"/>
+			<property name="DescriptionKey" value="modGunHighMagazineExtenderDesc"/>
+			<effect_group tiered="false">
+				<passive_effect name="MagazineSize" operation="base_add" value="1200"/><!-- 彈匣容量 -->
+				<passive_effect name="RoundsPerMinute" operation="perc_add" value="1"/><!-- 射速增加100% -->
+			</effect_group>
+		</item_modifier>
+		<!-- 長射槍管模組, 可應用於手槍,左輪手槍,霰彈槍,衝鋒槍,狙擊槍,突擊步槍,獵槍 -->
+		<item_modifier name="modGunLongDistanceBarrel" installable_tags="gun" blocked_tags="flaredBarrel" modifier_tags="barrelAttachment" type="attachment">
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="modGunBarrelExtender"/>
+			<property name="CustomIconTint" value="ff2d2d"/>
+			<property name="EconomicValue" value="1500000"/>
+			<property name="CraftingSkillGroup" value="craftSkillGuns"/>
+			<property name="DescriptionKey" value="modGunLongDistanceBarrelDesc"/>
+			<effect_group tiered="false">
+				<passive_effect name="DamageFalloffRange" operation="base_add" value="100"/><!-- 有效射程 -->
+				<passive_effect name="MaxRange" operation="base_add" value="100"/><!-- 最大射程 -->
+				<passive_effect name="KickDegreesVertical" operation="perc_add" value="-1"/><!-- 垂直晃動 -->
+				<passive_effect name="KickDegreesHorizontal" operation="perc_add" value="-1"/><!-- 水平晃動 -->
+				<passive_effect name="SpreadMultiplierHip" operation="perc_add" value="1"/><!-- 瞄準射擊的精確度 -->
+				<passive_effect name="WeaponHandling" operation="perc_add" value="1"/><!-- 準星集中速度 -->
+			</effect_group>
+			<effect_group tiered="false">
+				<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="GTE" value="5"/><!-- 當火弱化技能點滿時 -->
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/><!-- 當隨機取值以內時發動, 10%機率 -->
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal" buff="buffEnchantBurning"/><!-- 當射傷敵人時,發動火傷 -->
+			</effect_group>
+			<effect_group tiered="false">
+				<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="GTE" value="5"/><!-- 當電弱化技能點滿時 -->
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal" buff="buffEnchantShock"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 一拳的奧義 -->
+		<item_modifier name="modArmorOnePunch" installable_tags="armorHands" modifier_tags="powerhand" type="attachment">
+			<property name="Tags" value="hands,armorHands,armor"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="Material" value="Msteel"/>
+			<property name="CustomIcon" value="modArmorSpikedKnuckles"/>
+			<property name="CustomIconTint" value="8cea00"/>
+			<property name="DescriptionKey" value="modArmorOnePunchDesc"/>
+			<property name="EconomicValue" value="1000"/>
+			<effect_group name="Base Effects" tiered="false">
+				<passive_effect name="HealthMax" operation="perc_set" value="0.4"/>
+				<passive_effect name="StaminaChangeOT" operation="perc_add" value="0.5" />
+			</effect_group>
+			<effect_group tiered="false">
+				<requirement name="HoldingItemHasTags" tags="fists"/>
+				<passive_effect name="EntityDamage" operation="base_add" value="1000000"/>
+			</effect_group>
+		</item_modifier>
+		
+	</append>
+</configs>
