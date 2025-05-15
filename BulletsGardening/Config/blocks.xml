@@ -1,0 +1,705 @@
+<configs>
+	<!-- 2020/9/16  By 無云 -->
+	<append xpath="/blocks">
+		<!-- 9mm子彈種子 -->
+		<block name="planted9mmBulletSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="CustomIcon" value="beabin_bullet9mm"/>
+			<property name="DescriptionKey" value="planted9mmBulletSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/><!-- 生長率, 預設值63.0-->
+			<property name="PlantGrowing.Next" value="planted9mmBullet2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="planted9mmBulletSeedling" count="1"/>
+		</block>
+		<block name="planted9mmBullet2"><!-- 生長中 -->
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bullet9mm"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="planted9mmBullet3"/>
+			<drop event="Destroy" name="planted9mmBulletSeedling" count="1"/>
+		</block>
+		<block name="planted9mmBullet3"><!-- 熟株 -->
+			<property name="Extends" value="planted9mmBullet2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bullet9mm"/>
+			<drop event="Harvest" name="ammo9mmBulletBall" count="50" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="planted9mmBulletSeedling"/>
+		</block>
+		<!-- .44子彈種子 -->
+		<block name="planted44BulletSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="planted44BulletSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bullet44Magnum"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="planted44Bullet2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="planted44BulletSeedling" count="1"/>
+		</block>
+		<block name="planted44Bullet2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bullet44Magnum"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="planted44Bullet3"/>
+			<drop event="Destroy" name="planted44BulletSeedling" count="1"/>
+		</block>
+		<block name="planted44Bullet3">
+			<property name="Extends" value="planted44Bullet2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bullet44Magnum"/>
+			<drop event="Harvest" name="ammo44MagnumBulletBall" count="50" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="planted44BulletSeedling"/>
+		</block>
+		<!-- 7.62mm子彈種子 -->
+		<block name="planted762BulletSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="planted762BulletSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bullet762mm"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="planted762Bullet2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="planted762BulletSeedling" count="1"/>
+		</block>
+		<block name="planted762Bullet2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bullet762mm"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="planted762Bullet3"/>
+			<drop event="Destroy" name="planted762BulletSeedling" count="1"/>
+		</block>
+		<block name="planted762Bullet3">
+			<property name="Extends" value="planted762Bullet2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bullet762mm"/>
+			<drop event="Harvest" name="ammo762mmBulletBall" count="50" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="planted762BulletSeedling"/>
+		</block>
+		<!-- 散彈子彈種子 -->
+		<block name="plantedShotgunShellBulletSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="plantedShotgunShellBulletSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bulletShotgunShell"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedShotgunShellBullet2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="plantedShotgunShellBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedShotgunShellBullet2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletShotgunShell"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedShotgunShellBullet3"/>
+			<drop event="Destroy" name="plantedShotgunShellBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedShotgunShellBullet3">
+			<property name="Extends" value="plantedShotgunShellBullet2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletShotgunShell"/>
+			<drop event="Harvest" name="ammoShotgunShell" count="20" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="plantedShotgunShellBulletSeedling"/>
+		</block>
+		<!-- 散彈子彈種子(穿甲彈) -->
+		<block name="plantedShotgunSlugBulletSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="plantedShotgunSlugBulletSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bulletShotgunSlug"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedShotgunSlugBullet2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="plantedShotgunSlugBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedShotgunSlugBullet2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletShotgunSlug"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedShotgunSlugBullet3"/>
+			<drop event="Destroy" name="plantedShotgunSlugBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedShotgunSlugBullet3">
+			<property name="Extends" value="plantedShotgunSlugBullet2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletShotgunSlug"/>
+			<drop event="Harvest" name="ammoShotgunSlug" count="20" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="plantedShotgunSlugBulletSeedling"/>
+		</block>
+		<!-- 散彈子彈種子(突破彈) -->
+		<block name="plantedShotgunBreachingSlugBulletSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="plantedShotgunBreachingSlugBulletSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bulletShotgunBreachingSlug"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedShotgunBreachingSlugBullet2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="plantedShotgunBreachingSlugBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedShotgunBreachingSlugBullet2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletShotgunBreachingSlug"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedShotgunBreachingSlugBullet3"/>
+			<drop event="Destroy" name="plantedShotgunBreachingSlugBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedShotgunBreachingSlugBullet3">
+			<property name="Extends" value="plantedShotgunBreachingSlugBullet2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletShotgunBreachingSlug"/>
+			<drop event="Harvest" name="ammoShotgunBreachingSlug" count="20" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="plantedShotgunBreachingSlugBulletSeedling"/>
+		</block>
+		<!-- 雷筒子彈種子 -->
+		<block name="plantedBlunderbussBulletSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="plantedBlunderbussBulletSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bulletBlunderbuss"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedBlunderbussBullet2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="plantedBlunderbussBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedBlunderbussBullet2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletBlunderbuss"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedBlunderbussBullet3"/>
+			<drop event="Destroy" name="plantedBlunderbussBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedBlunderbussBullet3">
+			<property name="Extends" value="plantedBlunderbussBullet2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletBlunderbuss"/>
+			<drop event="Harvest" name="ammoBlunderbuss" count="100" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="plantedBlunderbussBulletSeedling"/>
+		</block>
+		<!-- 機器人大砲常規子彈種子 -->
+		<block name="plantedJunkTurretRegularBulletSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="plantedJunkTurretRegularBulletSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bulletJunkTurretRegular"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedJunkTurretRegularBullet2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="plantedJunkTurretRegularBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedJunkTurretRegularBullet2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletJunkTurretRegular"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedJunkTurretRegularBullet3"/>
+			<drop event="Destroy" name="plantedJunkTurretRegularBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedJunkTurretRegularBullet3">
+			<property name="Extends" value="plantedJunkTurretRegularBullet2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletJunkTurretRegular"/>
+			<drop event="Harvest" name="ammoJunkTurretRegular" count="100" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="plantedJunkTurretRegularBulletSeedling"/>
+		</block>
+		<!-- 火箭高爆彈種子 -->
+		<block name="plantedRocketHEBulletSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="plantedRocketHEBulletSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bulletRocketHE"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedRocketHEBullet2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="plantedRocketHEBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedRocketHEBullet2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletRocketHE"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedRocketHEBullet3"/>
+			<drop event="Destroy" name="plantedRocketHEBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedRocketHEBullet3">
+			<property name="Extends" value="plantedRocketHEBullet2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletRocketHE"/>
+			<drop event="Harvest" name="ammoRocketHE" count="2" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="plantedRocketHEBulletSeedling"/>
+		</block>
+		<!-- 火箭破片彈種子 -->
+		<block name="plantedRocketFragBulletSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="plantedRocketFragBulletSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bulletRocketFrage"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedRocketFragBullet2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="plantedRocketFragBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedRocketFragBullet2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletRocketFrage"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedRocketFragBullet3"/>
+			<drop event="Destroy" name="plantedRocketFragBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedRocketFragBullet3">
+			<property name="Extends" value="plantedRocketFragBullet2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletRocketFrage"/>
+			<drop event="Harvest" name="ammoRocketFrag" count="2" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="plantedRocketFragBulletSeedling"/>
+		</block>
+		<!-- 鐵箭種子 -->
+		<block name="plantedArrowIronBulletSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="plantedArrowIronBulletSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bulletArrowIron"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedArrowIronBullet2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="plantedArrowIronBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedArrowIronBullet2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletArrowIron"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedArrowIronBullet3"/>
+			<drop event="Destroy" name="plantedArrowIronBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedArrowIronBullet3">
+			<property name="Extends" value="plantedArrowIronBullet2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletArrowIron"/>
+			<drop event="Harvest" name="ammoArrowIron" count="20" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="plantedArrowIronBulletSeedling"/>
+		</block>
+		<!-- 鋼箭種子 -->
+		<block name="plantedArrowSteelAPBulletSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="plantedArrowSteelAPBulletSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bulletArrowSteelAP"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedArrowSteelAPBullet2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="plantedArrowSteelAPBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedArrowSteelAPBullet2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletArrowSteelAP"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedArrowSteelAPBullet3"/>
+			<drop event="Destroy" name="plantedArrowSteelAPBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedArrowSteelAPBullet3">
+			<property name="Extends" value="plantedArrowSteelAPBullet2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletArrowSteelAP"/>
+			<drop event="Harvest" name="ammoArrowSteelAP" count="20" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="plantedArrowSteelAPBulletSeedling"/>
+		</block>
+		<!-- 火焰箭種子 -->
+		<block name="plantedArrowFlamingBulletSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="plantedArrowFlamingBulletSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bulletArrowFlaming"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedArrowFlamingBullet2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="plantedArrowFlamingBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedArrowFlamingBullet2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletArrowFlaming"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedArrowFlamingBullet3"/>
+			<drop event="Destroy" name="plantedArrowFlamingBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedArrowFlamingBullet3">
+			<property name="Extends" value="plantedArrowFlamingBullet2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletArrowFlaming"/>
+			<drop event="Harvest" name="ammoArrowFlaming" count="10" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="plantedArrowFlamingBulletSeedling"/>
+		</block>
+		<!-- 爆炸箭種子 -->
+		<block name="plantedArrowExplodingBulletSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="plantedArrowExplodingBulletSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bulletArrowExploding"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedArrowExplodingBullet2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="plantedArrowExplodingBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedArrowExplodingBullet2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletArrowExploding"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedArrowExplodingBullet3"/>
+			<drop event="Destroy" name="plantedArrowExplodingBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedArrowExplodingBullet3">
+			<property name="Extends" value="plantedArrowExplodingBullet2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletArrowExploding"/>
+			<drop event="Harvest" name="ammoArrowExploding" count="10" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="plantedArrowExplodingBulletSeedling"/>
+		</block>
+		<!-- 鐵十字弓箭種子 -->
+		<block name="plantedCrossbowBoltIronBulletSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="plantedCrossbowBoltIronBulletSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bulletCrossbowBoltiron"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedCrossbowBoltIronBullet2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="plantedCrossbowBoltIronBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedCrossbowBoltIronBullet2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletCrossbowBoltiron"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedCrossbowBoltIronBullet3"/>
+			<drop event="Destroy" name="plantedCrossbowBoltIronBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedCrossbowBoltIronBullet3">
+			<property name="Extends" value="plantedCrossbowBoltIronBullet2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletCrossbowBoltiron"/>
+			<drop event="Harvest" name="ammoCrossbowBoltIron" count="20" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="plantedCrossbowBoltIronBulletSeedling"/>
+		</block>
+		<!-- 鋼十字弓箭種子 -->
+		<block name="plantedCrossbowBoltSteelAPBulletSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="plantedCrossbowBoltSteelAPBulletSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bulletCrossbowBoltSteelAP"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedCrossbowBoltSteelAPBullet2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="plantedCrossbowBoltSteelAPBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedCrossbowBoltSteelAPBullet2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletCrossbowBoltSteelAP"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedCrossbowBoltSteelAPBullet3"/>
+			<drop event="Destroy" name="plantedCrossbowBoltSteelAPBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedCrossbowBoltSteelAPBullet3">
+			<property name="Extends" value="plantedCrossbowBoltSteelAPBullet2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletCrossbowBoltSteelAP"/>
+			<drop event="Harvest" name="ammoCrossbowBoltSteelAP" count="20" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="plantedCrossbowBoltSteelAPBulletSeedling"/>
+		</block>
+		<!-- 火焰十字弓箭種子 -->
+		<block name="plantedCrossbowBoltFlamingBulletSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="plantedCrossbowBoltFlamingBulletSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bulletCrossbowBoltFlaming"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedCrossbowBoltFlamingBullet2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="plantedCrossbowBoltFlamingBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedCrossbowBoltFlamingBullet2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletCrossbowBoltFlaming"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedCrossbowBoltFlamingBullet3"/>
+			<drop event="Destroy" name="plantedCrossbowBoltFlamingBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedCrossbowBoltFlamingBullet3">
+			<property name="Extends" value="plantedCrossbowBoltFlamingBullet2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletCrossbowBoltFlaming"/>
+			<drop event="Harvest" name="ammoCrossbowBoltFlaming" count="10" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="plantedCrossbowBoltFlamingBulletSeedling"/>
+		</block>
+		<!-- 爆炸十字弓箭種子 -->
+		<block name="plantedCrossbowBoltExplodingBulletSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="plantedCrossbowBoltExplodingBulletSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bulletCrossbowBoltExploding"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedCrossbowBoltExplodingBullet2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="plantedCrossbowBoltExplodingBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedCrossbowBoltExplodingBullet2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletCrossbowBoltExploding"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedCrossbowBoltExplodingBullet3"/>
+			<drop event="Destroy" name="plantedCrossbowBoltExplodingBulletSeedling" count="1"/>
+		</block>
+		<block name="plantedCrossbowBoltExplodingBullet3">
+			<property name="Extends" value="plantedCrossbowBoltExplodingBullet2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletCrossbowBoltExploding"/>
+			<drop event="Harvest" name="ammoCrossbowBoltExploding" count="10" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="plantedCrossbowBoltExplodingBulletSeedling"/>
+		</block>
+		<!-- 管狀炸彈種子 -->
+		<block name="plantedPipeBombSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="plantedPipeBombSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bulletPipeBomb"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedPipeBomb2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="plantedPipeBombSeedling" count="1"/>
+		</block>
+		<block name="plantedPipeBomb2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletPipeBomb"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedPipeBomb3"/>
+			<drop event="Destroy" name="plantedPipeBombSeedling" count="1"/>
+		</block>
+		<block name="plantedPipeBomb3">
+			<property name="Extends" value="plantedPipeBomb2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletPipeBomb"/>
+			<drop event="Harvest" name="thrownAmmoPipeBomb" count="2" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="plantedPipeBombSeedling"/>
+		</block>
+		<!-- 柱狀炸藥包種子 -->
+		<block name="plantedDynamiteBombSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="plantedDynamiteBombSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bulletDynamite"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedDynamiteBomb2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="plantedDynamiteBombSeedling" count="1"/>
+		</block>
+		<block name="plantedDynamiteBomb2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletDynamite"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedDynamiteBomb3"/>
+			<drop event="Destroy" name="plantedDynamiteBombSeedling" count="1"/>
+		</block>
+		<block name="plantedDynamiteBomb3">
+			<property name="Extends" value="plantedDynamiteBomb2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletDynamite"/>
+			<drop event="Harvest" name="thrownDynamite" count="2" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="plantedDynamiteBombSeedling"/>
+		</block>
+		<!-- 手榴彈種子 -->
+		<block name="plantedGrenadeSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="plantedGrenadeSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bulletGrenade"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedGrenade2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="plantedGrenadeSeedling" count="1"/>
+		</block>
+		<block name="plantedGrenade2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletGrenade"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedGrenade3"/>
+			<drop event="Destroy" name="plantedGrenadeSeedling" count="1"/>
+		</block>
+		<block name="plantedGrenade3">
+			<property name="Extends" value="plantedGrenade2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletGrenade"/>
+			<drop event="Harvest" name="thrownGrenade" count="2" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="plantedGrenadeSeedling"/>
+		</block>
+		<!-- 觸發手榴彈種子 -->
+		<block name="plantedGrenadeContactSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="plantedGrenadeContactSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bulletGrenadeContact"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedGrenadeContact2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="plantedGrenadeContactSeedling" count="1"/>
+		</block>
+		<block name="plantedGrenadeContact2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletGrenadeContact"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedGrenadeContact3"/>
+			<drop event="Destroy" name="plantedGrenadeContactSeedling" count="1"/>
+		</block>
+		<block name="plantedGrenadeContact3">
+			<property name="Extends" value="plantedGrenadeContact2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletGrenadeContact"/>
+			<drop event="Harvest" name="thrownGrenadeContact" count="2" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="plantedGrenadeContactSeedling"/>
+		</block>
+		<!-- 定時炸彈種子 -->
+		<block name="plantedTimedChargeSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="plantedTimedChargeSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bulletTimedCharge"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedTimedCharge2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="plantedTimedChargeSeedling" count="1"/>
+		</block>
+		<block name="plantedTimedCharge2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletTimedCharge"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedTimedCharge3"/>
+			<drop event="Destroy" name="plantedTimedChargeSeedling" count="1"/>
+		</block>
+		<block name="plantedTimedCharge3">
+			<property name="Extends" value="plantedTimedCharge2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletTimedCharge"/>
+			<drop event="Harvest" name="thrownTimedCharge" count="2" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="plantedTimedChargeSeedling"/>
+		</block>
+		<!-- 汽油彈種子 -->
+		<block name="plantedMolotovCocktailSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="plantedMolotovCocktailSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bulletMolotovCocktail"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedMolotovCocktail2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="plantedMolotovCocktailSeedling" count="1"/>
+		</block>
+		<block name="plantedMolotovCocktail2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletMolotovCocktail"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedMolotovCocktail3"/>
+			<drop event="Destroy" name="plantedMolotovCocktailSeedling" count="1"/>
+		</block>
+		<block name="plantedMolotovCocktail3">
+			<property name="Extends" value="plantedMolotovCocktail2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletMolotovCocktail"/>
+			<drop event="Harvest" name="thrownAmmoMolotovCocktail" count="2" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="plantedMolotovCocktailSeedling"/>
+		</block>
+		<!-- 輪穀地雷種子 -->
+		<block name="plantedMineHubcapSeedling">
+			<property name="Extends" value="cropsGrowingMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="plantedMineHubcapSeedlingDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="beabin_bulletMineHubcap"/>
+			<property name="Texture" value="447"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedMineHubcap2"/>
+			<property name="Group" value="Food/Cooking"/>
+			<drop event="Destroy" name="plantedMineHubcapSeedling" count="1"/>
+		</block>
+		<block name="plantedMineHubcap2">
+			<property name="Extends" value="cropsGrowingMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletMineHubcap"/>
+			<property name="Texture" value="448"/>
+			<property name="PlantGrowing.GrowthRate" value="50"/>
+			<property name="PlantGrowing.Next" value="plantedMineHubcap3"/>
+			<drop event="Destroy" name="plantedMineHubcapSeedling" count="1"/>
+		</block>
+		<block name="plantedMineHubcap3">
+			<property name="Extends" value="plantedMineHubcap2"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="beabin_bulletMineHubcap"/>
+			<drop event="Harvest" name="mineHubcap" count="2" tag="cropHarvest"/>
+			<property name="DowngradeBlock" value="plantedMineHubcapSeedling"/>
+		</block>
+	</append>
+</configs>

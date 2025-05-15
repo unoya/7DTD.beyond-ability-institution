@@ -1,0 +1,199 @@
+<configs>
+	<!-- 自定義顯示資訊 -->
+	<append xpath="/ui_display_info/item_display">
+		<!-- 強化型醫療箱 -->
+		<item_display_info display_type="modifiedFirstAidKit" display_group="groupConsumables">
+			<display_entry name="dHealthAmount" title_key="statCustomHealthAmount"/>
+			<display_entry name="dHealAbrasionMult" title_key="statHealAbrasionMult" display_type="Percent"/>
+			<display_entry name="dStopsBleeding" title_key="statStopsBleeding" display_type="Percent"/>
+			<display_entry name="dStopsLaceration" title_key="statStopsLaceration" display_type="Percent"/>
+			<display_entry name="dStopsConcussion" title_key="statCustomStopsConcussion" display_type="Percent"/>
+			<display_entry name="dDuration" title_key="statDuration"/>
+		</item_display_info>
+		<!-- 破魔水 -->
+		<item_display_info display_type="waterBrokenMagic" display_group="groupConsumables">
+			<display_entry name="dTreatmentDeclarationOfDeath" title_key="statCustomTreatmentDeclarationOfDeath" display_type="Percent"/>
+		</item_display_info>
+		<!-- 感知藥水 -->
+		<item_display_info display_type="waterElementPerceptionPotion" display_group="groupConsumables">
+			<display_entry name="dAttribute" title_key="statCustomAttributeLevelPerception" display_leading_plus="true"/>
+			<display_entry name="dDuration" title_key="statDuration"/>
+		</item_display_info>
+		<!-- 力量藥水 -->
+		<item_display_info display_type="waterElementStrengthPotion" display_group="groupConsumables">
+			<display_entry name="dAttribute" title_key="statCustomAttributeLevelStrength" display_leading_plus="true"/>
+			<display_entry name="dDuration" title_key="statDuration"/>
+		</item_display_info>
+		<!-- 堅毅藥水 -->
+		<item_display_info display_type="waterElementFortitudePotion" display_group="groupConsumables">
+			<display_entry name="dAttribute" title_key="statCustomAttributeLevelFortitude" display_leading_plus="true"/>
+			<display_entry name="dDuration" title_key="statDuration"/>
+		</item_display_info>
+		<!-- 敏捷藥水 -->
+		<item_display_info display_type="waterElementAgilityPotion" display_group="groupConsumables">
+			<display_entry name="dAttribute" title_key="statCustomAttributeLevelAgility" display_leading_plus="true"/>
+			<display_entry name="dDuration" title_key="statDuration"/>
+		</item_display_info>
+		<!-- 智力藥水 -->
+		<item_display_info display_type="waterElementIntellectPotion" display_group="groupConsumables">
+			<display_entry name="dAttribute" title_key="statCustomAttributeLevelIntellect" display_leading_plus="true"/>
+			<display_entry name="dDuration" title_key="statDuration"/>
+		</item_display_info>
+		<!-- 袋鼠藥水 -->
+		<item_display_info display_type="waterKangaroo" display_group="groupConsumables">
+			<display_entry name="dJumpStrength" title_key="statCustomJumpStrength" display_leading_plus="true" display_type="Percent"/>
+			<display_entry name="dStaminaLoss" title_key="statCustomStaminaLoss" display_leading_plus="true" display_type="Percent"/>
+			<display_entry name="dDuration" title_key="statDuration"/>
+		</item_display_info>
+		<!-- 獵豹藥水 -->
+		<item_display_info display_type="waterCheetahSpeed" display_group="groupConsumables">
+			<display_entry name="dMoveingSpeed" title_key="statCustomMoveingSpeed" display_leading_plus="true" display_type="Percent"/>
+			<display_entry name="dDuration" title_key="statDuration"/>
+			<display_entry name="dDebuffMoveDown" title_key="statCustomDebuffMoveDown" display_leading_plus="true" display_type="Percent"/>
+			<display_entry name="dDebuffDuration" title_key="statCustomDebuffDuration"/>
+		</item_display_info>
+		<!-- 恐懼回聲藥水 -->
+		<item_display_info display_type="waterEchoOfFear" display_group="groupConsumables">
+			<display_entry name="dFaintChance" title_key="statCustomFaintChance" display_type="Percent"/>
+			<display_entry name="dRange" title_key="statDamageFalloffRange"/>
+			<display_entry name="dDuration" title_key="statDuration"/>
+		</item_display_info>
+
+		<!-- 細胞分裂：冷卻 -->
+		<item_display_info display_type="waterCellDivisionCoolDown" display_group="groupConsumables">
+			<display_entry name="dChance" title_key="statCustomCellDivisionCoolDown" display_type="Percent"/>
+			<display_entry name="dDuration" title_key="statDuration"/>
+		</item_display_info>
+		<!-- 細胞分裂：阻斷 -->
+		<item_display_info display_type="waterCellDivisionBlocking" display_group="groupConsumables">
+			<display_entry name="dChance" title_key="statCustomCellDivisionBlocking" display_type="Percent"/>
+			<display_entry name="dDuration" title_key="statDuration"/>
+		</item_display_info>
+		<!-- 細胞分裂：血清 -->
+		<item_display_info display_type="waterCellDivisionSerum" display_group="groupConsumables">
+			<display_entry name="dChance" title_key="statCustomCellDivisionSerum" display_type="Percent"/>
+			<display_entry name="dDuration" title_key="statDuration"/>
+		</item_display_info>
+		<!-- 細胞分裂：刺激 -->
+		<item_display_info display_type="waterCellDivisionStimulate" display_group="groupConsumables">
+			<display_entry name="dChance" title_key="statCustomCellDivisionStimulate" display_type="Percent"/>
+			<display_entry name="dDuration" title_key="statDuration"/>
+		</item_display_info>
+		<!-- 細胞分裂：重生 -->
+		<item_display_info display_type="waterCellDivisionRebirth" display_group="groupConsumables">
+			<display_entry name="dChance" title_key="statCustomCellDivisionRebirth" display_type="Percent"/>
+			<display_entry name="dDuration" title_key="statDuration"/>
+		</item_display_info>
+		<!-- 細胞分裂：沸騰 -->
+		<item_display_info display_type="waterCellDivisionBoiling" display_group="groupConsumables">
+			<display_entry name="dChance" title_key="statCustomCellDivisionBoiling" display_type="Percent"/>
+			<display_entry name="dDuration" title_key="statDuration"/>
+		</item_display_info>
+		<!-- 細胞分裂：意志 -->
+		<item_display_info display_type="waterCellDivisionDetermination" display_group="groupConsumables">
+			<display_entry name="dChance" title_key="statCustomCellDivisionDetermination" display_type="Percent"/>
+			<display_entry name="dDuration" title_key="statDuration"/>
+		</item_display_info>
+		<!-- 經驗值書 -->
+		<item_display_info display_type="bookEXP" display_group="groupConsumables">
+			<display_entry name="dExp" title_key="statCustomEXP" display_leading_plus="true"/>
+		</item_display_info>
+		<!-- 元素石頭炸彈 -->
+		<item_display_info display_type="ammoElementExplosionStone" display_group="groupAmmo">
+			<display_entry name="dExDamageEntity" title_key="statEntityDamageExplosion"/>
+			<display_entry name="dExDamageBlock" title_key="statBlockDamage"/>
+			<display_entry name="dExRadius" title_key="statExRadius"/>
+			<display_entry name="dExplodeOnTouch" title_key="statCustomExplodeOnTouch" display_type="Bool"/>
+			<display_entry name="EntityDamage" title_key="statCustomEntityDamageTotal"/>
+		</item_display_info>
+		<!-- 燃燒模組 -->
+		<item_display_info display_type="modBurnDevice" display_group="groupAttire">
+			<display_entry name="dElementEffectBurning" title_key="statCustomElementEffectBurning" display_type="Percent"/>
+			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
+		</item_display_info>
+		<!-- 電擊模組 -->
+		<item_display_info display_type="modElectricShockDevice" display_group="groupAttire">
+			<display_entry name="dElementEffectElectric" title_key="statCustomElementEffectElectric" display_type="Percent"/>
+			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
+		</item_display_info>
+		<!-- 放血模組 -->
+		<item_display_info display_type="modBloodlettingDevice" display_group="groupAttire">
+			<display_entry name="dElementEffectBloodletting" title_key="statCustomElementEffectBloodletting" display_type="Percent"/>
+			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
+		</item_display_info>
+		<!-- 麻醉模組 -->
+		<item_display_info display_type="modAnesthesiaDevice" display_group="groupAttire">
+			<display_entry name="dElementEffectNarcosis" title_key="statCustomElementEffectNarcosis" display_type="Percent"/>
+			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
+		</item_display_info>
+		<!-- 霜咬模組 -->
+		<item_display_info display_type="modFrostBiteDevice" display_group="groupAttire">
+			<display_entry name="dElementEffectIceBite" title_key="statCustomElementEffectIceBite" display_type="Percent"/>
+			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
+		</item_display_info>
+		<!-- 崩分離析模組 -->
+		<item_display_info display_type="modDisintegrationDevice" display_group="groupAttire">
+			<display_entry name="DismemberChance" title_key="statCustomDismemberChance" display_type="Percent"/>
+		</item_display_info>
+		<!-- 吸血模組 -->
+		<item_display_info display_type="modVampireDevice" display_group="groupAttire">
+			<display_entry name="dBleedingToHealthSteal" title_key="statCustomBleedingToHealthSteal" display_type="Percent" display_leading_plus="true"/>
+			<display_entry name="dNightToHealthSteal" title_key="statCustomNightToHealthSteal" display_type="Percent" display_leading_plus="true"/>
+			<display_entry name="dNightNoiseMultiplier" title_key="statCustomNightNoiseMultiplier" display_type="Percent" display_leading_plus="true"/>
+		</item_display_info>
+		<!-- 赫克裝甲-->
+		<item_display_info display_type="modArmorHeck" display_group="modAttire">
+			<display_entry name="PhysicalDamageResist" title_key="statPhysicalDamageResist" display_leading_plus="true"/>
+			<display_entry name="dStaminaMax" title_key="statCustomStaminaMax" display_type="Percent" display_leading_plus="true"/>
+		</item_display_info>
+		<!-- 超動能驅動器 -->
+		<item_display_info display_type="superKineticEnergyShoes" display_group="groupAttire" >
+			<display_entry name="dRunSpeed" title_key="statRunSpeed" display_type="Percent" display_leading_plus="true"/>
+			<display_entry name="dStaminaMax" title_key="statCustomStaminaMax" display_type="Percent" display_leading_plus="true"/>
+		</item_display_info>
+		<!-- 電擊槍 -->
+		<item_display_info display_type="gunHandgunStunGun" display_group="groupRanged">
+			<display_entry name="dElectricDamage" title_key="statCustomHighElectricVoltage"/>
+			<display_entry name="MagazineSize" title_key="statMagazineSize"/>
+			<display_entry name="RoundsPerMinute" title_key="statRoundsPerMinute"/>
+			<display_entry name="DamageFalloffRange" title_key="statDamageFalloffRange"/>
+			<display_entry name="DegradationMax" title_key="statDegradationMax"/>
+		</item_display_info>
+		<!-- 合金刀片 -->
+		<item_display_info display_type="modAlloyBlade" display_group="modAttire">
+			<display_entry name="EntityDamage" title_key="statEntityDamageMelee" display_leading_plus="true"/>
+		</item_display_info>
+		<!-- 萬用扳手 -->
+		<item_display_info display_type="meleeToolSalvageUniversalWrench" display_group="groupMelee">
+			<display_entry name="EntityDamage" title_key="statEntityDamageMelee" tags="perkMiner69r,perkSalvageOperations,admin"/>
+			<display_entry name="dBlockRepairAmount" title_key="statBlockRepairAmount"/>
+			<display_entry name="BlockDamage" title_key="statBlockDamage" tags="perkMiner69r,perkSalvageOperations,admin"/>
+			<display_entry name="StaminaLoss" title_key="statStaminaLoss" negative_preferred="true"/>
+			<display_entry name="AttacksPerMinute" title_key="statAttacksPerMinute" tags="perkMiner69r,perkSalvageOperations,admin"/>
+			<display_entry name="DegradationMax" title_key="statDegradationMax" tags="perkMiner69r,perkSalvageOperations,perkAdvancedEngineering,admin"/>
+		</item_display_info>
+	</append>
+	<!-- 石碑道具 -->
+	<append xpath="/ui_display_info/item_display">
+		<!-- 反噬石碑 -->
+		<item_display_info display_type="modArmorElementAntiphasicDetonate" display_group="modAttire">
+			<display_entry name="dADBurning" title_key="statCustomAntiphasicDetonateBurning" display_type="Percent"/>
+			<display_entry name="dADShock" title_key="statCustomAntiphasicDetonateShock" display_type="Percent"/>
+			<display_entry name="dADBleed" title_key="statCustomAntiphasicDetonateBleed" display_type="Percent"/>
+			<display_entry name="dADNarcosis" title_key="statCustomAntiphasicDetonateNarcosis" display_type="Percent"/>
+			<display_entry name="dADFrostBite" title_key="statCustomAntiphasicDetonateFrostBite" display_type="Percent"/>
+		</item_display_info>
+		<!-- 五屬性石碑 -->
+		<item_display_info display_type="modArmorAttributeLevel" display_group="modAttire">
+			<display_entry name="AttributeLevel" title_key="statCustomAttributeLevelPerception" display_leading_plus="true" tags="attPerception"/>
+			<display_entry name="AttributeLevel" title_key="statCustomAttributeLevelStrength" display_leading_plus="true" tags="attStrength"/>
+			<display_entry name="AttributeLevel" title_key="statCustomAttributeLevelFortitude" display_leading_plus="true" tags="attFortitude"/>
+			<display_entry name="AttributeLevel" title_key="statCustomAttributeLevelAgility" display_leading_plus="true" tags="attAgility"/>
+			<display_entry name="AttributeLevel" title_key="statCustomAttributeLevelIntellect" display_leading_plus="true" tags="attIntellect"/>
+		</item_display_info>
+		<!-- 經驗提升石碑 -->
+		<item_display_info display_type="modArmorExperienceUpStele" display_group="modAttire">
+			<display_entry name="dExpGain" title_key="statShowPlayerExpGain" display_type="Percent" display_leading_plus="true"/>
+		</item_display_info>
+	</append>
+</configs>

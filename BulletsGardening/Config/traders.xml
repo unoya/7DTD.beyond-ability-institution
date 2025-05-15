@@ -1,0 +1,36 @@
+<configs>
+	<insertBefore xpath="/traders/trader_item_groups/trader_item_group[@name='modMeleeT1']">
+		<!-- 子彈種子藍圖 -->
+		<trader_item_group name="BulletSeedlingSchematic" count="3">
+			<item name="planted9mmBulletSeedlingSchematic" count="1"/>
+			<item name="planted44BulletSeedlingSchematic" count="1"/>
+			<item name="planted762BulletSeedlingSchematic" count="1"/>
+			<item name="plantedShotgunShellBulletSeedlingSchematic" count="1"/>
+			<item name="plantedShotgunSlugBulletSeedlingSchematic" count="1"/>
+			<item name="plantedShotgunBreachingSlugBulletSeedlingSchematic" count="1"/>
+			<item name="plantedBlunderbussBulletSeedlingSchematic" count="1"/>
+			<item name="plantedJunkTurretRegularBulletSeedlingSchematic" count="1"/>
+			<item name="plantedRocketHEBulletSeedlingSchematic" count="1"/>
+			<item name="plantedRocketFragBulletSeedlingSchematic" count="1"/>
+			<item name="plantedArrowIronBulletSeedlingSchematic" count="1"/>
+			<item name="plantedArrowSteelAPBulletSeedlingSchematic" count="1"/>
+			<item name="plantedArrowFlamingBulletSeedlingSchematic" count="1"/>
+			<item name="plantedArrowExplodingBulletSeedlingSchematic" count="1"/>
+			<item name="plantedCrossbowBoltIronBulletSeedlingSchematic" count="1"/>
+			<item name="plantedCrossbowBoltSteelAPBulletSeedlingSchematic" count="1"/>
+			<item name="plantedCrossbowBoltFlamingBulletSeedlingSchematic" count="1"/>
+			<item name="plantedCrossbowBoltExplodingBulletSeedlingSchematic" count="1"/>
+			<item name="plantedPipeBombSeedlingSchematic" count="1"/>
+			<item name="plantedDynamiteBombSeedlingSchematic" count="1"/>
+			<item name="plantedGrenadeSeedlingSchematic" count="1"/>
+			<item name="plantedGrenadeContactSeedlingSchematic" count="1"/>
+			<item name="plantedTimedChargeSeedlingSchematic" count="1"/>
+			<item name="plantedMolotovCocktailSeedlingSchematic" count="1"/>
+			<item name="plantedMineHubcapSeedlingSchematic" count="1"/>
+		</trader_item_group>
+	</insertBefore>
+	<!-- 增加子彈種子藍圖到共通書籍群組 (A19) -->
+	<append xpath="/traders/trader_item_groups/trader_item_group[@name='commonBooks']">
+		<item group="BulletSeedlingSchematic" prob="20"/>
+	</append>
+</configs>

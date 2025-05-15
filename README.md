@@ -4,7 +4,7 @@
 
 # 超能機構 (Beyond Ability Institution)
 
-目前版本：18.4
+目前最新版本：19.5
 
 - BEABIN
   - 主模組，一定要安裝。
@@ -28,5 +28,9 @@
 - ItemStack
   - 附加模組，可選擇性安裝。
   - 用途：道具堆疊量３萬。
+
+- BulletsGardening
+  - 附加模組，可選擇性安裝。
+  - 用途：子彈用種植植物的方式來產生，子彈植物熟成後收割可得到數量不等的子彈。
 
 詳細資料請參閱 - [資料庫](https://github.com/unoya/7DTD.beyond-ability-institution/wiki)

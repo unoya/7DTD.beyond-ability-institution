@@ -20,6 +20,7 @@
 			<entity name="zombieFarmer" prob="0.3"/>
 			<entity name="zombieStripper" prob="0.3"/>
 			<entity name="zombieUtilityWorker" prob="0.3"/>
+			<entity name="zombieJanitor" prob="0.2"/>
 			<entity name="zombieNurse" prob="0.3"/>
 			<entity name="zombieSteveCrawler"/>
 			<entity name="zombieFatHawaiian" prob="0.3"/>
@@ -653,7 +654,7 @@
 		<entitygroup name="ZombiesElementSnow">
 			<!-- 內建殭屍的配置 -->
 			<entity name="zombieSnow" prob="1"/>
-			<!-- 水元素型殭屍 -->
+			<!-- 元素型殭屍 -->
 			<entity name="zombieSnowElementFlame" prob="0.5"/>
 			<entity name="zombieSnowElementElectric" prob="0.5"/>
 			<entity name="zombieSnowElementPoison" prob="0.5"/>
@@ -664,9 +665,46 @@
 		</entitygroup>
 	</append>
 	<!-- 尖叫貞子 -->
+	<!--
 	<append xpath="/entitygroups/entitygroup[@name='ZombieScouts']">
 		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
 	</append>
+		-->
 	<!-- 狼王BOSS群組 -->
 	<append xpath="/entitygroups/entitygroup[@name='EnemyAnimalsSnow']">
 		<entity name="animalWolfElementFlameBoss" prob="0.01"/>
@@ -694,6 +732,13 @@
 		<entity name="animalWolfElementDarkBoss" prob="0.01"/>
 		<entity name="animalWolfElementColdBoss" prob="0.01"/>
 		<entity name="animalWolfElementCurseDeclineBoss" prob="0.01"/>
+	</append>
+	<!-- 巨大化熊BOSS -->
+	<append xpath="/entitygroups/entitygroup[@name='EnemyAnimalsSnow']">
+		<entity name="animalBearBossGigantic" prob="0.01"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='EnemyAnimalsForest']">
+		<entity name="animalBearBossGigantic" prob="0.01"/>
 	</append>
 	<!-- 兇猛型殭屍群組 -->
 	<append xpath="/entitygroups/entitygroup[@name='ZombiesFeral']">
@@ -883,6 +928,20 @@
 		<entity name="zombieSteveCurseDeclineLeader"/>
 		<entity name="zombieUtilityWorkerCurseDeclineLeader"/>
 		<entity name="zombieYoCurseDeclineLeader"/>
+		<entity name="zombieJanitorElementFlame"/>
+		<entity name="zombieJanitorElementFlameLeader"/>
+		<entity name="zombieJanitorElementElectric"/>
+		<entity name="zombieJanitorElementElectricLeader"/>
+		<entity name="zombieJanitorElementPoison"/>
+		<entity name="zombieJanitorElementPoisonLeader"/>
+		<entity name="zombieJanitorElementNarcosis"/>
+		<entity name="zombieJanitorElementNarcosisLeader"/>
+		<entity name="zombieJanitorElementDark"/>
+		<entity name="zombieJanitorElementDarkLeader"/>
+		<entity name="zombieJanitorElementCold"/>
+		<entity name="zombieJanitorElementColdLeader"/>
+		<entity name="zombieJanitorCurseDecline"/>
+		<entity name="zombieJanitorCurseDeclineLeader"/>		
 		
 		<entity name="zombieFatCopElementFlameBoss"/>
 		<entity name="zombieFatCopElementElectricBoss"/>
@@ -925,22 +984,6 @@
 		<entity name="zombieMaleHazmatElementDarkBoss"/>
 	</append>
 	<!-- 商人殭屍群組 -->
-	<append xpath="/entitygroups/entitygroup[@name='zombieBusinessManGroupGS50']">
-		<entity name="zombieBusinessManElementFlame" prob="0.43"/>
-		<entity name="zombieBusinessManElementFlameLeader" prob="0.1"/>
-		<entity name="zombieBusinessManElementElectric" prob="0.43"/>
-		<entity name="zombieBusinessManElementElectricLeader" prob="0.1"/>
-		<entity name="zombieBusinessManElementPoison" prob="0.43"/>
-		<entity name="zombieBusinessManElementPoisonLeader" prob="0.1"/>
-		<entity name="zombieBusinessManElementNarcosis" prob="0.43"/>
-		<entity name="zombieBusinessManElementNarcosisLeader" prob="0.1"/>
-		<entity name="zombieBusinessManElementDark" prob="0.43"/>
-		<entity name="zombieBusinessManElementDarkLeader" prob="0.1"/>
-		<entity name="zombieBusinessManElementCold" prob="0.43"/>
-		<entity name="zombieBusinessManElementColdLeader" prob="0.1"/>
-		<entity name="zombieBusinessManCurseDecline" prob="0.43"/>
-		<entity name="zombieBusinessManCurseDeclineLeader" prob="0.1"/>
-	</append>
 	<append xpath="/entitygroups/entitygroup[@name='zombieBusinessManGroupGS100']">
 		<entity name="zombieBusinessManElementFlame" prob="0.35"/>
 		<entity name="zombieBusinessManElementFlameLeader" prob="0.2"/>
@@ -1006,22 +1049,6 @@
 		<entity name="zombieBusinessManCurseDeclineLeader" prob="0.5"/>
 	</append>
 	<!-- 農夫殭屍群組 -->
-	<append xpath="/entitygroups/entitygroup[@name='zombieFarmerGroupGS50']">
-		<entity name="zombieFarmerElementFlame" prob="0.43"/>
-		<entity name="zombieFarmerElementFlameLeader" prob="0.1"/>
-		<entity name="zombieFarmerElementElectric" prob="0.43"/>
-		<entity name="zombieFarmerElementElectricLeader" prob="0.1"/>
-		<entity name="zombieFarmerElementPoison" prob="0.43"/>
-		<entity name="zombieFarmerElementPoisonLeader" prob="0.1"/>
-		<entity name="zombieFarmerElementNarcosis" prob="0.43"/>
-		<entity name="zombieFarmerElementNarcosisLeader" prob="0.1"/>
-		<entity name="zombieFarmerElementDark" prob="0.43"/>
-		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
-		<entity name="zombieFarmerElementCold" prob="0.43"/>
-		<entity name="zombieFarmerElementColdLeader" prob="0.1"/>
-		<entity name="zombieFarmerCurseDecline" prob="0.43"/>
-		<entity name="zombieFarmerCurseDeclineLeader" prob="0.1"/>
-	</append>
 	<append xpath="/entitygroups/entitygroup[@name='zombieFarmerGroupGS100']">
 		<entity name="zombieFarmerElementFlame" prob="0.35"/>
 		<entity name="zombieFarmerElementFlameLeader" prob="0.2"/>
@@ -1087,23 +1114,6 @@
 		<entity name="zombieFarmerCurseDeclineLeader" prob="0.5"/>
 	</append>
 	<!-- 軍人殭屍群組 -->
-	<append xpath="/entitygroups/entitygroup[@name='zombieSoldierGroupGS50']">
-		<entity name="zombieSoldierElementFlame" prob="0.43"/>
-		<entity name="zombieSoldierElementFlameLeader" prob="0.1"/>
-		<entity name="zombieSoldierElementElectric" prob="0.43"/>
-		<entity name="zombieSoldierElementElectricLeader" prob="0.1"/>
-		<entity name="zombieSoldierElementPoison" prob="0.43"/>
-		<entity name="zombieSoldierElementPoisonLeader" prob="0.1"/>
-		<entity name="zombieSoldierElementNarcosis" prob="0.43"/>
-		<entity name="zombieSoldierElementNarcosisLeader" prob="0.1"/>
-		<entity name="zombieSoldierElementDark" prob="0.43"/>
-		<entity name="zombieSoldierElementDarkLeader" prob="0.1"/>
-		<entity name="zombieSoldierElementCold" prob="0.43"/>
-		<entity name="zombieSoldierElementColdLeader" prob="0.1"/>
-		<entity name="zombieSoldierCurseDecline" prob="0.43"/>
-		<entity name="zombieSoldierCurseDeclineLeader" prob="0.1"/>
-		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.25"/>
-	</append>
 	<append xpath="/entitygroups/entitygroup[@name='zombieSoldierGroupGS100']">
 		<entity name="zombieSoldierElementFlame" prob="0.35"/>
 		<entity name="zombieSoldierElementFlameLeader" prob="0.2"/>
@@ -1177,22 +1187,6 @@
 		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
 	</append>
 	<!-- 工人殭屍群組 -->
-	<append xpath="/entitygroups/entitygroup[@name='zombieUtilityWorkerGroupGS50']">
-		<entity name="zombieUtilityWorkerElementFlame" prob="0.43"/>
-		<entity name="zombieUtilityWorkerElementFlameLeader" prob="0.1"/>
-		<entity name="zombieUtilityWorkerElementElectric" prob="0.43"/>
-		<entity name="zombieUtilityWorkerElementElectricLeader" prob="0.1"/>
-		<entity name="zombieUtilityWorkerElementPoison" prob="0.43"/>
-		<entity name="zombieUtilityWorkerElementPoisonLeader" prob="0.1"/>
-		<entity name="zombieUtilityWorkerElementNarcosis" prob="0.43"/>
-		<entity name="zombieUtilityWorkerElementNarcosisLeader" prob="0.1"/>
-		<entity name="zombieUtilityWorkerElementDark" prob="0.43"/>
-		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
-		<entity name="zombieUtilityWorkerElementCold" prob="0.43"/>
-		<entity name="zombieUtilityWorkerElementColdLeader" prob="0.1"/>
-		<entity name="zombieUtilityWorkerCurseDecline" prob="0.43"/>
-		<entity name="zombieUtilityWorkerCurseDeclineLeader" prob="0.1"/>
-	</append>
 	<append xpath="/entitygroups/entitygroup[@name='zombieUtilityWorkerGroupGS100']">
 		<entity name="zombieUtilityWorkerElementFlame" prob="0.35"/>
 		<entity name="zombieUtilityWorkerElementFlameLeader" prob="0.2"/>
@@ -1208,6 +1202,20 @@
 		<entity name="zombieUtilityWorkerElementColdLeader" prob="0.2"/>
 		<entity name="zombieUtilityWorkerCurseDecline" prob="0.35"/>
 		<entity name="zombieUtilityWorkerCurseDeclineLeader" prob="0.2"/>
+		<entity name="zombieJanitorElementFlame" prob="0.35"/>
+		<entity name="zombieJanitorElementFlameLeader" prob="0.2"/>
+		<entity name="zombieJanitorElementElectric" prob="0.35"/>
+		<entity name="zombieJanitorElementElectricLeader" prob="0.2"/>
+		<entity name="zombieJanitorElementPoison" prob="0.35"/>
+		<entity name="zombieJanitorElementPoisonLeader" prob="0.2"/>
+		<entity name="zombieJanitorElementNarcosis" prob="0.35"/>
+		<entity name="zombieJanitorElementNarcosisLeader" prob="0.2"/>
+		<entity name="zombieJanitorElementDark" prob="0.35"/>
+		<entity name="zombieJanitorElementDarkLeader" prob="0.2"/>
+		<entity name="zombieJanitorElementCold" prob="0.35"/>
+		<entity name="zombieJanitorElementColdLeader" prob="0.2"/>
+		<entity name="zombieJanitorCurseDecline" prob="0.35"/>
+		<entity name="zombieJanitorCurseDeclineLeader" prob="0.2"/>		
 	</append>
 	<append xpath="/entitygroups/entitygroup[@name='zombieUtilityWorkerGroupGS200']">
 		<entity name="zombieUtilityWorkerElementFlame" prob="0.28"/>
@@ -1224,6 +1232,20 @@
 		<entity name="zombieUtilityWorkerElementColdLeader" prob="0.3"/>
 		<entity name="zombieUtilityWorkerCurseDecline" prob="0.28"/>
 		<entity name="zombieUtilityWorkerCurseDeclineLeader" prob="0.3"/>
+		<entity name="zombieJanitorElementFlame" prob="0.28"/>
+		<entity name="zombieJanitorElementFlameLeader" prob="0.3"/>
+		<entity name="zombieJanitorElementElectric" prob="0.28"/>
+		<entity name="zombieJanitorElementElectricLeader" prob="0.3"/>
+		<entity name="zombieJanitorElementPoison" prob="0.28"/>
+		<entity name="zombieJanitorElementPoisonLeader" prob="0.3"/>
+		<entity name="zombieJanitorElementNarcosis" prob="0.28"/>
+		<entity name="zombieJanitorElementNarcosisLeader" prob="0.3"/>
+		<entity name="zombieJanitorElementDark" prob="0.28"/>
+		<entity name="zombieJanitorElementDarkLeader" prob="0.3"/>
+		<entity name="zombieJanitorElementCold" prob="0.28"/>
+		<entity name="zombieJanitorElementColdLeader" prob="0.3"/>
+		<entity name="zombieJanitorCurseDecline" prob="0.28"/>
+		<entity name="zombieJanitorCurseDeclineLeader" prob="0.3"/>
 	</append>
 	<append xpath="/entitygroups/entitygroup[@name='zombieUtilityWorkerGroupGS400']">
 		<entity name="zombieUtilityWorkerElementFlame" prob="0.2"/>
@@ -1240,6 +1262,20 @@
 		<entity name="zombieUtilityWorkerElementColdLeader" prob="0.4"/>
 		<entity name="zombieUtilityWorkerCurseDecline" prob="0.2"/>
 		<entity name="zombieUtilityWorkerCurseDeclineLeader" prob="0.4"/>
+		<entity name="zombieJanitorElementFlame" prob="0.2"/>
+		<entity name="zombieJanitorElementFlameLeader" prob="0.4"/>
+		<entity name="zombieJanitorElementElectric" prob="0.2"/>
+		<entity name="zombieJanitorElementElectricLeader" prob="0.4"/>
+		<entity name="zombieJanitorElementPoison" prob="0.2"/>
+		<entity name="zombieJanitorElementPoisonLeader" prob="0.4"/>
+		<entity name="zombieJanitorElementNarcosis" prob="0.2"/>
+		<entity name="zombieJanitorElementNarcosisLeader" prob="0.4"/>
+		<entity name="zombieJanitorElementDark" prob="0.2"/>
+		<entity name="zombieJanitorElementDarkLeader" prob="0.4"/>
+		<entity name="zombieJanitorElementCold" prob="0.2"/>
+		<entity name="zombieJanitorElementColdLeader" prob="0.4"/>
+		<entity name="zombieJanitorCurseDecline" prob="0.2"/>
+		<entity name="zombieJanitorCurseDeclineLeader" prob="0.4"/>
 	</append>
 	<append xpath="/entitygroups/entitygroup[@name='zombieUtilityWorkerGroupGS800']">
 		<entity name="zombieUtilityWorkerElementFlame" prob="0.13"/>
@@ -1256,24 +1292,87 @@
 		<entity name="zombieUtilityWorkerElementColdLeader" prob="0.5"/>
 		<entity name="zombieUtilityWorkerCurseDecline" prob="0.13"/>
 		<entity name="zombieUtilityWorkerCurseDeclineLeader" prob="0.5"/>
+		<entity name="zombieJanitorElementFlame" prob="0.13"/>
+		<entity name="zombieJanitorElementFlameLeader" prob="0.5"/>
+		<entity name="zombieJanitorElementElectric" prob="0.13"/>
+		<entity name="zombieJanitorElementElectricLeader" prob="0.5"/>
+		<entity name="zombieJanitorElementPoison" prob="0.13"/>
+		<entity name="zombieJanitorElementPoisonLeader" prob="0.5"/>
+		<entity name="zombieJanitorElementNarcosis" prob="0.13"/>
+		<entity name="zombieJanitorElementNarcosisLeader" prob="0.5"/>
+		<entity name="zombieJanitorElementDark" prob="0.13"/>
+		<entity name="zombieJanitorElementDarkLeader" prob="0.5"/>
+		<entity name="zombieJanitorElementCold" prob="0.13"/>
+		<entity name="zombieJanitorElementColdLeader" prob="0.5"/>
+		<entity name="zombieJanitorCurseDecline" prob="0.13"/>
+		<entity name="zombieJanitorCurseDeclineLeader" prob="0.5"/>
+	</append>
+	<!-- 守衛殭屍群組 -->
+	<append xpath="/entitygroups/entitygroup[@name='zombieJanitorGroupGS100']">
+		<entity name="zombieJanitorElementFlame" prob="0.35"/>
+		<entity name="zombieJanitorElementFlameLeader" prob="0.2"/>
+		<entity name="zombieJanitorElementElectric" prob="0.35"/>
+		<entity name="zombieJanitorElementElectricLeader" prob="0.2"/>
+		<entity name="zombieJanitorElementPoison" prob="0.35"/>
+		<entity name="zombieJanitorElementPoisonLeader" prob="0.2"/>
+		<entity name="zombieJanitorElementNarcosis" prob="0.35"/>
+		<entity name="zombieJanitorElementNarcosisLeader" prob="0.2"/>
+		<entity name="zombieJanitorElementDark" prob="0.35"/>
+		<entity name="zombieJanitorElementDarkLeader" prob="0.2"/>
+		<entity name="zombieJanitorElementCold" prob="0.35"/>
+		<entity name="zombieJanitorElementColdLeader" prob="0.2"/>
+		<entity name="zombieJanitorCurseDecline" prob="0.35"/>
+		<entity name="zombieJanitorCurseDeclineLeader" prob="0.2"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='zombieJanitorGroupGS200']">
+		<entity name="zombieJanitorElementFlame" prob="0.28"/>
+		<entity name="zombieJanitorElementFlameLeader" prob="0.3"/>
+		<entity name="zombieJanitorElementElectric" prob="0.28"/>
+		<entity name="zombieJanitorElementElectricLeader" prob="0.3"/>
+		<entity name="zombieJanitorElementPoison" prob="0.28"/>
+		<entity name="zombieJanitorElementPoisonLeader" prob="0.3"/>
+		<entity name="zombieJanitorElementNarcosis" prob="0.28"/>
+		<entity name="zombieJanitorElementNarcosisLeader" prob="0.3"/>
+		<entity name="zombieJanitorElementDark" prob="0.28"/>
+		<entity name="zombieJanitorElementDarkLeader" prob="0.3"/>
+		<entity name="zombieJanitorElementCold" prob="0.28"/>
+		<entity name="zombieJanitorElementColdLeader" prob="0.3"/>
+		<entity name="zombieJanitorCurseDecline" prob="0.28"/>
+		<entity name="zombieJanitorCurseDeclineLeader" prob="0.3"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='zombieJanitorGroupGS400']">
+		<entity name="zombieJanitorElementFlame" prob="0.2"/>
+		<entity name="zombieJanitorElementFlameLeader" prob="0.4"/>
+		<entity name="zombieJanitorElementElectric" prob="0.2"/>
+		<entity name="zombieJanitorElementElectricLeader" prob="0.4"/>
+		<entity name="zombieJanitorElementPoison" prob="0.2"/>
+		<entity name="zombieJanitorElementPoisonLeader" prob="0.4"/>
+		<entity name="zombieJanitorElementNarcosis" prob="0.2"/>
+		<entity name="zombieJanitorElementNarcosisLeader" prob="0.4"/>
+		<entity name="zombieJanitorElementDark" prob="0.2"/>
+		<entity name="zombieJanitorElementDarkLeader" prob="0.4"/>
+		<entity name="zombieJanitorElementCold" prob="0.2"/>
+		<entity name="zombieJanitorElementColdLeader" prob="0.4"/>
+		<entity name="zombieJanitorCurseDecline" prob="0.2"/>
+		<entity name="zombieJanitorCurseDeclineLeader" prob="0.4"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='zombieJanitorGroupGS800']">
+		<entity name="zombieJanitorElementFlame" prob="0.13"/>
+		<entity name="zombieJanitorElementFlameLeader" prob="0.5"/>
+		<entity name="zombieJanitorElementElectric" prob="0.13"/>
+		<entity name="zombieJanitorElementElectricLeader" prob="0.5"/>
+		<entity name="zombieJanitorElementPoison" prob="0.13"/>
+		<entity name="zombieJanitorElementPoisonLeader" prob="0.5"/>
+		<entity name="zombieJanitorElementNarcosis" prob="0.13"/>
+		<entity name="zombieJanitorElementNarcosisLeader" prob="0.5"/>
+		<entity name="zombieJanitorElementDark" prob="0.13"/>
+		<entity name="zombieJanitorElementDarkLeader" prob="0.5"/>
+		<entity name="zombieJanitorElementCold" prob="0.13"/>
+		<entity name="zombieJanitorElementColdLeader" prob="0.5"/>
+		<entity name="zombieJanitorCurseDecline" prob="0.13"/>
+		<entity name="zombieJanitorCurseDeclineLeader" prob="0.5"/>
 	</append>
 	<!-- 牛仔殭屍群組 -->
-	<append xpath="/entitygroups/entitygroup[@name='ZombieGhostTownGroupGS50']">
-		<entity name="zombieOldTimerElementFlame" prob="1.28"/>
-		<entity name="zombieOldTimerElementFlameLeader" prob="0.15"/>
-		<entity name="zombieOldTimerElementElectric" prob="1.28"/>
-		<entity name="zombieOldTimerElementElectricLeader" prob="0.15"/>
-		<entity name="zombieOldTimerElementPoison" prob="1.28"/>
-		<entity name="zombieOldTimerElementPoisonLeader" prob="0.15"/>
-		<entity name="zombieOldTimerElementNarcosis" prob="1.28"/>
-		<entity name="zombieOldTimerElementNarcosisLeader" prob="0.15"/>
-		<entity name="zombieOldTimerElementDark" prob="1.28"/>
-		<entity name="zombieOldTimerElementDarkLeader" prob="0.15"/>
-		<entity name="zombieOldTimerElementCold" prob="1.28"/>
-		<entity name="zombieOldTimerElementColdLeader" prob="0.15"/>
-		<entity name="zombieOldTimerCurseDecline" prob="1.28"/>
-		<entity name="zombieOldTimerCurseDeclineLeader" prob="0.15"/>
-	</append>
 	<append xpath="/entitygroups/entitygroup[@name='ZombieGhostTownGroupGS100']">
 		<entity name="zombieOldTimerElementFlame" prob="1.05"/>
 		<entity name="zombieOldTimerElementFlameLeader" prob="0.3"/>
@@ -1339,23 +1438,6 @@
 		<entity name="zombieOldTimerCurseDeclineLeader" prob="0.75"/>
 	</append>
 	<!-- 護士殭屍群組 -->
-	<append xpath="/entitygroups/entitygroup[@name='zombieHospitalGroupGS50']">
-		<entity name="zombieNurseElementFlame" prob="1.06"/>
-		<entity name="zombieNurseElementFlameLeader" prob="0.13"/>
-		<entity name="zombieNurseElementElectric" prob="1.06"/>
-		<entity name="zombieNurseElementElectricLeader" prob="0.13"/>
-		<entity name="zombieNurseElementPoison" prob="1.06"/>
-		<entity name="zombieNurseElementPoisonLeader" prob="0.13"/>
-		<entity name="zombieNurseElementNarcosis" prob="1.06"/>
-		<entity name="zombieNurseElementNarcosisLeader" prob="0.13"/>
-		<entity name="zombieNurseElementDark" prob="1.06"/>
-		<entity name="zombieNurseElementDarkLeader" prob="0.13"/>
-		<entity name="zombieNurseElementCold" prob="1.06"/>
-		<entity name="zombieNurseElementColdLeader" prob="0.13"/>
-		<entity name="zombieNurseCurseDecline" prob="1.06"/>
-		<entity name="zombieNurseCurseDeclineLeader" prob="0.13"/>
-		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
-	</append>
 	<append xpath="/entitygroups/entitygroup[@name='zombieHospitalGroupGS100']">
 		<entity name="zombieNurseElementFlame" prob="0.88"/>
 		<entity name="zombieNurseElementFlameLeader" prob="0.25"/>
@@ -1425,22 +1507,6 @@
 		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
 	</append>
 	<!-- 車手殭屍群組 -->
-	<append xpath="/entitygroups/entitygroup[@name='ZombieBikerBarGroupGS50']">
-		<entity name="zombieBikerElementFlame" prob="0.43"/>
-		<entity name="zombieBikerElementFlameLeader" prob="0.1"/>
-		<entity name="zombieBikerElementElectric" prob="0.43"/>
-		<entity name="zombieBikerElementElectricLeader" prob="0.1"/>
-		<entity name="zombieBikerElementPoison" prob="0.43"/>
-		<entity name="zombieBikerElementPoisonLeader" prob="0.1"/>
-		<entity name="zombieBikerElementNarcosis" prob="0.43"/>
-		<entity name="zombieBikerElementNarcosisLeader" prob="0.1"/>
-		<entity name="zombieBikerElementDark" prob="0.43"/>
-		<entity name="zombieBikerElementDarkLeader" prob="0.1"/>
-		<entity name="zombieBikerElementCold" prob="0.43"/>
-		<entity name="zombieBikerElementColdLeader" prob="0.1"/>
-		<entity name="zombieBikerCurseDecline" prob="0.43"/>
-		<entity name="zombieBikerCurseDeclineLeader" prob="0.1"/>
-	</append>
 	<append xpath="/entitygroups/entitygroup[@name='ZombieBikerBarGroupGS100']">
 		<entity name="zombieBikerElementFlame" prob="0.35"/>
 		<entity name="zombieBikerElementFlameLeader" prob="0.2"/>
@@ -1456,6 +1522,20 @@
 		<entity name="zombieBikerElementColdLeader" prob="0.2"/>
 		<entity name="zombieBikerCurseDecline" prob="0.35"/>
 		<entity name="zombieBikerCurseDeclineLeader" prob="0.2"/>
+		<entity name="zombieJanitorElementFlame" prob="0.35"/>
+		<entity name="zombieJanitorElementFlameLeader" prob="0.2"/>
+		<entity name="zombieJanitorElementElectric" prob="0.35"/>
+		<entity name="zombieJanitorElementElectricLeader" prob="0.2"/>
+		<entity name="zombieJanitorElementPoison" prob="0.35"/>
+		<entity name="zombieJanitorElementPoisonLeader" prob="0.2"/>
+		<entity name="zombieJanitorElementNarcosis" prob="0.35"/>
+		<entity name="zombieJanitorElementNarcosisLeader" prob="0.2"/>
+		<entity name="zombieJanitorElementDark" prob="0.35"/>
+		<entity name="zombieJanitorElementDarkLeader" prob="0.2"/>
+		<entity name="zombieJanitorElementCold" prob="0.35"/>
+		<entity name="zombieJanitorElementColdLeader" prob="0.2"/>
+		<entity name="zombieJanitorCurseDecline" prob="0.35"/>
+		<entity name="zombieJanitorCurseDeclineLeader" prob="0.2"/>
 	</append>
 	<append xpath="/entitygroups/entitygroup[@name='ZombieBikerBarGroupGS200']">
 		<entity name="zombieBikerElementFlame" prob="0.28"/>
@@ -1472,6 +1552,20 @@
 		<entity name="zombieBikerElementColdLeader" prob="0.3"/>
 		<entity name="zombieBikerCurseDecline" prob="0.28"/>
 		<entity name="zombieBikerCurseDeclineLeader" prob="0.3"/>
+		<entity name="zombieJanitorElementFlame" prob="0.28"/>
+		<entity name="zombieJanitorElementFlameLeader" prob="0.3"/>
+		<entity name="zombieJanitorElementElectric" prob="0.28"/>
+		<entity name="zombieJanitorElementElectricLeader" prob="0.3"/>
+		<entity name="zombieJanitorElementPoison" prob="0.28"/>
+		<entity name="zombieJanitorElementPoisonLeader" prob="0.3"/>
+		<entity name="zombieJanitorElementNarcosis" prob="0.28"/>
+		<entity name="zombieJanitorElementNarcosisLeader" prob="0.3"/>
+		<entity name="zombieJanitorElementDark" prob="0.28"/>
+		<entity name="zombieJanitorElementDarkLeader" prob="0.3"/>
+		<entity name="zombieJanitorElementCold" prob="0.28"/>
+		<entity name="zombieJanitorElementColdLeader" prob="0.3"/>
+		<entity name="zombieJanitorCurseDecline" prob="0.28"/>
+		<entity name="zombieJanitorCurseDeclineLeader" prob="0.3"/>
 	</append>
 	<append xpath="/entitygroups/entitygroup[@name='ZombieBikerBarGroupGS400']">
 		<entity name="zombieBikerElementFlame" prob="0.2"/>
@@ -1488,6 +1582,20 @@
 		<entity name="zombieBikerElementColdLeader" prob="0.4"/>
 		<entity name="zombieBikerCurseDecline" prob="0.2"/>
 		<entity name="zombieBikerCurseDeclineLeader" prob="0.4"/>
+		<entity name="zombieJanitorElementFlame" prob="0.2"/>
+		<entity name="zombieJanitorElementFlameLeader" prob="0.4"/>
+		<entity name="zombieJanitorElementElectric" prob="0.2"/>
+		<entity name="zombieJanitorElementElectricLeader" prob="0.4"/>
+		<entity name="zombieJanitorElementPoison" prob="0.2"/>
+		<entity name="zombieJanitorElementPoisonLeader" prob="0.4"/>
+		<entity name="zombieJanitorElementNarcosis" prob="0.2"/>
+		<entity name="zombieJanitorElementNarcosisLeader" prob="0.4"/>
+		<entity name="zombieJanitorElementDark" prob="0.2"/>
+		<entity name="zombieJanitorElementDarkLeader" prob="0.4"/>
+		<entity name="zombieJanitorElementCold" prob="0.2"/>
+		<entity name="zombieJanitorElementColdLeader" prob="0.4"/>
+		<entity name="zombieJanitorCurseDecline" prob="0.2"/>
+		<entity name="zombieJanitorCurseDeclineLeader" prob="0.4"/>
 	</append>
 	<append xpath="/entitygroups/entitygroup[@name='ZombieBikerBarGroupGS800']">
 		<entity name="zombieBikerElementFlame" prob="0.13"/>
@@ -1504,6 +1612,20 @@
 		<entity name="zombieBikerElementColdLeader" prob="0.5"/>
 		<entity name="zombieBikerCurseDecline" prob="0.13"/>
 		<entity name="zombieBikerCurseDeclineLeader" prob="0.5"/>
+		<entity name="zombieJanitorElementFlame" prob="0.13"/>
+		<entity name="zombieJanitorElementFlameLeader" prob="0.5"/>
+		<entity name="zombieJanitorElementElectric" prob="0.13"/>
+		<entity name="zombieJanitorElementElectricLeader" prob="0.5"/>
+		<entity name="zombieJanitorElementPoison" prob="0.13"/>
+		<entity name="zombieJanitorElementPoisonLeader" prob="0.5"/>
+		<entity name="zombieJanitorElementNarcosis" prob="0.13"/>
+		<entity name="zombieJanitorElementNarcosisLeader" prob="0.5"/>
+		<entity name="zombieJanitorElementDark" prob="0.13"/>
+		<entity name="zombieJanitorElementDarkLeader" prob="0.5"/>
+		<entity name="zombieJanitorElementCold" prob="0.13"/>
+		<entity name="zombieJanitorElementColdLeader" prob="0.5"/>
+		<entity name="zombieJanitorCurseDecline" prob="0.13"/>
+		<entity name="zombieJanitorCurseDeclineLeader" prob="0.5"/>
 	</append>
 	<!-- 血月會出現BOSS殭屍的群組 -->
 	<append xpath="/entitygroups/entitygroup[@name='feralHordeStageGS153']">
@@ -4882,5 +5004,2659 @@
 		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
 		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
 		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+
+	<!-- 由貞子呼叫會出現的群組 (scoutHordeStage) -->
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS156']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS181']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS198']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS262']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS322']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS364']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS488']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS500']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS585']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS623']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS675']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS702']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS868']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS1000']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS1015']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS1030']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS1091']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS1122']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS1201']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS1431']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS1516']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS1533']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS1551']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS1586']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS1710']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS1728']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS1746']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS2138']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS2177']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS2236']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS2275']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS2295']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS2374']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS2394']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS2435']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS2536']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS2577']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS2786']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS2870']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS2935']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS2999']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS3086']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS3465']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS3602']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS3625']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS3648']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS3787']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS3929']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS4000']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS4024']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS4387']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS4560']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS4635']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS4710']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS4938']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS5118']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS5248']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS5458']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS5670']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='scoutHordeStageGS5751']">
+		<entity name="zombieMaleHazmatElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementFlameBoss" prob="0.05"/>
+		<entity name="zombieWightElementElectricBoss" prob="0.05"/>
+		<entity name="zombieWightElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieWightElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieWightElementDarkBoss" prob="0.05"/>
+		<entity name="zombieWightElementColdBoss" prob="0.05"/>
+		<entity name="zombieWightElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementFlameBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementElectricBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementDarkBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementColdBoss" prob="0.05"/>
+		<entity name="zombieFatCopElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieBurntElementFlameBoss" prob="0.05"/>
+		<entity name="zombieBurntElementElectricBoss" prob="0.05"/>
+		<entity name="zombieBurntElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieBurntElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieBurntElementDarkBoss" prob="0.05"/>
+		<entity name="zombieBurntElementColdBoss" prob="0.05"/>
+		<entity name="zombieBurntElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementFlameBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementElectricBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementPoisonBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementNarcosisBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementDarkBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementColdBoss" prob="0.05"/>
+		<entity name="zombieDemolitionElementCurseDeclineBoss" prob="0.05"/>
+		<entity name="animalWolfElementFlameBoss" prob="0.05"/>
+		<entity name="animalWolfElementElectricBoss" prob="0.05"/>
+		<entity name="animalWolfElementPoisonBoss" prob="0.05"/>
+		<entity name="animalWolfElementNarcosisBoss" prob="0.05"/>
+		<entity name="animalWolfElementDarkBoss" prob="0.05"/>
+		<entity name="animalWolfElementColdBoss" prob="0.05"/>
+		<entity name="animalWolfElementCurseDeclineBoss" prob="0.05"/>
+	</append>
+
+	<!-- 屍潮群組 (wanderingHordeStage) -->
+	<append xpath="/entitygroups/entitygroup[@name='wanderingHordeStageGS1']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='wanderingHordeStageGS2']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='wanderingHordeStageGS5']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='wanderingHordeStageGS8']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='wanderingHordeStageGS11']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='wanderingHordeStageGS14']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='wanderingHordeStageGS18']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='wanderingHordeStageGS22']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='wanderingHordeStageGS27']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='wanderingHordeStageGS31']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='wanderingHordeStageGS36']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='wanderingHordeStageGS41']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='wanderingHordeStageGS46']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='wanderingHordeStageGS52']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='wanderingHordeStageGS58']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='wanderingHordeStageGS64']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='wanderingHordeStageGS70']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='wanderingHordeStageGS76']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='wanderingHordeStageGS82']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='FwanderingHordeStageGS1']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='FwanderingHordeStageGS2']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='FwanderingHordeStageGS4']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='FwanderingHordeStageGS7']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='FwanderingHordeStageGS10']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='FwanderingHordeStageGS13']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='FwanderingHordeStageGS16']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='FwanderingHordeStageGS19']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='FwanderingHordeStageGS23']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='FwanderingHordeStageGS27']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='FwanderingHordeStageGS31']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='FwanderingHordeStageGS35']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='FwanderingHordeStageGS40']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='FwanderingHordeStageGS44']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='FwanderingHordeStageGS49']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='FwanderingHordeStageGS54']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='FwanderingHordeStageGS59']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='FwanderingHordeStageGS64']">
+		<entity name="zombieNurseElementDark" prob="0.1"/>
+		<entity name="zombieFarmerElementDark" prob="0.1"/>
+		<entity name="zombieLabElementDark" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDark" prob="0.1"/>
+		<entity name="zombieNurseElementDarkLeader" prob="0.1"/>
+		<entity name="zombieFarmerElementDarkLeader" prob="0.1"/>
+		<entity name="zombieLabElementDarkLeader" prob="0.1"/>
+		<entity name="zombieUtilityWorkerElementDarkLeader" prob="0.1"/>
 	</append>
 </configs>

@@ -1,0 +1,304 @@
+<configs>
+	<append xpath="/items">
+		<!-- 9mm子彈種子藍圖 -->
+		<item name="planted9mmBulletSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bullet9mmSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="planted9mmBulletSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="planted9mmBulletSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- .44子彈種子藍圖 -->
+		<item name="planted44BulletSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bullet44MagnumSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="planted44BulletSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="planted44BulletSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 7.62mm子彈種子藍圖 -->
+		<item name="planted762BulletSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bullet762mmSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="planted762BulletSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="planted762BulletSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 散彈子彈種子藍圖 -->
+		<item name="plantedShotgunShellBulletSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bulletShotgunShellSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="plantedShotgunShellBulletSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="plantedShotgunShellBulletSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 散彈子彈(穿甲彈)種子藍圖 -->
+		<item name="plantedShotgunSlugBulletSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bulletShotgunSlugSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="plantedShotgunSlugBulletSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="plantedShotgunSlugBulletSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 散彈子彈(突破彈)種子藍圖 -->
+		<item name="plantedShotgunBreachingSlugBulletSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bulletShotgunBreachingSlugSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="plantedShotgunBreachingSlugBulletSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="plantedShotgunBreachingSlugBulletSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 雷筒子彈種子藍圖 -->
+		<item name="plantedBlunderbussBulletSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bulletBlunderbussSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="plantedBlunderbussBulletSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="plantedBlunderbussBulletSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 機器人大砲常規子彈種子藍圖 -->
+		<item name="plantedJunkTurretRegularBulletSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bulletJunkTurretRegularSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="plantedJunkTurretRegularBulletSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="plantedJunkTurretRegularBulletSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 火箭高爆彈種子藍圖 -->
+		<item name="plantedRocketHEBulletSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bulletRocketHESchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="plantedRocketHEBulletSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="plantedRocketHEBulletSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 火箭破片彈種子藍圖 -->
+		<item name="plantedRocketFragBulletSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bulletRocketFrageSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="plantedRocketFragBulletSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="plantedRocketFragBulletSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 鐵箭種子藍圖 -->
+		<item name="plantedArrowIronBulletSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bulletArrowIronSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="plantedArrowIronBulletSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="plantedArrowIronBulletSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 鋼箭種子藍圖 -->
+		<item name="plantedArrowSteelAPBulletSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bulletArrowSteelAPSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="plantedArrowSteelAPBulletSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="plantedArrowSteelAPBulletSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 火焰箭種子藍圖 -->
+		<item name="plantedArrowFlamingBulletSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bulletArrowFlamingSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="plantedArrowFlamingBulletSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="plantedArrowFlamingBulletSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 爆炸箭種子藍圖 -->
+		<item name="plantedArrowExplodingBulletSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bulletArrowExplodingSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="plantedArrowExplodingBulletSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="plantedArrowExplodingBulletSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 鐵十字弓箭種子藍圖 -->
+		<item name="plantedCrossbowBoltIronBulletSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bulletCrossbowBoltironSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="plantedCrossbowBoltIronBulletSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="plantedCrossbowBoltIronBulletSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 鋼十字弓箭種子藍圖 -->
+		<item name="plantedCrossbowBoltSteelAPBulletSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bulletCrossbowBoltSteelAPSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="plantedCrossbowBoltSteelAPBulletSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="plantedCrossbowBoltSteelAPBulletSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 火焰十字弓箭種子藍圖 -->
+		<item name="plantedCrossbowBoltFlamingBulletSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bulletCrossbowBoltFlamingSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="plantedCrossbowBoltFlamingBulletSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="plantedCrossbowBoltFlamingBulletSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 爆炸十字弓箭種子藍圖 -->
+		<item name="plantedCrossbowBoltExplodingBulletSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bulletCrossbowBoltExplodingSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="plantedCrossbowBoltExplodingBulletSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="plantedCrossbowBoltExplodingBulletSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 管狀炸彈種子藍圖 -->
+		<item name="plantedPipeBombSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bulletPipeBombSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="plantedPipeBombSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="plantedPipeBombSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 柱狀炸藥包種子藍圖 -->
+		<item name="plantedDynamiteBombSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bulletDynamiteSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="plantedDynamiteBombSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="plantedDynamiteBombSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 手榴彈種子藍圖 -->
+		<item name="plantedGrenadeSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bulletGrenadeSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="plantedGrenadeSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="plantedGrenadeSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 觸發手榴彈種子藍圖 -->
+		<item name="plantedGrenadeContactSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bulletGrenadeContactSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="plantedGrenadeContactSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="plantedGrenadeContactSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 定時炸彈種子藍圖 -->
+		<item name="plantedTimedChargeSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bulletTimedChargeSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="plantedTimedChargeSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="plantedTimedChargeSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 汽油彈種子藍圖 -->
+		<item name="plantedMolotovCocktailSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bulletMolotovCocktailSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="plantedMolotovCocktailSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="plantedMolotovCocktailSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+		<!-- 輪穀地雷種子藍圖 -->
+		<item name="plantedMineHubcapSeedlingSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CustomIcon" value="beabin_bulletMineHubcapSchematic" />
+			<property name="DescriptionKey" value="plantedBulletSeedlingSchematicDesc"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Unlocks" value="plantedMineHubcapSeedling"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="plantedMineHubcapSeedling" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="1000"/>
+			</effect_group>
+		</item>
+	</append>
+</configs>

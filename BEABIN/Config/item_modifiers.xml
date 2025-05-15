@@ -1,1119 +1,574 @@
 <configs>
+	<!-- 核心模組系列, 燃燒, 電擊, 放血, 麻醉, 緩速 -->
+	<!--  Tag設定: beabinBurn, beabinShock, beabinBloodletting, beabinAnesthesia, beabinFrostbite -->
 	<append xpath="/item_modifiers">
-		<!--
-		目前己知為gun類的遠程武器如下:
-		gunPistol (pistol,shortRange類)
-		gun44Magnum (revolver,shortRange類)
-		gunSMG5 (shortRange類)
-		gunBlunderbuss (shotgun,shortRange類)
-		gunDoubleBarrelShotgun (shotgun,shortRange類)A18新增
-		gunPumpShotgun (shotgun,shortRange類)
-		gunHuntingRifle
-		gunMR10
-		gunAK47
-		gunTacticalAR (開發模式專屬)A18新增
-		gunM60 A18新增
-		
-		如果以ranged類為主的話, 上述的武器會包括, 也會包含如下的武器:
-		gunRocketLauncher (launcher類)
-		gunWoodenBow (bow類) A18改名為gunBowWooden
-		gunBowPrimitive (bow類)
-		gunCompoundBow (bow類) A18改名為gunBowCompound
-		gunCrossbow (ranged類) A18改名為gunCrossbowIron
-		gunCrossbowCompound (ranged類) A18新增
-		gunJunkTurret (turret類) A18新增
-		
-		近戰武器(meleeWeapon類):
-		meleeBoneShiv A18改名為meleeToolKnifeBone
-		meleeToolHuntingKnife A18改名為meleeToolKnifeIron
-		meleeClubWood
-		meleeClubIron
-		meleeCandyCaneClub A18改名為meleeClubCandy
-		meleeToolMachete A18改名為meleeToolKnifeMachete
-		meleeToolSledgehammer A18改名為meleeToolSledgehammerIron
-		meleeToolSledgehammerStone A18新增
-		meleeToolSledgehammerSteel A18新增
-		meleeClubBaseballBat(球棒) A18新增
-		meleeStunBaton(電擊棒) A18新增
-		meleeKnucklesLeather A18新增
-		meleeKnucklesIron A18新增
-		meleeKnucklesSteel A18新增
-		
-		工具類 (tool類):
-		meleeToolClawHammer
-		meleeToolStoneAxe
-		meleeToolStoneAxeTazas
-		meleeToolPickaxeIron
-		meleeToolPickaxeSteel
-		meleeToolWrench
-		meleeToolShovelStone
-		meleeToolShovelIron
-		meleeToolShovelSteel
-		meleeToolFireaxeIron
-		meleeToolFireaxeSteel
-		meleeToolChainsaw
-		meleeToolAuger
-		gunToolNailgun
-		-->
 		<!-- 燃燒模組 -->
-		<item_modifier name="modBurnDevice" installable_tags="gun,bow,crossbow,meleeWeapon,tool,perkFireElement,perkElementalProliferation01,turret" modifier_tags="hot_damage" type="attachment">
-			<property name="UnlockedBy" value="modBurnDeviceSchematic"/>
+		<item_modifier name="modBurnDevice" installable_tags="beabinBurn" modifier_tags="hot_damage" type="attachment">
+			<property name="DisplayType" value="modBurnDevice"/>
 			<property name="Stacknumber" value="1"/>
 			<property name="CustomIcon" value="beabin_modBurnDevice"/>
-			<property name="EconomicValue" value="100"/>
+			<property name="EconomicValue" value="5000"/>
 			<property name="DescriptionKey" value="modBurnDeviceDesc"/>
 			<property name="Tags" value="heat"/>
 			<property name="Group" value="Mods"/>
-			<effect_group name="noDiffusion" tiered="false">
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal" buff="buffBurningTarget">
-					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="LT" value="1"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffBurningTarget01">
-					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="Equals" value="1"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="3" target_tags="zombie,animal" buff="buffBurningTarget02">
-					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="Equals" value="2"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="4" target_tags="zombie,animal" buff="buffBurningTarget03">
-					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="Equals" value="3"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="5" target_tags="zombie,animal" buff="buffBurningTarget04">
-					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="Equals" value="4"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="5" target_tags="zombie,animal" buff="buffBurningTarget05">
-					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="Equals" value="5"/>
-				</triggered_effect>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectBurning" value="1"/>
+				<display_value name="dDuration" value="5"/>
 			</effect_group>
-			<effect_group name="diffusion" tiered="false">
-				<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="GTE" value="1"/>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal" buff="buffElementBurningSpread">
-					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="LT" value="1"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffElementBurningSpread01">
-					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="Equals" value="1"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="3" target_tags="zombie,animal" buff="buffElementBurningSpread02">
-					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="Equals" value="2"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="4" target_tags="zombie,animal" buff="buffElementBurningSpread03">
-					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="Equals" value="3"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="5" target_tags="zombie,animal" buff="buffElementBurningSpread04">
-					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="Equals" value="4"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="5" target_tags="zombie,animal" buff="buffElementBurningSpread05">
-					<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="Equals" value="5"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation01" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinBurning"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modBurnDeviceII" installable_tags="beabinBurn" modifier_tags="hot_damage" type="attachment">
+			<property name="Extends" value="modBurnDevice"/>
+			<property name="EconomicValue" value="6000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectBurning" value="1"/>
+				<display_value name="dDuration" value="6"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinBurning01"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modBurnDeviceIII" installable_tags="beabinBurn" modifier_tags="hot_damage" type="attachment">
+			<property name="Extends" value="modBurnDevice"/>
+			<property name="EconomicValue" value="7000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectBurning" value="1"/>
+				<display_value name="dDuration" value="7"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinBurning02"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modBurnDeviceIV" installable_tags="beabinBurn" modifier_tags="hot_damage" type="attachment">
+			<property name="Extends" value="modBurnDevice"/>
+			<property name="EconomicValue" value="8000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectBurning" value="1"/>
+				<display_value name="dDuration" value="8"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinBurning03"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modBurnDeviceV" installable_tags="beabinBurn" modifier_tags="hot_damage" type="attachment">
+			<property name="Extends" value="modBurnDevice"/>
+			<property name="EconomicValue" value="9000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectBurning" value="1"/>
+				<display_value name="dDuration" value="10"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinBurning04"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modBurnDeviceVI" installable_tags="beabinBurn" modifier_tags="hot_damage" type="attachment">
+			<property name="Extends" value="modBurnDevice"/>
+			<property name="EconomicValue" value="10000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectBurning" value="1"/>
+				<display_value name="dDuration" value="12"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinBurning05"/>
 			</effect_group>
 		</item_modifier>
 		<!-- 電擊模組 -->
-		<item_modifier name="modElectricShockDevice" installable_tags="gun,bow,crossbow,meleeWeapon,tool,perkElectricElement,perkElementalProliferation02,turret" modifier_tags="electric_damage" type="attachment">
-			<property name="UnlockedBy" value="modElectricShockDeviceSchematic"/>
+		<item_modifier name="modElectricShockDevice" installable_tags="beabinShock" modifier_tags="electric_damage" type="attachment">
+			<property name="DisplayType" value="modElectricShockDevice"/>
 			<property name="Stacknumber" value="1"/>
 			<property name="CustomIcon" value="beabin_modElectricShockDevice"/>
-			<property name="EconomicValue" value="100"/>
+			<property name="EconomicValue" value="5000"/>
 			<property name="DescriptionKey" value="modElectricShockDeviceDesc"/>
 			<property name="Tags" value="electrical"/>
 			<property name="Group" value="Mods"/>
-			<effect_group name="noDiffusion" tiered="false">
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal" buff="buffShockTarget">
-					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="LT" value="1"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffShockTarget01">
-					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="Equals" value="1"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffShockTarget02">
-					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="Equals" value="2"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffShockTarget03">
-					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="Equals" value="3"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="3" target_tags="zombie,animal" buff="buffShockTarget04">
-					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="Equals" value="4"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="5" target_tags="zombie,animal" buff="buffShockTarget05">
-					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="Equals" value="5"/>
-				</triggered_effect>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectElectric" value="1"/>
+				<display_value name="dDuration" value="3"/>
 			</effect_group>
-			<effect_group name="diffusion" tiered="false">
-				<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="GTE" value="1"/>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal" buff="buffElementShockSpread">
-					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="LT" value="1"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffElementShockSpread01">
-					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="Equals" value="1"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffElementShockSpread02">
-					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="Equals" value="2"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffElementShockSpread03">
-					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="Equals" value="3"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="3" target_tags="zombie,animal" buff="buffElementShockSpread04">
-					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="Equals" value="4"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="5" target_tags="zombie,animal" buff="buffElementShockSpread05">
-					<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="Equals" value="5"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation02" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinShock"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modElectricShockDeviceII" installable_tags="beabinShock" modifier_tags="electric_damage" type="attachment">
+			<property name="Extends" value="modElectricShockDevice"/>
+			<property name="EconomicValue" value="6000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectElectric" value="1"/>
+				<display_value name="dDuration" value="4"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinShock01"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modElectricShockDeviceIII" installable_tags="beabinShock" modifier_tags="electric_damage" type="attachment">
+			<property name="Extends" value="modElectricShockDevice"/>
+			<property name="EconomicValue" value="7000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectElectric" value="1"/>
+				<display_value name="dDuration" value="5"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinShock02"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modElectricShockDeviceIV" installable_tags="beabinShock" modifier_tags="electric_damage" type="attachment">
+			<property name="Extends" value="modElectricShockDevice"/>
+			<property name="EconomicValue" value="8000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectElectric" value="1"/>
+				<display_value name="dDuration" value="6"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinShock03"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modElectricShockDeviceV" installable_tags="beabinShock" modifier_tags="electric_damage" type="attachment">
+			<property name="Extends" value="modElectricShockDevice"/>
+			<property name="EconomicValue" value="9000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectElectric" value="1"/>
+				<display_value name="dDuration" value="8"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinShock04"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modElectricShockDeviceVI" installable_tags="beabinShock" modifier_tags="electric_damage" type="attachment">
+			<property name="Extends" value="modElectricShockDevice"/>
+			<property name="EconomicValue" value="10000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectElectric" value="1"/>
+				<display_value name="dDuration" value="10"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinShock05"/>
 			</effect_group>
 		</item_modifier>
 		<!-- 放血模組 -->
-		<item_modifier name="modBloodlettingDevice" installable_tags="gun,bow,crossbow,meleeWeapon,tool,perkTrauma,perkElementalProliferation03,turret" modifier_tags="bloodloss_damage" type="attachment">
-			<property name="UnlockedBy" value="modBloodlettingDeviceSchematic"/>
+		<item_modifier name="modBloodlettingDevice" installable_tags="beabinBloodletting" modifier_tags="bloodloss_damage" type="attachment">
+			<property name="DisplayType" value="modBloodlettingDevice"/>
 			<property name="Stacknumber" value="1"/>
 			<property name="CustomIcon" value="beabin_modBloodlettingDevice"/>
-			<property name="EconomicValue" value="100"/>
+			<property name="EconomicValue" value="5000"/>
 			<property name="DescriptionKey" value="modBloodlettingDeviceDesc"/>
 			<property name="Group" value="Mods"/>
-			<effect_group name="noDiffusion" tiered="false">
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal" buff="buffBloodEffect">
-					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="LT" value="1"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffBloodEffect01">
-					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="Equals" value="1"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffBloodEffect02">
-					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="Equals" value="2"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="3" target_tags="zombie,animal" buff="buffBloodEffect03">
-					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="Equals" value="3"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="3" target_tags="zombie,animal" buff="buffBloodEffect04">
-					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="Equals" value="4"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="4" target_tags="zombie,animal" buff="buffBloodEffect05">
-					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="Equals" value="5"/>
-				</triggered_effect>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectBloodletting" value="1"/>
+				<display_value name="dDuration" value="4"/>
 			</effect_group>
-			<effect_group name="diffusion" tiered="false">
-				<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="GTE" value="1"/>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal" buff="buffElementBleedSpread">
-					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="LT" value="1"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffElementBleedSpread01">
-					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="Equals" value="1"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffElementBleedSpread02">
-					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="Equals" value="2"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="3" target_tags="zombie,animal" buff="buffElementBleedSpread03">
-					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="Equals" value="3"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="3" target_tags="zombie,animal" buff="buffElementBleedSpread04">
-					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="Equals" value="4"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="4" target_tags="zombie,animal" buff="buffElementBleedSpread05">
-					<requirement name="ProgressionLevel" progression_name="perkTrauma" operation="Equals" value="5"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation03" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinBlood"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modBloodlettingDeviceII" installable_tags="beabinBloodletting" modifier_tags="bloodloss_damage" type="attachment">
+			<property name="Extends" value="modBloodlettingDevice"/>
+			<property name="EconomicValue" value="6000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectBloodletting" value="1"/>
+				<display_value name="dDuration" value="6"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinBlood01"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modBloodlettingDeviceIII" installable_tags="beabinBloodletting" modifier_tags="bloodloss_damage" type="attachment">
+			<property name="Extends" value="modBloodlettingDevice"/>
+			<property name="EconomicValue" value="7000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectBloodletting" value="1"/>
+				<display_value name="dDuration" value="8"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinBlood02"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modBloodlettingDeviceIV" installable_tags="beabinBloodletting" modifier_tags="bloodloss_damage" type="attachment">
+			<property name="Extends" value="modBloodlettingDevice"/>
+			<property name="EconomicValue" value="8000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectBloodletting" value="1"/>
+				<display_value name="dDuration" value="10"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinBlood03"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modBloodlettingDeviceV" installable_tags="beabinBloodletting" modifier_tags="bloodloss_damage" type="attachment">
+			<property name="Extends" value="modBloodlettingDevice"/>
+			<property name="EconomicValue" value="9000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectBloodletting" value="1"/>
+				<display_value name="dDuration" value="12"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinBlood04"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modBloodlettingDeviceVI" installable_tags="beabinBloodletting" modifier_tags="bloodloss_damage" type="attachment">
+			<property name="Extends" value="modBloodlettingDevice"/>
+			<property name="EconomicValue" value="10000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectBloodletting" value="1"/>
+				<display_value name="dDuration" value="15"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinBlood05"/>
 			</effect_group>
 		</item_modifier>
 		<!-- 麻醉模組 -->
-		<item_modifier name="modAnesthesiaDevice" installable_tags="gun,bow,crossbow,meleeWeapon,tool,perkNarcosis,turret" modifier_tags="narcosis_damage" type="attachment">
-			<property name="UnlockedBy" value="modAnesthesiaDeviceSchematic"/>
+		<item_modifier name="modAnesthesiaDevice" installable_tags="beabinAnesthesia" modifier_tags="narcosis_damage" type="attachment">
+			<property name="DisplayType" value="modAnesthesiaDevice"/>
 			<property name="Stacknumber" value="1"/>
 			<property name="CustomIcon" value="beabin_modAnesthesiaDevice"/>
-			<property name="EconomicValue" value="100"/>
+			<property name="EconomicValue" value="5000"/>
 			<property name="DescriptionKey" value="modAnesthesiaDeviceDesc"/>
 			<property name="Group" value="Mods"/>
-			<effect_group name="noDiffusion" tiered="false">
-			<!--
-				<triggered_effect trigger="onSelfDamagedOther" action="Ragdoll" target="other" target_tags="zombie,animal" duration="5">
-					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="LT" value="1"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="Ragdoll" target="otherAOE" range="2" target_tags="zombie,animal" duration="6">
-					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="Equals" value="1"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="Ragdoll" target="otherAOE" range="2" target_tags="zombie,animal" duration="7">
-					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="Equals" value="2"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="Ragdoll" target="otherAOE" range="3" target_tags="zombie,animal" duration="8">
-					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="Equals" value="3"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="Ragdoll" target="otherAOE" range="4" target_tags="zombie,animal" duration="10">
-					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="Equals" value="4"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="Ragdoll" target="otherAOE" range="5" target_tags="zombie,animal" duration="12">
-					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="Equals" value="5"/>
-				</triggered_effect>
-			-->
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" buff="buffNarcosisEffect">
-					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="LT" value="1"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" buff="buffNarcosisEffect01">
-					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="Equals" value="1"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" buff="buffNarcosisEffect02">
-					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="Equals" value="2"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" buff="buffNarcosisEffect03">
-					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="Equals" value="3"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" buff="buffNarcosisEffect04">
-					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="Equals" value="4"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" buff="buffNarcosisEffect05">
-					<requirement name="ProgressionLevel" progression_name="perkNarcosis" operation="Equals" value="5"/>
-				</triggered_effect>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectNarcosis" value="1"/>
+				<display_value name="dDuration" value="5"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinNarcosis"/>
 			</effect_group>
 		</item_modifier>
-		<!-- 聖光模組 -->
-		<item_modifier name="modHolyLightDevice" installable_tags="gun,bow,crossbow,meleeWeapon,tool,perkHolyLight,perkElementalProliferation04,turret" modifier_tags="holylight_damage" type="attachment">
-			<property name="UnlockedBy" value="modHolyLightDeviceSchematic"/>
-			<property name="Stacknumber" value="1"/>
-			<property name="CustomIcon" value="beabin_modHolyLightDevice"/>
-			<property name="EconomicValue" value="100"/>
-			<property name="DescriptionKey" value="modHolyLightDeviceDesc"/>
-			<property name="Group" value="Mods"/>
-			<effect_group name="noDiffusion" tiered="false">
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal" buff="buffHolyLightEffect">
-					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="LT" value="1"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffHolyLightEffect01">
-					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="Equals" value="1"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffHolyLightEffect02">
-					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="Equals" value="2"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="3" target_tags="zombie,animal" buff="buffHolyLightEffect03">
-					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="Equals" value="3"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="4" target_tags="zombie,animal" buff="buffHolyLightEffect04">
-					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="Equals" value="4"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="5" target_tags="zombie,animal" buff="buffHolyLightEffect05">
-					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="Equals" value="5"/>
-				</triggered_effect>
+		<item_modifier name="modAnesthesiaDeviceII" installable_tags="beabinAnesthesia" modifier_tags="narcosis_damage" type="attachment">
+			<property name="Extends" value="modAnesthesiaDevice"/>
+			<property name="EconomicValue" value="6000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectNarcosis" value="1"/>
+				<display_value name="dDuration" value="6"/>
 			</effect_group>
-			<effect_group name="diffusion" tiered="false">
-				<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="GTE" value="1"/>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal" buff="buffElementHolyLightSpread">
-					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="LT" value="1"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffElementHolyLightSpread01">
-					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="Equals" value="1"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="2" target_tags="zombie,animal" buff="buffElementHolyLightSpread02">
-					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="Equals" value="2"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="3" target_tags="zombie,animal" buff="buffElementHolyLightSpread03">
-					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="Equals" value="3"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="4" target_tags="zombie,animal" buff="buffElementHolyLightSpread04">
-					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="Equals" value="4"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="otherAOE" range="5" target_tags="zombie,animal" buff="buffElementHolyLightSpread05">
-					<requirement name="ProgressionLevel" progression_name="perkHolyLight" operation="Equals" value="5"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation04" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-			</effect_group>		
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinNarcosis01"/>
+			</effect_group>
 		</item_modifier>
-		<!-- 霜咬彈模組 -->
-		<item_modifier name="modFrostBiteDevice" installable_tags="gun,bow,crossbow,meleeWeapon,tool,perkIceBite,perkElementalProliferation05,turret" modifier_tags="icebite_damage" type="attachment">
-			<property name="UnlockedBy" value="modFrostBiteDeviceSchematic"/>
+		<item_modifier name="modAnesthesiaDeviceIII" installable_tags="beabinAnesthesia" modifier_tags="narcosis_damage" type="attachment">
+			<property name="Extends" value="modAnesthesiaDevice"/>
+			<property name="EconomicValue" value="7000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectNarcosis" value="1"/>
+				<display_value name="dDuration" value="7"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinNarcosis02"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modAnesthesiaDeviceIV" installable_tags="beabinAnesthesia" modifier_tags="narcosis_damage" type="attachment">
+			<property name="Extends" value="modAnesthesiaDevice"/>
+			<property name="EconomicValue" value="8000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectNarcosis" value="1"/>
+				<display_value name="dDuration" value="8"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinNarcosis03"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modAnesthesiaDeviceV" installable_tags="beabinAnesthesia" modifier_tags="narcosis_damage" type="attachment">
+			<property name="Extends" value="modAnesthesiaDevice"/>
+			<property name="EconomicValue" value="9000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectNarcosis" value="1"/>
+				<display_value name="dDuration" value="10"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinNarcosis04"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modAnesthesiaDeviceVI" installable_tags="beabinAnesthesia" modifier_tags="narcosis_damage" type="attachment">
+			<property name="Extends" value="modAnesthesiaDevice"/>
+			<property name="EconomicValue" value="10000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectNarcosis" value="1"/>
+				<display_value name="dDuration" value="12"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinNarcosis05"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 霜咬模組 -->
+		<item_modifier name="modFrostBiteDevice" installable_tags="beabinFrostbite" modifier_tags="icebite_damage" type="attachment">
+			<property name="DisplayType" value="modFrostBiteDevice"/>
 			<property name="Stacknumber" value="1"/>
 			<property name="CustomIcon" value="beabin_modFrostBiteDevice"/>
-			<property name="EconomicValue" value="100"/>
+			<property name="EconomicValue" value="5000"/>
 			<property name="DescriptionKey" value="modFrostBiteDeviceDesc"/>
 			<property name="Group" value="Mods"/>
-			<effect_group name="noDiffusion" tiered="false">
-				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffSlowDown">
-					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="LT" value="1"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffSlowDown01">
-					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="Equals" value="1"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffSlowDown02">
-					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="Equals" value="2"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffSlowDown03">
-					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="Equals" value="3"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffSlowDown04">
-					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="Equals" value="4"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffSlowDown05">
-					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="Equals" value="5"/>
-				</triggered_effect>
-			</effect_group>		
-			<effect_group name="diffusion" tiered="false">
-				<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="GTE" value="1"/>
-				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffElementSlowDownSpread">
-					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="LT" value="1"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffElementSlowDownSpread01">
-					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="Equals" value="1"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffElementSlowDownSpread02">
-					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="Equals" value="2"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffElementSlowDownSpread03">
-					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="Equals" value="3"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffElementSlowDownSpread04">
-					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="Equals" value="4"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffElementSlowDownSpread05">
-					<requirement name="ProgressionLevel" progression_name="perkIceBite" operation="Equals" value="5"/>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="Equals" value="1"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="Equals" value="2"/>
-					</requirement>
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90">
-						<requirement name="ProgressionLevel" progression_name="perkElementalProliferation05" operation="Equals" value="3"/>
-					</requirement>
-				</triggered_effect>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectIceBite" value="1"/>
+				<display_value name="dDuration" value="8"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinSlowDown"/>
 			</effect_group>		
 		</item_modifier>
-		<!-- 夜鷹模組 -->
-		<item_modifier name="modNightEagleDevice" installable_tags="gun,bow,crossbow" modifier_tags="enhanceDamage" type="attachment">
-			<property name="CustomIcon" value="beabin_modNightEagleDevice"/>
-			<property name="DescriptionKey" value="modNightEagleDeviceDesc"/>
-			<property name="Stacknumber" value="1"/>
-			<property name="EconomicValue" value="100"/>
-			<property name="Group" value="Mods"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
-			<effect_group name="modNightEagleDevice" tiered="false">
-				<requirement name="IsNight" operation="Equals" value="1"/>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".1">
-					<requirement name="PlayerLevel" operation="LTE" value="9"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".15">
-					<requirement name="PlayerLevel" operation="GTE" value="10"/>
-					<requirement name="PlayerLevel" operation="LTE" value="19"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".2">
-					<requirement name="PlayerLevel" operation="GTE" value="20"/>
-					<requirement name="PlayerLevel" operation="LTE" value="29"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".25">
-					<requirement name="PlayerLevel" operation="GTE" value="30"/>
-					<requirement name="PlayerLevel" operation="LTE" value="39"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".3">
-					<requirement name="PlayerLevel" operation="GTE" value="40"/>
-					<requirement name="PlayerLevel" operation="LTE" value="49"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".35">
-					<requirement name="PlayerLevel" operation="GTE" value="50"/>
-					<requirement name="PlayerLevel" operation="LTE" value="59"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".4">
-					<requirement name="PlayerLevel" operation="GTE" value="60"/>
-					<requirement name="PlayerLevel" operation="LTE" value="69"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".45">
-					<requirement name="PlayerLevel" operation="GTE" value="70"/>
-					<requirement name="PlayerLevel" operation="LTE" value="79"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".5">
-					<requirement name="PlayerLevel" operation="GTE" value="80"/>
-					<requirement name="PlayerLevel" operation="LTE" value="89"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".55">
-					<requirement name="PlayerLevel" operation="GTE" value="90"/>
-					<requirement name="PlayerLevel" operation="LTE" value="99"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".6">
-					<requirement name="PlayerLevel" operation="GTE" value="100"/>
-					<requirement name="PlayerLevel" operation="LTE" value="109"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".7">
-					<requirement name="PlayerLevel" operation="GTE" value="110"/>
-					<requirement name="PlayerLevel" operation="LTE" value="119"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".8">
-					<requirement name="PlayerLevel" operation="GTE" value="120"/>
-					<requirement name="PlayerLevel" operation="LTE" value="129"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".9">
-					<requirement name="PlayerLevel" operation="GTE" value="130"/>
-					<requirement name="PlayerLevel" operation="LTE" value="139"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="1">
-					<requirement name="PlayerLevel" operation="GTE" value="140"/>
-					<requirement name="PlayerLevel" operation="LTE" value="149"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="1.5">
-					<requirement name="PlayerLevel" operation="GTE" value="150"/>
-					<requirement name="PlayerLevel" operation="LTE" value="159"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="2">
-					<requirement name="PlayerLevel" operation="GTE" value="160"/>
-					<requirement name="PlayerLevel" operation="LTE" value="169"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="2.5">
-					<requirement name="PlayerLevel" operation="GTE" value="170"/>
-					<requirement name="PlayerLevel" operation="LTE" value="179"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="3">
-					<requirement name="PlayerLevel" operation="GTE" value="180"/>
-					<requirement name="PlayerLevel" operation="LTE" value="189"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="3.5">
-					<requirement name="PlayerLevel" operation="GTE" value="190"/>
-					<requirement name="PlayerLevel" operation="LTE" value="199"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="4">
-					<requirement name="PlayerLevel" operation="GTE" value="200"/>
-					<requirement name="PlayerLevel" operation="LTE" value="249"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="5">
-					<requirement name="PlayerLevel" operation="GTE" value="250"/>
-				</passive_effect>
+		<item_modifier name="modFrostBiteDeviceII" installable_tags="beabinFrostbite" modifier_tags="icebite_damage" type="attachment">
+			<property name="Extends" value="modFrostBiteDevice"/>
+			<property name="EconomicValue" value="6000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectIceBite" value="1"/>
+				<display_value name="dDuration" value="10"/>
 			</effect_group>
-			<effect_group name="modNightEagleDevice" tiered="false">
-				<requirement name="IsDay" operation="Equals" value="1"/>
-				<passive_effect name="EntityDamage" operation="perc_add" value="-.1">
-					<requirement name="PlayerLevel" operation="LTE" value="9"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="-.15">
-					<requirement name="PlayerLevel" operation="GTE" value="10"/>
-					<requirement name="PlayerLevel" operation="LTE" value="19"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="-.2">
-					<requirement name="PlayerLevel" operation="GTE" value="20"/>
-					<requirement name="PlayerLevel" operation="LTE" value="29"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="-.25">
-					<requirement name="PlayerLevel" operation="GTE" value="30"/>
-					<requirement name="PlayerLevel" operation="LTE" value="39"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="-.3">
-					<requirement name="PlayerLevel" operation="GTE" value="40"/>
-					<requirement name="PlayerLevel" operation="LTE" value="49"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="-.35">
-					<requirement name="PlayerLevel" operation="GTE" value="50"/>
-					<requirement name="PlayerLevel" operation="LTE" value="59"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="-.4">
-					<requirement name="PlayerLevel" operation="GTE" value="60"/>
-					<requirement name="PlayerLevel" operation="LTE" value="69"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="-.45">
-					<requirement name="PlayerLevel" operation="GTE" value="70"/>
-					<requirement name="PlayerLevel" operation="LTE" value="79"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="-.5">
-					<requirement name="PlayerLevel" operation="GTE" value="80"/>
-					<requirement name="PlayerLevel" operation="LTE" value="89"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="-.55">
-					<requirement name="PlayerLevel" operation="GTE" value="90"/>
-					<requirement name="PlayerLevel" operation="LTE" value="99"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="-.6">
-					<requirement name="PlayerLevel" operation="GTE" value="100"/>
-					<requirement name="PlayerLevel" operation="LTE" value="109"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="-.7">
-					<requirement name="PlayerLevel" operation="GTE" value="110"/>
-					<requirement name="PlayerLevel" operation="LTE" value="119"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="-.8">
-					<requirement name="PlayerLevel" operation="GTE" value="120"/>
-					<requirement name="PlayerLevel" operation="LTE" value="129"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="-.9">
-					<requirement name="PlayerLevel" operation="GTE" value="130"/>
-					<requirement name="PlayerLevel" operation="LTE" value="139"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="-1">
-					<requirement name="PlayerLevel" operation="GTE" value="140"/>
-					<requirement name="PlayerLevel" operation="LTE" value="149"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="-1.5">
-					<requirement name="PlayerLevel" operation="GTE" value="150"/>
-					<requirement name="PlayerLevel" operation="LTE" value="159"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="-2">
-					<requirement name="PlayerLevel" operation="GTE" value="160"/>
-					<requirement name="PlayerLevel" operation="LTE" value="169"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="-2.5">
-					<requirement name="PlayerLevel" operation="GTE" value="170"/>
-					<requirement name="PlayerLevel" operation="LTE" value="179"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="-3">
-					<requirement name="PlayerLevel" operation="GTE" value="180"/>
-					<requirement name="PlayerLevel" operation="LTE" value="189"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="-3.5">
-					<requirement name="PlayerLevel" operation="GTE" value="190"/>
-					<requirement name="PlayerLevel" operation="LTE" value="199"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="-4">
-					<requirement name="PlayerLevel" operation="GTE" value="200"/>
-					<requirement name="PlayerLevel" operation="LTE" value="249"/>
-				</passive_effect>
-				<passive_effect name="EntityDamage" operation="perc_add" value="-5">
-					<requirement name="PlayerLevel" operation="GTE" value="250"/>
-				</passive_effect>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinSlowDown01"/>
 			</effect_group>
 		</item_modifier>
-		<!-- 崩分離析模組 -->
-		<item_modifier name="modDisintegrationDevice" installable_tags="gun,bow,crossbow,meleeWeapon,tool,turret" modifier_tags="mutilation_damage" type="attachment">
+		<item_modifier name="modFrostBiteDeviceIII" installable_tags="beabinFrostbite" modifier_tags="icebite_damage" type="attachment">
+			<property name="Extends" value="modFrostBiteDevice"/>
+			<property name="EconomicValue" value="7000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectIceBite" value="1"/>
+				<display_value name="dDuration" value="12"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinSlowDown02"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modFrostBiteDeviceIV" installable_tags="beabinFrostbite" modifier_tags="icebite_damage" type="attachment">
+			<property name="Extends" value="modFrostBiteDevice"/>
+			<property name="EconomicValue" value="8000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectIceBite" value="1"/>
+				<display_value name="dDuration" value="14"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinSlowDown03"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modFrostBiteDeviceV" installable_tags="beabinFrostbite" modifier_tags="icebite_damage" type="attachment">
+			<property name="Extends" value="modFrostBiteDevice"/>
+			<property name="EconomicValue" value="9000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectIceBite" value="1"/>
+				<display_value name="dDuration" value="16"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinSlowDown04"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modFrostBiteDeviceVI" installable_tags="beabinFrostbite" modifier_tags="icebite_damage" type="attachment">
+			<property name="Extends" value="modFrostBiteDevice"/>
+			<property name="EconomicValue" value="10000"/>
+			<effect_group name="displayAttributes" tiered="false">
+				<display_value name="dElementEffectIceBite" value="1"/>
+				<display_value name="dDuration" value="20"/>
+			</effect_group>
+			<effect_group name="setDebuff" tiered="false">
+				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffBeabinSlowDown05"/>
+			</effect_group>
+		</item_modifier>
+	</append>
+	<!-- 其他類模組 -->
+	<append xpath="/item_modifiers">
+		<!-- 崩分離析模組, 自訂Tag: beabinDisintegration -->
+		<item_modifier name="modDisintegrationDevice" installable_tags="beabinDisintegration" modifier_tags="mutilationDamage" type="attachment">
+			<property name="DisplayType" value="modDisintegrationDevice"/>
 			<property name="UnlockedBy" value="modDisintegrationDeviceSchematic"/>
 			<property name="Stacknumber" value="1"/>
 			<property name="CustomIcon" value="beabin_modDisintegrationDevice"/>
-			<property name="EconomicValue" value="100"/>
+			<property name="EconomicValue" value="3000"/>
 			<property name="DescriptionKey" value="modDisintegrationDeviceDesc"/>
 			<property name="Group" value="Mods"/>
 			<effect_group name="modDisintegrationDevice" tiered="false">
-				<passive_effect name="DismemberChance" operation="base_add" value="1">
+				<!-- 擊中頭部增傷率 -->
+				<passive_effect name="DamageModifier" operation="perc_add" value=".5" tags="head">
+					<requirement name="PlayerLevel" operation="LTE" value="50"/>
+				</passive_effect>
+				<passive_effect name="DamageModifier" operation="perc_add" value="1" tags="head">
+					<requirement name="PlayerLevel" operation="GTE" value="51"/>
 					<requirement name="PlayerLevel" operation="LTE" value="100"/>
 				</passive_effect>
-				<passive_effect name="DismemberChance" operation="base_add" value="2">
+				<passive_effect name="DamageModifier" operation="perc_add" value="1.5" tags="head">
 					<requirement name="PlayerLevel" operation="GTE" value="101"/>
 					<requirement name="PlayerLevel" operation="LTE" value="200"/>
 				</passive_effect>
-				<passive_effect name="DismemberChance" operation="base_add" value="3">
+				<passive_effect name="DamageModifier" operation="perc_add" value="2" tags="head">
 					<requirement name="PlayerLevel" operation="GTE" value="201"/>
 					<requirement name="PlayerLevel" operation="LTE" value="300"/>
 				</passive_effect>
-				<passive_effect name="DismemberChance" operation="base_add" value="5">
+				<passive_effect name="DamageModifier" operation="perc_add" value="2.5" tags="head">
 					<requirement name="PlayerLevel" operation="GTE" value="301"/>
+					<requirement name="PlayerLevel" operation="LTE" value="400"/>
+				</passive_effect>
+				<passive_effect name="DamageModifier" operation="perc_add" value="3" tags="head">
+					<requirement name="PlayerLevel" operation="GTE" value="401"/>
+					<requirement name="PlayerLevel" operation="LTE" value="500"/>
+				</passive_effect>
+				<passive_effect name="DamageModifier" operation="perc_add" value="3.5" tags="head">
+					<requirement name="PlayerLevel" operation="GTE" value="501"/>
+					<requirement name="PlayerLevel" operation="LTE" value="600"/>
+				</passive_effect>
+				<passive_effect name="DamageModifier" operation="perc_add" value="4" tags="head">
+					<requirement name="PlayerLevel" operation="GTE" value="601"/>
+					<requirement name="PlayerLevel" operation="LTE" value="700"/>
+				</passive_effect>
+				<passive_effect name="DamageModifier" operation="perc_add" value="4.5" tags="head">
+					<requirement name="PlayerLevel" operation="GTE" value="701"/>
+					<requirement name="PlayerLevel" operation="LTE" value="800"/>
+				</passive_effect>
+				<passive_effect name="DamageModifier" operation="perc_add" value="5" tags="head">
+					<requirement name="PlayerLevel" operation="GTE" value="801"/>
+				</passive_effect>
+				<!-- 斷肢率 -->
+				<passive_effect name="DismemberChance" operation="base_add" value=".3">
+					<requirement name="PlayerLevel" operation="LTE" value="50"/>
+				</passive_effect>
+				<passive_effect name="DismemberChance" operation="base_add" value=".6">
+					<requirement name="PlayerLevel" operation="GTE" value="51"/>
+					<requirement name="PlayerLevel" operation="LTE" value="100"/>
+				</passive_effect>
+				<passive_effect name="DismemberChance" operation="base_add" value=".9">
+					<requirement name="PlayerLevel" operation="GTE" value="101"/>
+					<requirement name="PlayerLevel" operation="LTE" value="200"/>
+				</passive_effect>
+				<passive_effect name="DismemberChance" operation="base_add" value="1.2">
+					<requirement name="PlayerLevel" operation="GTE" value="201"/>
+					<requirement name="PlayerLevel" operation="LTE" value="300"/>
+				</passive_effect>
+				<passive_effect name="DismemberChance" operation="base_add" value="2">
+					<requirement name="PlayerLevel" operation="GTE" value="301"/>
+					<requirement name="PlayerLevel" operation="LTE" value="400"/>
+				</passive_effect>
+				<passive_effect name="DismemberChance" operation="base_add" value="3">
+					<requirement name="PlayerLevel" operation="GTE" value="401"/>
+					<requirement name="PlayerLevel" operation="LTE" value="500"/>
+				</passive_effect>
+				<passive_effect name="DismemberChance" operation="base_add" value="4">
+					<requirement name="PlayerLevel" operation="GTE" value="501"/>
+					<requirement name="PlayerLevel" operation="LTE" value="600"/>
+				</passive_effect>
+				<passive_effect name="DismemberChance" operation="base_add" value="5">
+					<requirement name="PlayerLevel" operation="GTE" value="601"/>
+					<requirement name="PlayerLevel" operation="LTE" value="700"/>
+				</passive_effect>
+				<passive_effect name="DismemberChance" operation="base_add" value="6">
+					<requirement name="PlayerLevel" operation="GTE" value="701"/>
+					<requirement name="PlayerLevel" operation="LTE" value="800"/>
+				</passive_effect>
+				<passive_effect name="DismemberChance" operation="base_add" value="7">
+					<requirement name="PlayerLevel" operation="GTE" value="801"/>
 				</passive_effect>
 			</effect_group>
 		</item_modifier>
-		<!-- 高彈匣模組, 可應用於手槍, 衝鋒槍, 短距散彈槍, 霰彈槍, 獵槍, 狙擊槍, 突擊步槍, 電鋸, 電鑽 -->
-		<item_modifier name="modHightCapacityMagazineDevice" installable_tags="highMagazine,turret" modifier_tags="high_magazine" type="attachment">
-			<property name="UnlockedBy" value="modHightCapacityMagazineDeviceSchematic"/>
-			<property name="Stacknumber" value="1"/>
-			<property name="CustomIcon" value="beabin_modHightCapacityMagazineDevice"/>
-			<property name="EconomicValue" value="100"/>
-			<property name="DescriptionKey" value="modHightCapacityMagazineDeviceDesc"/>
-			<property name="Group" value="Mods"/>
-			<effect_group name="modHightCapacityMagazineDevice" tiered="false">
-				<passive_effect name="MagazineSize" operation="base_add" value="1200"/><!-- 彈匣容量 -->
-				<passive_effect name="RoundsPerMinute" operation="perc_add" value="1"/><!-- 射速增加100% -->
-			</effect_group>
-		</item_modifier>
-		<!-- 長射槍管模組, 可應用於手槍,左輪手槍,霰彈槍,衝鋒槍,狙擊槍,突擊步槍,獵槍 -->
-		<item_modifier name="modLongBarrelDevice" installable_tags="gun,turret" blocked_tags="flaredBarrel" modifier_tags="barrelAttachment" type="attachment">
-			<property name="UnlockedBy" value="modLongBarrelDeviceSchematic"/>
-			<property name="Stacknumber" value="1"/>
-			<property name="CustomIcon" value="beabin_modLongBarrelDevice"/>
-			<property name="EconomicValue" value="100"/>
-			<property name="DescriptionKey" value="modLongBarrelDeviceDesc"/>
-			<property name="Group" value="Mods"/>
-			<effect_group name="modLongBarrelDevice" tiered="false">
-				<passive_effect name="DamageFalloffRange" operation="base_add" value="100"/><!-- 有效射程 -->
-				<passive_effect name="MaxRange" operation="base_add" value="100"/><!-- 最大射程 -->
-				<passive_effect name="KickDegreesVerticalMin" operation="base_set" value="-.1"/><!-- 垂直晃動最小值 -->
-				<passive_effect name="KickDegreesVerticalMax" operation="base_set" value="0"/><!-- 垂直晃動最大值 -->
-				<passive_effect name="KickDegreesHorizontalMin" operation="base_set" value="-.1"/><!-- 水平晃動最小值 -->
-				<passive_effect name="KickDegreesHorizontalMax" operation="base_set" value="0"/><!-- 水平晃動最大值 -->
-				<passive_effect name="SpreadMultiplierHip" operation="perc_add" value="1"/><!-- 瞄準射擊的精確度 -->
-				<passive_effect name="WeaponHandling" operation="perc_add" value="1"/><!-- 準星集中速度 -->
-			</effect_group>
-			<effect_group name="fireDown" tiered="false">
-				<requirement name="ProgressionLevel" progression_name="perkFireElement" operation="GTE" value="5"/><!-- 當火弱化技能點滿時 -->
-				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/><!-- 當隨機取值以內時發動, 10%機率 -->
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal" buff="buffEnchantBurning"/><!-- 當射傷敵人時,發動火傷 -->
-			</effect_group>
-			<effect_group name="electricDown" tiered="false">
-				<requirement name="ProgressionLevel" progression_name="perkElectricElement" operation="GTE" value="5"/><!-- 當電弱化技能點滿時 -->
-				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" target_tags="zombie,animal" buff="buffEnchantShock"/>
-			</effect_group>
-		</item_modifier>
-		<!-- 一拳的奧義, 限定任務才能取得 -->
-		<item_modifier name="modArmorOnePunch" installable_tags="armorHands" modifier_tags="powerhand" type="attachment">
-			<property name="Tags" value="hands,armorHands,armor"/>
-			<property name="Stacknumber" value="1"/>
-			<property name="Material" value="Msteel"/>
-			<property name="CustomIcon" value="beabin_modArmorOnePunch"/>
-			<property name="DescriptionKey" value="modArmorOnePunchDesc"/>
-			<property name="EconomicValue" value="1000"/>
-			<property name="Group" value="Mods"/>
-			<effect_group name="modArmorOnePunch" tiered="false">
-				<passive_effect name="HealthMax" operation="perc_set" value="0.4"/>
-				<passive_effect name="StaminaChangeOT" operation="perc_add" value="0.5" />
-			</effect_group>
-			<effect_group name="hitDamage" tiered="false">
-				<requirement name="HoldingItemHasTags" tags="fists,gloveskill"/>
-				<passive_effect name="EntityDamage" operation="base_add" value="1000000"/>
-				<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="self" buff="buffArmorOnePunch"/>
-			</effect_group>
-		</item_modifier>
-		<!-- 吸血模組 -->
-		<item_modifier name="modVampireDevice" installable_tags="meleeWeapon,gloveskill" modifier_tags="mutilation_damage" type="attachment">
+		<!-- 吸血模組, 自訂Tag: beabinVampire -->
+		<item_modifier name="modVampireDevice" installable_tags="beabinVampire" modifier_tags="stealHealth" type="attachment">
+			<property name="DisplayType" value="modVampireDevice"/>
 			<property name="Stacknumber" value="1"/>
 			<property name="CustomIcon" value="beabin_modVampireDevice"/>
-			<property name="EconomicValue" value="100"/>
+			<property name="EconomicValue" value="10000"/>
 			<property name="DescriptionKey" value="modVampireDeviceDesc"/>
 			<property name="Group" value="Mods"/>
 			<effect_group name="modVampireDevice" tiered="false">
 				<requirement name="StatCompareCurrent" stat="health" operation="GTE" target="other" value="1"/>
 				<passive_effect name="HealthSteal" operation="base_set" value="0.05"/>
-				<passive_effect name="HealthSteal" operation="perc_add" value="1">
+				<passive_effect name="HealthSteal" operation="perc_add" value="1"><!-- 流血狀態更增加吸血能力 -->
 					<requirement name="HasBuff" target="self" buff="buffInjuryBleeding"/>
 				</passive_effect>
 				<passive_effect name="HealthSteal" operation="perc_add" value="0.5">
-					<requirement name="IsNight" operation="Equals" value="1"/>
+					<requirement name="IsNight" operation="Equals" value="1"/><!-- 夜間時, 吸血能力加乘 -->
 				</passive_effect>
 				<passive_effect name="NoiseMultiplier" operation="perc_add" value="-0.5">
-					<requirement name="IsNight" operation="Equals" value="1"/>
+					<requirement name="IsNight" operation="Equals" value="1"/><!--  夜間時, 靜音能力加乘-->
 				</passive_effect>
+				<display_value name="dBleedingToHealthSteal" value="1"/>
+				<display_value name="dNightToHealthSteal" value="0.5"/>
+				<display_value name="dNightNoiseMultiplier" value="0.5"/>
 			</effect_group>
 		</item_modifier>
-		<!-- 魔抗之心 - 燃燒, 限定任務才能取得 -->
-		<item_modifier name="modArmorAntiMagicHeartBurn" installable_tags="armor,glasses" modifier_tags="resistanceDebuff" type="attachment">
-			<property name="CustomIcon" value="beabin_modArmorAntiMagicHeartBurn"/>
-			<property name="DescriptionKey" value="modArmorAntiMagicHeartBurnDesc"/>
+		<!-- 超動能驅動器 -->
+		<item_modifier name="modApparelSuperKineticEnergyDriver" installable_tags="feet" modifier_tags="speedUp" type="attachment">
+			<property name="DisplayType" value="superKineticEnergyShoes"/>
 			<property name="Stacknumber" value="1"/>
-			<property name="EconomicValue" value="10000"/>
+			<property name="CustomIcon" value="beabin_modApparelSuperKineticEnergyDriver"/>
+			<property name="DescriptionKey" value="modApparelSuperKineticEnergyDriverDesc"/>
+			<property name="EconomicValue" value="3000"/>
 			<property name="Group" value="Mods"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
-			<effect_group tiered="false">
-				<passive_effect name="BuffResistance" operation="base_add" value="2" tags="buffZombieFlameBurning"/>
+			<effect_group name="modApparelSuperKineticEnergyDriver" tiered="false">
+				<passive_effect name="RunSpeed" operation="perc_add" value=".3"/>
+				<passive_effect name="StaminaMax" operation="perc_add" value="-0.1"/>
+				<display_value name="dRunSpeed" value=".3"/>
+				<display_value name="dStaminaMax" value="-0.1"/>
 			</effect_group>
 		</item_modifier>
-		<!-- 魔抗之心 - 閃電, 限定任務才能取得 -->
-		<item_modifier name="modArmorAntiMagicHeartLightning" installable_tags="armor,glasses" modifier_tags="resistanceDebuff" type="attachment">
-			<property name="CustomIcon" value="beabin_modArmorAntiMagicHeartLightning"/>
-			<property name="DescriptionKey" value="modArmorAntiMagicHeartLightningDesc"/>
+		<!-- 赫克裝甲 -->
+		<item_modifier name="modArmorPlatingHeck" installable_tags="armor,chest,clothing" modifier_tags="resistance" type="attachment">
+			<property name="DisplayType" value="modArmorHeck"/>
 			<property name="Stacknumber" value="1"/>
-			<property name="EconomicValue" value="10000"/>
-			<property name="Group" value="Mods"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
-			<effect_group tiered="false">
-				<passive_effect name="BuffResistance" operation="base_add" value="2" tags="buffZombieElectricShock"/>
-			</effect_group>
-		</item_modifier>
-		<!-- 魔抗之心 - 毒霧, 限定任務才能取得 -->
-		<item_modifier name="modArmorAntiMagicHeartPoisonMist" installable_tags="armor,glasses" modifier_tags="resistanceDebuff" type="attachment">
-			<property name="CustomIcon" value="beabin_modArmorAntiMagicHeartPoisonMist"/>
-			<property name="DescriptionKey" value="modArmorAntiMagicHeartPoisonMistDesc"/>
-			<property name="Stacknumber" value="1"/>
-			<property name="EconomicValue" value="10000"/>
-			<property name="Group" value="Mods"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
-			<effect_group tiered="false">
-				<passive_effect name="BuffResistance" operation="base_add" value="2" tags="buffZombieHighlyToxic"/>
-			</effect_group>
-		</item_modifier>
-		<!-- 魔抗之心 - 沈醉, 限定任務才能取得 -->
-		<item_modifier name="modArmorAntiMagicHeartIntoxicated" installable_tags="armor,glasses" modifier_tags="resistanceDebuff" type="attachment">
-			<property name="CustomIcon" value="beabin_modArmorAntiMagicHeartIntoxicated"/>
-			<property name="DescriptionKey" value="modArmorAntiMagicHeartIntoxicatedDesc"/>
-			<property name="Stacknumber" value="1"/>
-			<property name="EconomicValue" value="10000"/>
-			<property name="Group" value="Mods"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
-			<effect_group tiered="false">
-				<passive_effect name="BuffResistance" operation="base_add" value="2" tags="buffZombieNarcosis"/>
-			</effect_group>
-		</item_modifier>
-		<!-- 魔抗之心 - 死刑, 限定任務才能取得 -->
-		<item_modifier name="modArmorAntiMagicHeartSentenceToDeath" installable_tags="armor,glasses" modifier_tags="resistanceDebuff" type="attachment">
-			<property name="CustomIcon" value="beabin_modArmorAntiMagicHeartSentenceToDeath"/>
-			<property name="DescriptionKey" value="modArmorAntiMagicHeartSentenceToDeathDesc"/>
-			<property name="Stacknumber" value="1"/>
-			<property name="EconomicValue" value="10000"/>
-			<property name="Group" value="Mods"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
-			<effect_group tiered="false">
-				<passive_effect name="BuffResistance" operation="base_add" value="2" tags="buffZombieDeclarationOfDeath"/>
-			</effect_group>
-		</item_modifier>
-		<!-- 魔抗之心 - 冰封, 限定任務才能取得 -->
-		<item_modifier name="modArmorAntiMagicHeartFrozen" installable_tags="armor,glasses" modifier_tags="resistanceDebuff" type="attachment">
-			<property name="CustomIcon" value="beabin_modArmorAntiMagicHeartFrozen"/>
-			<property name="DescriptionKey" value="modArmorAntiMagicHeartFrozenDesc"/>
-			<property name="Stacknumber" value="1"/>
-			<property name="EconomicValue" value="10000"/>
-			<property name="Group" value="Mods"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
-			<effect_group tiered="false">
-				<passive_effect name="BuffResistance" operation="base_add" value="2" tags="buffZombieIceBit"/>
-			</effect_group>
-		</item_modifier>
-		<!-- 機械手模組, 用於電鋸或電鑽 -->
-		<item_modifier name="modMechanicalHand" installable_tags="motorTool" modifier_tags="resourceHarvest" type="attachment">
-			<property name="CustomIcon" value="beabin_modMechanicalHand"/>
-			<property name="DescriptionKey" value="modMechanicalHandDesc"/>
-			<property name="EconomicValue" value="100"/>
-			<property name="UnlockedBy" value="modMechanicalHandSchematic"/>
-			<property name="Stacknumber" value="1"/> <property name="Group" value="Mods"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
-			<effect_group tiered="false">
-				<passive_effect name="HarvestCount" operation="perc_add" value="2"/>
-				<passive_effect name="HarvestCount" operation="perc_add" value="2"><!-- 收穫再增加200% -->
-					<requirement name="HasBuff" target="self" buff="buffBeer"/><!-- 喝了啤酒的酒醉狀態 -->
-				</passive_effect>
-			</effect_group>
-			<effect_group tiered="false">
-				<passive_effect name="MagazineSize" operation="perc_add" value="10">
-					<requirement name="PlayerLevel" operation="GTE" value="250"/>
-				</passive_effect>
-				<passive_effect name="MagazineSize" operation="perc_add" value="5">
-					<requirement name="PlayerLevel" operation="LTE" value="249"/>
-					<requirement name="PlayerLevel" operation="GTE" value="200"/>
-				</passive_effect>
-				<passive_effect name="MagazineSize" operation="perc_add" value="2">
-					<requirement name="PlayerLevel" operation="LTE" value="199"/>
-					<requirement name="PlayerLevel" operation="GTE" value="100"/>
-				</passive_effect>
-				<passive_effect name="MagazineSize" operation="perc_add" value="1">
-					<requirement name="PlayerLevel" operation="LTE" value="99"/>
-				</passive_effect>
-			</effect_group>
-		</item_modifier>
-		<!-- 火龍之心模組 -->
-		<item_modifier name="modArmorFireDragonHeart" installable_tags="armorChest" modifier_tags="elementalForceFlame" type="attachment">
-			<property name="CustomIcon" value="beabin_fireDragonHeart"/>
-			<property name="DescriptionKey" value="modArmorFireDragonHeartDesc"/>
-			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="beabin_ArmorPlatingHeck"/>
+			<property name="DescriptionKey" value="modArmorPlatingHeckDesc"/>
 			<property name="EconomicValue" value="1000"/>
 			<property name="Group" value="Mods"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
-			<effect_group tiered="false">
-				<triggered_effect trigger="onSelfEquipStart" action="AddBuff" buff="buffDragonRageProcess"/>
-				<triggered_effect trigger="onSelfEquipStop" action="RemoveBuff" buff="buffDragonRageProcess"/>
+			<effect_group name="modArmorPlatingHeck" tiered="false">
+				<passive_effect name="PhysicalDamageResist" operation="base_add" value="1,7"/>
+				<passive_effect name="StaminaMax" operation="perc_subtract" value=".01"/>
+				<display_value name="dStaminaMax" value="-.01"/>
 			</effect_group>
 		</item_modifier>
-		<!-- 雷霆之怒模組 -->
-		<item_modifier name="modArmorThunderWrath" installable_tags="armorChest" modifier_tags="elementalForceElectricShock" type="attachment">
-			<property name="CustomIcon" value="beabin_modArmorThunderWrath"/>
-			<property name="DescriptionKey" value="modArmorThunderWrathDesc"/>
+		<!-- 合金刀片 -->
+		<item_modifier name="modAlloyBlade" installable_tags="motorTool" modifier_tags="addEntityDamage" type="attachment">
+			<property name="DisplayType" value="modAlloyBlade"/>
 			<property name="Stacknumber" value="1"/>
-			<property name="EconomicValue" value="1000"/>
+			<property name="CustomIcon" value="beabin_AlloyBlade"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="DescriptionKey" value="modAlloyBladeDesc"/>
 			<property name="Group" value="Mods"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
-			<effect_group tiered="false">
-				<triggered_effect trigger="onSelfEquipStart" action="AddBuff" buff="buffThunderWrathProcess"/>
-				<triggered_effect trigger="onSelfEquipStop" action="RemoveBuff" buff="buffThunderWrathProcess"/>
+			<effect_group name="modAlloyBlade" tiered="false">
+				<passive_effect name="EntityDamage" operation="base_add" value="8,20"/>
 			</effect_group>
 		</item_modifier>
-		<!-- 不太酷眼鏡專用模組,潛能-魅力 -->
-		<item_modifier name="modGlassesPotentialAbilityCharm" installable_tags="glasses" modifier_tags="abBuff01" type="attachment">
+	</append>
+	<!-- 眼鏡專用模組系列 -->
+	<append xpath="/item_modifiers">
+		<!-- 潛能-魅力 -->
+		<item_modifier name="modGlassesPotentialAbilityCharm" installable_tags="glasses" modifier_tags="SpecialEnhancements01" type="attachment">
 			<property name="CustomIcon" value="apparelFacialPiercings"/>
 			<property name="CustomIconTint" value="FFDD55"/>
 			<property name="DescriptionKey" value="modGlassesPotentialAbilityCharmDesc"/>
 			<property name="Stacknumber" value="1"/>
-			<property name="EconomicValue" value="100"/>
+			<property name="EconomicValue" value="1000"/>
 			<property name="Group" value="Mods"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
 			<effect_group tiered="false">
 				<passive_effect name="BarteringBuying" operation="base_add" value="0.05">
-					<requirement name="PlayerLevel" operation="LTE" value="50"/>
+					<requirement name="PlayerLevel" operation="LT" value="100"/>
 				</passive_effect>
 				<passive_effect name="BarteringBuying" operation="base_add" value="0.1">
-					<requirement name="PlayerLevel" operation="GTE" value="51"/>
-					<requirement name="PlayerLevel" operation="LTE" value="100"/>
+					<requirement name="PlayerLevel" operation="GTE" value="100"/>
+					<requirement name="PlayerLevel" operation="LTE" value="199"/>
 				</passive_effect>
 				<passive_effect name="BarteringBuying" operation="base_add" value="0.15">
-					<requirement name="PlayerLevel" operation="GTE" value="101"/>
-					<requirement name="PlayerLevel" operation="LTE" value="150"/>
+					<requirement name="PlayerLevel" operation="GTE" value="200"/>
+					<requirement name="PlayerLevel" operation="LTE" value="299"/>
 				</passive_effect>
 				<passive_effect name="BarteringBuying" operation="base_add" value="0.2">
-					<requirement name="PlayerLevel" operation="GTE" value="151"/>
-					<requirement name="PlayerLevel" operation="LTE" value="200"/>
+					<requirement name="PlayerLevel" operation="GTE" value="300"/>
 				</passive_effect>
-				<passive_effect name="BarteringBuying" operation="base_add" value="0.25">
-					<requirement name="PlayerLevel" operation="GTE" value="201"/>
-					<requirement name="PlayerLevel" operation="LTE" value="250"/>
-				</passive_effect>
-				<passive_effect name="BarteringBuying" operation="base_add" value="0.3">
-					<requirement name="PlayerLevel" operation="GTE" value="251"/>
-				</passive_effect>
+
 				<passive_effect name="BarteringSelling" operation="base_add" value="0.05">
-					<requirement name="PlayerLevel" operation="LTE" value="50"/>
+					<requirement name="PlayerLevel" operation="LT" value="100"/>
 				</passive_effect>
 				<passive_effect name="BarteringSelling" operation="base_add" value="0.1">
-					<requirement name="PlayerLevel" operation="GTE" value="51"/>
-					<requirement name="PlayerLevel" operation="LTE" value="100"/>
+					<requirement name="PlayerLevel" operation="GTE" value="100"/>
+					<requirement name="PlayerLevel" operation="LTE" value="199"/>
 				</passive_effect>
 				<passive_effect name="BarteringSelling" operation="base_add" value="0.15">
-					<requirement name="PlayerLevel" operation="GTE" value="101"/>
-					<requirement name="PlayerLevel" operation="LTE" value="150"/>
+					<requirement name="PlayerLevel" operation="GTE" value="200"/>
+					<requirement name="PlayerLevel" operation="LTE" value="299"/>
 				</passive_effect>
 				<passive_effect name="BarteringSelling" operation="base_add" value="0.2">
-					<requirement name="PlayerLevel" operation="GTE" value="151"/>
-					<requirement name="PlayerLevel" operation="LTE" value="200"/>
-				</passive_effect>
-				<passive_effect name="BarteringSelling" operation="base_add" value="0.25">
-					<requirement name="PlayerLevel" operation="GTE" value="201"/>
-					<requirement name="PlayerLevel" operation="LTE" value="250"/>
-				</passive_effect>
-				<passive_effect name="BarteringSelling" operation="base_add" value="0.3">
-					<requirement name="PlayerLevel" operation="GTE" value="251"/>
+					<requirement name="PlayerLevel" operation="GTE" value="300"/>
 				</passive_effect>
 			</effect_group>
 		</item_modifier>
-		<!-- 不太酷眼鏡專用模組,潛能-雄辯 -->
-		<item_modifier name="modGlassesPotentialAbilityEloquent" installable_tags="glasses" modifier_tags="abBuff02" type="attachment">
+		<!-- 潛能-雄辯 -->
+		<item_modifier name="modGlassesPotentialAbilityEloquent" installable_tags="glasses" modifier_tags="SpecialEnhancements02" type="attachment">
 			<property name="CustomIcon" value="apparelFacialPiercings"/>
 			<property name="CustomIconTint" value="FFDD55"/>
 			<property name="DescriptionKey" value="modGlassesPotentialAbilityEloquentDesc"/>
 			<property name="Stacknumber" value="1"/>
-			<property name="EconomicValue" value="100"/>
+			<property name="EconomicValue" value="1000"/>
 			<property name="Group" value="Mods"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
 			<effect_group tiered="false">
 				<passive_effect name="QuestBonusItemReward" operation="perc_add" value="0.05">
 					<requirement name="PlayerLevel" operation="LTE" value="50"/>
@@ -1139,15 +594,14 @@
 				</passive_effect>
 			</effect_group>
 		</item_modifier>
-		<!-- 不太酷眼鏡專用模組,潛能-感知 -->
-		<item_modifier name="modGlassesPotentialAbilityPerception" installable_tags="glasses" modifier_tags="abBuff03" type="attachment">
+		<!-- 潛能-感知 -->
+		<item_modifier name="modGlassesPotentialAbilityPerception" installable_tags="glasses" modifier_tags="SpecialEnhancements03" type="attachment">
 			<property name="CustomIcon" value="apparelFacialPiercings"/>
 			<property name="CustomIconTint" value="FFDD55"/>
 			<property name="DescriptionKey" value="modGlassesPotentialAbilityPerceptionDesc"/>
 			<property name="Stacknumber" value="1"/>
-			<property name="EconomicValue" value="100"/>
+			<property name="EconomicValue" value="1000"/>
 			<property name="Group" value="Mods"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
 			<effect_group tiered="false">
 				<passive_effect name="AttributeLevel" tags="attPerception" operation="base_add" value="1">
 					<requirement name="PlayerLevel" operation="LTE" value="50"/>
@@ -1173,15 +627,14 @@
 				</passive_effect>
 			</effect_group>
 		</item_modifier>
-		<!-- 不太酷眼鏡專用模組,潛能-力量 -->
-		<item_modifier name="modGlassesPotentialAbilityStrength" installable_tags="glasses" modifier_tags="abBuff04" type="attachment">
+		<!-- 潛能-力量 -->
+		<item_modifier name="modGlassesPotentialAbilityStrength" installable_tags="glasses" modifier_tags="SpecialEnhancements04" type="attachment">
 			<property name="CustomIcon" value="apparelFacialPiercings"/>
 			<property name="CustomIconTint" value="FFDD55"/>
 			<property name="DescriptionKey" value="modGlassesPotentialAbilityStrengthDesc"/>
 			<property name="Stacknumber" value="1"/>
-			<property name="EconomicValue" value="100"/>
+			<property name="EconomicValue" value="1000"/>
 			<property name="Group" value="Mods"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
 			<effect_group tiered="false">
 				<passive_effect name="AttributeLevel" tags="attStrength" operation="base_add" value="1">
 					<requirement name="PlayerLevel" operation="LTE" value="50"/>
@@ -1207,15 +660,14 @@
 				</passive_effect>
 			</effect_group>
 		</item_modifier>
-		<!-- 不太酷眼鏡專用模組,潛能-堅毅 -->
-		<item_modifier name="modGlassesPotentialAbilityFortitude" installable_tags="glasses" modifier_tags="abBuff05" type="attachment">
+		<!-- 潛能-堅毅 -->
+		<item_modifier name="modGlassesPotentialAbilityFortitude" installable_tags="glasses" modifier_tags="SpecialEnhancements05" type="attachment">
 			<property name="CustomIcon" value="apparelFacialPiercings"/>
 			<property name="CustomIconTint" value="FFDD55"/>
 			<property name="DescriptionKey" value="modGlassesPotentialAbilityFortitudeDesc"/>
 			<property name="Stacknumber" value="1"/>
-			<property name="EconomicValue" value="100"/>
+			<property name="EconomicValue" value="1000"/>
 			<property name="Group" value="Mods"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
 			<effect_group tiered="false">
 				<passive_effect name="AttributeLevel" tags="attFortitude" operation="base_add" value="1">
 					<requirement name="PlayerLevel" operation="LTE" value="50"/>
@@ -1241,15 +693,14 @@
 				</passive_effect>
 			</effect_group>
 		</item_modifier>
-		<!-- 不太酷眼鏡專用模組,潛能-敏捷 -->
-		<item_modifier name="modGlassesPotentialAbilityAgility" installable_tags="glasses" modifier_tags="abBuff06" type="attachment">
+		<!-- 潛能-敏捷 -->
+		<item_modifier name="modGlassesPotentialAbilityAgility" installable_tags="glasses" modifier_tags="SpecialEnhancements06" type="attachment">
 			<property name="CustomIcon" value="apparelFacialPiercings"/>
 			<property name="CustomIconTint" value="FFDD55"/>
 			<property name="DescriptionKey" value="modGlassesPotentialAbilityAgilityDesc"/>
 			<property name="Stacknumber" value="1"/>
-			<property name="EconomicValue" value="100"/>
+			<property name="EconomicValue" value="1000"/>
 			<property name="Group" value="Mods"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
 			<effect_group tiered="false">
 				<passive_effect name="AttributeLevel" tags="attAgility" operation="base_add" value="1">
 					<requirement name="PlayerLevel" operation="LTE" value="50"/>
@@ -1275,15 +726,14 @@
 				</passive_effect>
 			</effect_group>
 		</item_modifier>
-		<!-- 不太酷眼鏡專用模組,潛能-智力 -->
-		<item_modifier name="modGlassesPotentialAbilityIntellect" installable_tags="glasses" modifier_tags="abBuff07" type="attachment">
+		<!-- 潛能-智力 -->
+		<item_modifier name="modGlassesPotentialAbilityIntellect" installable_tags="glasses" modifier_tags="SpecialEnhancements07" type="attachment">
 			<property name="CustomIcon" value="apparelFacialPiercings"/>
 			<property name="CustomIconTint" value="FFDD55"/>
 			<property name="DescriptionKey" value="modGlassesPotentialAbilityIntellectDesc"/>
 			<property name="Stacknumber" value="1"/>
-			<property name="EconomicValue" value="100"/>
+			<property name="EconomicValue" value="1000"/>
 			<property name="Group" value="Mods"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
 			<effect_group tiered="false">
 				<passive_effect name="AttributeLevel" tags="attIntellect" operation="base_add" value="1">
 					<requirement name="PlayerLevel" operation="LTE" value="50"/>
@@ -1309,67 +759,45 @@
 				</passive_effect>
 			</effect_group>
 		</item_modifier>
-		<!-- 不太酷眼鏡專用模組,潛能-忍辱負重 -->
-		<item_modifier name="modGlassesPotentialAbilityEndureHumiliation" installable_tags="glasses" modifier_tags="abBuff08" type="attachment">
-			<property name="CustomIcon" value="apparelFacialPiercings"/>
-			<property name="CustomIconTint" value="FFDD55"/>
-			<property name="DescriptionKey" value="modGlassesPotentialAbilityEndureHumiliationDesc"/>
-			<property name="Stacknumber" value="1"/>
-			<property name="EconomicValue" value="100"/>
-			<property name="Group" value="Mods"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
-			<effect_group tiered="false">
-				<passive_effect name="CarryCapacity" operation="base_add" value="9"/>
-				<passive_effect name="NoiseMultiplier" operation="perc_add" value="0.09"/>
-			</effect_group>
-		</item_modifier>
-		<!-- 不太酷眼鏡專用模組,潛能-狂暴 -->
-		<item_modifier name="modGlassesPotentialAbilityWild" installable_tags="glasses" modifier_tags="abBuff09" type="attachment">
+		<!-- 潛能-狂暴 -->
+		<item_modifier name="modGlassesPotentialAbilityWild" installable_tags="glasses" modifier_tags="SpecialEnhancements08" type="attachment">
 			<property name="CustomIcon" value="apparelFacialPiercings"/>
 			<property name="CustomIconTint" value="FFDD55"/>
 			<property name="DescriptionKey" value="modGlassesPotentialAbilityWildDesc"/>
 			<property name="Stacknumber" value="1"/>
-			<property name="EconomicValue" value="100"/>
+			<property name="EconomicValue" value="1000"/>
 			<property name="Group" value="Mods"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
 			<effect_group tiered="false">
 				<passive_effect name="BlockDamage" operation="perc_add" value="1.5"/>
 				<passive_effect name="EntityDamage" operation="perc_add" value="1.2"/>
-				<passive_effect name="WaterLossPerStaminaPointGained" operation="perc_subtract" value="-0.75"/><!-- 當耐力減少時對水分的下降量 -->
+				<passive_effect name="StaminaLoss" operation="perc_add" value=".1"/>
 			</effect_group>
 		</item_modifier>
-		<!-- 不太酷眼鏡專用模組,潛能-不勞而獲 -->
-		<item_modifier name="modGlassesPotentialAbilityNoGainsWithoutPains" installable_tags="glasses" modifier_tags="abBuff10" type="attachment">
+		<!-- 潛能-不勞而獲 -->
+		<item_modifier name="modGlassesPotentialAbilityNoGainsWithoutPains" installable_tags="glasses" modifier_tags="SpecialEnhancements09" type="attachment">
 			<property name="CustomIcon" value="apparelFacialPiercings"/>
 			<property name="CustomIconTint" value="FFDD55"/>
 			<property name="DescriptionKey" value="modGlassesPotentialAbilityNoGainsWithoutPainsDesc"/>
 			<property name="Stacknumber" value="1"/>
-			<property name="EconomicValue" value="100"/>
+			<property name="EconomicValue" value="1000"/>
 			<property name="Group" value="Mods"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
 			<effect_group tiered="false">
 				<passive_effect name="HarvestCount" operation="perc_add" value="1" tags="cropHarvest,wildCropsHarvest"/>
 				<passive_effect name="HarvestCount" operation="perc_add" value="2" tags="cropHarvest,wildCropsHarvest">
 					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
 				</passive_effect>
-				<passive_effect name="HarvestCount" operation="perc_add" value="3" tags="cropHarvest,wildCropsHarvest">
-					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="5"/>
-				</passive_effect>
-				<passive_effect name="StaminaLoss" operation="perc_add" value="1.5"/>
 			</effect_group>
 		</item_modifier>
-		<!-- 不太酷眼鏡專用模組,潛能-無聲無息 -->
-		<item_modifier name="modGlassesPotentialAbilitySilent" installable_tags="glasses" modifier_tags="abBuff11" type="attachment">
+		<!-- 潛能-無聲無息 -->
+		<item_modifier name="modGlassesPotentialAbilitySilent" installable_tags="glasses" modifier_tags="SpecialEnhancements10" type="attachment">
 			<property name="CustomIcon" value="apparelFacialPiercings"/>
 			<property name="CustomIconTint" value="FFDD55"/>
 			<property name="DescriptionKey" value="modGlassesPotentialAbilitySilentDesc"/>
 			<property name="Stacknumber" value="1"/>
-			<property name="EconomicValue" value="100"/>
+			<property name="EconomicValue" value="1000"/>
 			<property name="Group" value="Mods"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
 			<effect_group tiered="false">
 				<passive_effect name="NoiseMultiplier" operation="perc_add" value="-0.8"/>
-				<passive_effect name="CrouchSpeed" operation="perc_add" value="-0.75"/>
 				<passive_effect name="BlockPickup" operation="base_set" value="1" tags="Mine" />
 			</effect_group>
 			<effect_group tiered="false">
@@ -1378,45 +806,707 @@
 				<passive_effect name="EntityDamage" operation="perc_add" value="5"/>
 			</effect_group>
 		</item_modifier>
-		<!-- 不太酷眼鏡專用模組,潛能-密教 -->
-		<item_modifier name="modGlassesPotentialAbilityTantra" installable_tags="glasses" modifier_tags="abBuff12" type="attachment">
+		<!-- 潛能-密教 -->
+		<item_modifier name="modGlassesPotentialAbilityTantra" installable_tags="glasses" modifier_tags="SpecialEnhancements11" type="attachment">
 			<property name="CustomIcon" value="apparelFacialPiercings"/>
 			<property name="CustomIconTint" value="FFDD55"/>
 			<property name="DescriptionKey" value="modGlassesPotentialAbilityTantraDesc"/>
 			<property name="Stacknumber" value="1"/>
-			<property name="EconomicValue" value="100"/>
+			<property name="EconomicValue" value="1000"/>
 			<property name="Group" value="Mods"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
 			<effect_group tiered="false">
-				<passive_effect name="BuffResistance" operation="base_add" value=".7" tags="buffInfectionCatch,buffInjuryBleeding,buffIllFoodPoisoning01,buffDysenteryCatch"/>
-				<passive_effect name="HealthLoss" operation="perc_add" value=".3"/>
+				<passive_effect name="BuffResistance" operation="base_add" value=".7" tags="buffInfectionCatch,buffInjuryBleeding,buffDysenteryMain,buffDysentery01Untreated,buffDysentery01UntreatedDiarrhea"/>
 			</effect_group>
 		</item_modifier>
-		<!-- 超動能驅動器 -->
-		<item_modifier name="modApparelSuperKineticEnergyDriver" installable_tags="feet" modifier_tags="speedUp" type="attachment">
-			<property name="Material" value="Msteel"/>
+	</append>
+	<!-- 石碑系統 -->
+	<append xpath="/item_modifiers">
+		<!-- 反噬火紋石碑 -->
+		<item_modifier name="modArmorFlameHeraldryAntiphasicDetonateStele" installable_tags="armor,clothing" modifier_tags="FlameHeraldryAntiphasicDetonateStele" type="attachment">
+			<property name="DisplayType" value="modArmorElementAntiphasicDetonate"/>
 			<property name="Stacknumber" value="1"/>
-			<property name="CustomIcon" value="beabin_modApparelSuperKineticEnergyDriver"/>
-			<property name="DescriptionKey" value="modApparelSuperKineticEnergyDriverDesc"/>
-			<property name="EconomicValue" value="300"/>
+			<property name="CustomIcon" value="beabin_flameHeraldryAntiphasicDetonateStele"/>
+			<property name="DescriptionKey" value="modArmorFlameHeraldryAntiphasicDetonateSteleDesc"/>
+			<property name="EconomicValue" value="1000"/>
 			<property name="Group" value="Mods"/>
-			<effect_group name="modApparelSuperKineticEnergyDriver" tiered="false">
-				<passive_effect name="RunSpeed" operation="perc_add" value=".3"/>
-				<passive_effect name="StaminaChangeOT" operation="perc_add" value="-1.25" tags="running"/>
+			<effect_group name="modArmorFlameHeraldryAntiphasicDetonateStele" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateBurning">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+				</triggered_effect>
+				<display_value name="dADBurning" value="0.2"/>
 			</effect_group>
 		</item_modifier>
-		<!-- 赫克裝甲 -->
-		<item_modifier name="modArmorPlatingHeck" installable_tags="armor,chest,clothing" modifier_tags="resistance" type="attachment">
-			<property name="DisplayType" value="modArmor"/>
+		<!-- 反噬雷紋石碑 -->
+		<item_modifier name="modArmorThunderHeraldryAntiphasicDetonateStele" installable_tags="armor,clothing" modifier_tags="ThunderHeraldryAntiphasicDetonateStele" type="attachment">
+			<property name="DisplayType" value="modArmorElementAntiphasicDetonate"/>
 			<property name="Stacknumber" value="1"/>
-			<property name="CustomIcon" value="beabin_ArmorPlatingHeck"/>
-			<property name="DescriptionKey" value="modArmorPlatingHeckDesc"/>
-			<property name="EconomicValue" value="100"/>
+			<property name="CustomIcon" value="beabin_thunderHeraldryAntiphasicDetonateStele"/>
+			<property name="DescriptionKey" value="modArmorThunderHeraldryAntiphasicDetonateSteleDesc"/>
+			<property name="EconomicValue" value="1000"/>
 			<property name="Group" value="Mods"/>
-			<effect_group name="modArmorPlatingHeck" tiered="false">
-				<passive_effect name="PhysicalDamageResist" operation="base_add" value="1,3"/>
-				<passive_effect name="HealthMax" operation="base_add" value="-1,-3"/>
-				<passive_effect name="StaminaMax" operation="base_add" value="-1,-3"/>
+			<effect_group name="modArmorThunderHeraldryAntiphasicDetonateStele" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateShock">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+				</triggered_effect>
+				<display_value name="dADShock" value="0.2"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 反噬血痕石碑 -->
+		<item_modifier name="modArmorBloodMarksAntiphasicDetonateStele" installable_tags="armor,clothing" modifier_tags="BloodMarksAntiphasicDetonateStele" type="attachment">
+			<property name="DisplayType" value="modArmorElementAntiphasicDetonate"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="beabin_bloodMarksAntiphasicDetonateStele"/>
+			<property name="DescriptionKey" value="modArmorBloodMarksAntiphasicDetonateSteleDesc"/>
+			<property name="EconomicValue" value="1000"/>
+			<property name="Group" value="Mods"/>
+			<effect_group name="modArmorBloodMarksAntiphasicDetonateStele" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateBleed">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+				</triggered_effect>
+				<display_value name="dADBleed" value="0.2"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 反噬沈睡石碑 -->
+		<item_modifier name="modArmorDeepSleepAntiphasicDetonateStele" installable_tags="armor,clothing" modifier_tags="DeepSleepAntiphasicDetonateStele" type="attachment">
+			<property name="DisplayType" value="modArmorElementAntiphasicDetonate"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="beabin_deepSleepAntiphasicDetonateStele"/>
+			<property name="DescriptionKey" value="modArmorDeepSleepAntiphasicDetonateSteleDesc"/>
+			<property name="EconomicValue" value="1000"/>
+			<property name="Group" value="Mods"/>
+			<effect_group name="modArmorDeepSleepAntiphasicDetonateStele" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateNarcosis">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+				</triggered_effect>
+				<display_value name="dADNarcosis" value="0.2"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 反噬霜紋石碑 -->
+		<item_modifier name="modArmorIceHeraldryAntiphasicDetonateStele" installable_tags="armor,clothing" modifier_tags="IceHeraldryAntiphasicDetonateStele" type="attachment">
+			<property name="DisplayType" value="modArmorElementAntiphasicDetonate"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="beabin_iceHeraldryAntiphasicDetonateStele"/>
+			<property name="DescriptionKey" value="modArmorIceHeraldryAntiphasicDetonateSteleDesc"/>
+			<property name="EconomicValue" value="1000"/>
+			<property name="Group" value="Mods"/>
+			<effect_group name="modArmorIceHeraldryAntiphasicDetonateStele" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateIceBite">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+				</triggered_effect>
+				<display_value name="dADFrostBite" value="0.2"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 反噬火紋石碑2~5級 -->
+		<item_modifier name="modArmorFlameHeraldryAntiphasicDetonateStele02" installable_tags="armor,clothing" modifier_tags="FlameHeraldryAntiphasicDetonateStele" type="attachment">
+			<property name="Extends" value="modArmorFlameHeraldryAntiphasicDetonateStele"/>
+			<property name="CustomIcon" value="beabin_flameHeraldryAntiphasicDetonateStele02"/>
+			<effect_group name="modArmorFlameHeraldryAntiphasicDetonateStele02" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateBurning">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+				</triggered_effect>
+				<display_value name="dADBurning" value="0.4"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorFlameHeraldryAntiphasicDetonateStele03" installable_tags="armor,clothing" modifier_tags="FlameHeraldryAntiphasicDetonateStele" type="attachment">
+			<property name="Extends" value="modArmorFlameHeraldryAntiphasicDetonateStele"/>
+			<property name="CustomIcon" value="beabin_flameHeraldryAntiphasicDetonateStele03"/>
+			<effect_group name="modArmorFlameHeraldryAntiphasicDetonateStele03" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateBurning">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+				</triggered_effect>
+				<display_value name="dADBurning" value="0.6"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorFlameHeraldryAntiphasicDetonateStele04" installable_tags="armor,clothing" modifier_tags="FlameHeraldryAntiphasicDetonateStele" type="attachment">
+			<property name="Extends" value="modArmorFlameHeraldryAntiphasicDetonateStele"/>
+			<property name="CustomIcon" value="beabin_flameHeraldryAntiphasicDetonateStele04"/>
+			<effect_group name="modArmorFlameHeraldryAntiphasicDetonateStele04" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateBurning">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="80"/>
+				</triggered_effect>
+				<display_value name="dADBurning" value="0.8"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorFlameHeraldryAntiphasicDetonateStele05" installable_tags="armor,clothing" modifier_tags="FlameHeraldryAntiphasicDetonateStele" type="attachment">
+			<property name="Extends" value="modArmorFlameHeraldryAntiphasicDetonateStele"/>
+			<property name="CustomIcon" value="beabin_flameHeraldryAntiphasicDetonateStele05"/>
+			<effect_group name="modArmorFlameHeraldryAntiphasicDetonateStele05" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateBurning"/>
+				<display_value name="dADBurning" value="1"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 反噬雷紋石碑2~5級 -->
+		<item_modifier name="modArmorThunderHeraldryAntiphasicDetonateStele02" installable_tags="armor,clothing" modifier_tags="ThunderHeraldryAntiphasicDetonateStele" type="attachment">
+			<property name="Extends" value="modArmorThunderHeraldryAntiphasicDetonateStele"/>
+			<property name="CustomIcon" value="beabin_thunderHeraldryAntiphasicDetonateStele02"/>
+			<effect_group name="modArmorThunderHeraldryAntiphasicDetonateStele02" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateShock">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+				</triggered_effect>
+				<display_value name="dADShock" value="0.4"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorThunderHeraldryAntiphasicDetonateStele03" installable_tags="armor,clothing" modifier_tags="ThunderHeraldryAntiphasicDetonateStele" type="attachment">
+			<property name="Extends" value="modArmorThunderHeraldryAntiphasicDetonateStele"/>
+			<property name="CustomIcon" value="beabin_thunderHeraldryAntiphasicDetonateStele03"/>
+			<effect_group name="modArmorThunderHeraldryAntiphasicDetonateStele03" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateShock">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+				</triggered_effect>
+				<display_value name="dADShock" value="0.6"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorThunderHeraldryAntiphasicDetonateStele04" installable_tags="armor,clothing" modifier_tags="ThunderHeraldryAntiphasicDetonateStele" type="attachment">
+			<property name="Extends" value="modArmorThunderHeraldryAntiphasicDetonateStele"/>
+			<property name="CustomIcon" value="beabin_thunderHeraldryAntiphasicDetonateStele04"/>
+			<effect_group name="modArmorThunderHeraldryAntiphasicDetonateStele04" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateShock">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="80"/>
+				</triggered_effect>
+				<display_value name="dADShock" value="0.8"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorThunderHeraldryAntiphasicDetonateStele05" installable_tags="armor,clothing" modifier_tags="ThunderHeraldryAntiphasicDetonateStele" type="attachment">
+			<property name="Extends" value="modArmorThunderHeraldryAntiphasicDetonateStele"/>
+			<property name="CustomIcon" value="beabin_thunderHeraldryAntiphasicDetonateStele05"/>
+			<effect_group name="modArmorThunderHeraldryAntiphasicDetonateStele05" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateShock"/>
+				<display_value name="dADShock" value="1"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 反噬血痕石碑2~5級 -->
+		<item_modifier name="modArmorBloodMarksAntiphasicDetonateStele02" installable_tags="armor,clothing" modifier_tags="BloodMarksAntiphasicDetonateStele" type="attachment">
+			<property name="Extends" value="modArmorBloodMarksAntiphasicDetonateStele"/>
+			<property name="CustomIcon" value="beabin_bloodMarksAntiphasicDetonateStele02"/>
+			<effect_group name="modArmorBloodMarksAntiphasicDetonateStele02" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateBleed">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+				</triggered_effect>
+				<display_value name="dADBleed" value="0.4"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorBloodMarksAntiphasicDetonateStele03" installable_tags="armor,clothing" modifier_tags="BloodMarksAntiphasicDetonateStele" type="attachment">
+			<property name="Extends" value="modArmorBloodMarksAntiphasicDetonateStele"/>
+			<property name="CustomIcon" value="beabin_bloodMarksAntiphasicDetonateStele03"/>
+			<effect_group name="modArmorBloodMarksAntiphasicDetonateStele03" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateBleed">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+				</triggered_effect>
+				<display_value name="dADBleed" value="0.6"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorBloodMarksAntiphasicDetonateStele04" installable_tags="armor,clothing" modifier_tags="BloodMarksAntiphasicDetonateStele" type="attachment">
+			<property name="Extends" value="modArmorBloodMarksAntiphasicDetonateStele"/>
+			<property name="CustomIcon" value="beabin_bloodMarksAntiphasicDetonateStele04"/>
+			<effect_group name="modArmorBloodMarksAntiphasicDetonateStele04" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateBleed">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="80"/>
+				</triggered_effect>
+				<display_value name="dADBleed" value="0.8"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorBloodMarksAntiphasicDetonateStele05" installable_tags="armor,clothing" modifier_tags="BloodMarksAntiphasicDetonateStele" type="attachment">
+			<property name="Extends" value="modArmorBloodMarksAntiphasicDetonateStele"/>
+			<property name="CustomIcon" value="beabin_bloodMarksAntiphasicDetonateStele05"/>
+			<effect_group name="modArmorBloodMarksAntiphasicDetonateStele05" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateBleed"/>
+				<display_value name="dADBleed" value="1"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 反噬沈睡石碑2~5級  -->
+		<item_modifier name="modArmorDeepSleepAntiphasicDetonateStele02" installable_tags="armor,clothing" modifier_tags="DeepSleepAntiphasicDetonateStele" type="attachment">
+			<property name="Extends" value="modArmorDeepSleepAntiphasicDetonateStele"/>
+			<property name="CustomIcon" value="beabin_deepSleepAntiphasicDetonateStele02"/>
+			<effect_group name="modArmorDeepSleepAntiphasicDetonateStele02" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateNarcosis">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+				</triggered_effect>
+				<display_value name="dADNarcosis" value="0.4"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorDeepSleepAntiphasicDetonateStele03" installable_tags="armor,clothing" modifier_tags="DeepSleepAntiphasicDetonateStele" type="attachment">
+			<property name="Extends" value="modArmorDeepSleepAntiphasicDetonateStele"/>
+			<property name="CustomIcon" value="beabin_deepSleepAntiphasicDetonateStele03"/>
+			<effect_group name="modArmorDeepSleepAntiphasicDetonateStele03" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateNarcosis">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+				</triggered_effect>
+				<display_value name="dADNarcosis" value="0.6"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorDeepSleepAntiphasicDetonateStele04" installable_tags="armor,clothing" modifier_tags="DeepSleepAntiphasicDetonateStele" type="attachment">
+			<property name="Extends" value="modArmorDeepSleepAntiphasicDetonateStele"/>
+			<property name="CustomIcon" value="beabin_deepSleepAntiphasicDetonateStele04"/>
+			<effect_group name="modArmorDeepSleepAntiphasicDetonateStele04" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateNarcosis">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="80"/>
+				</triggered_effect>
+				<display_value name="dADNarcosis" value="0.8"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorDeepSleepAntiphasicDetonateStele05" installable_tags="armor,clothing" modifier_tags="DeepSleepAntiphasicDetonateStele" type="attachment">
+			<property name="Extends" value="modArmorDeepSleepAntiphasicDetonateStele"/>
+			<property name="CustomIcon" value="beabin_deepSleepAntiphasicDetonateStele05"/>
+			<effect_group name="modArmorDeepSleepAntiphasicDetonateStele05" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateNarcosis"/>
+				<display_value name="dADNarcosis" value="1"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 反噬霜紋石碑2~5級 -->
+		<item_modifier name="modArmorIceHeraldryAntiphasicDetonateStele02" installable_tags="armor,clothing" modifier_tags="IceHeraldryAntiphasicDetonateStele" type="attachment">
+			<property name="Extends" value="modArmorIceHeraldryAntiphasicDetonateStele"/>
+			<property name="CustomIcon" value="beabin_iceHeraldryAntiphasicDetonateStele02"/>
+			<effect_group name="modArmorIceHeraldryAntiphasicDetonateStele02" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateIceBite">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+				</triggered_effect>
+				<display_value name="dADFrostBite" value="0.4"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorIceHeraldryAntiphasicDetonateStele03" installable_tags="armor,clothing" modifier_tags="IceHeraldryAntiphasicDetonateStele" type="attachment">
+			<property name="Extends" value="modArmorIceHeraldryAntiphasicDetonateStele"/>
+			<property name="CustomIcon" value="beabin_iceHeraldryAntiphasicDetonateStele03"/>
+			<effect_group name="modArmorIceHeraldryAntiphasicDetonateStele03" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateIceBite">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+				</triggered_effect>
+				<display_value name="dADFrostBite" value="0.6"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorIceHeraldryAntiphasicDetonateStele04" installable_tags="armor,clothing" modifier_tags="IceHeraldryAntiphasicDetonateStele" type="attachment">
+			<property name="Extends" value="modArmorIceHeraldryAntiphasicDetonateStele"/>
+			<property name="CustomIcon" value="beabin_iceHeraldryAntiphasicDetonateStele04"/>
+			<effect_group name="modArmorIceHeraldryAntiphasicDetonateStele04" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateIceBite">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="80"/>
+				</triggered_effect>
+				<display_value name="dADFrostBite" value="0.8"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorIceHeraldryAntiphasicDetonateStele05" installable_tags="armor,clothing" modifier_tags="IceHeraldryAntiphasicDetonateStele" type="attachment">
+			<property name="Extends" value="modArmorIceHeraldryAntiphasicDetonateStele"/>
+			<property name="CustomIcon" value="beabin_iceHeraldryAntiphasicDetonateStele05"/>
+			<effect_group name="modArmorIceHeraldryAntiphasicDetonateStele05" tiered="false">
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" target="other" target_tags="zombie,animal,wastelandBadGuy" buff="buffAntiphasicDetonateIceBite"/>
+				<display_value name="dADFrostBite" value="1"/>
+			</effect_group>
+		</item_modifier>
+
+		<!-- 感知石碑 -->
+		<item_modifier name="modArmorPerceptionStele" installable_tags="armor,clothing" modifier_tags="PerceptionStele" type="attachment">
+			<property name="DisplayType" value="modArmorAttributeLevel"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="beabin_PerceptionStele"/>
+			<property name="DescriptionKey" value="modArmorPerceptionSteleDesc"/>
+			<property name="EconomicValue" value="500"/>
+			<property name="Group" value="Mods"/>
+			<effect_group name="modArmorPerceptionStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attPerception" operation="base_add" value="1"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 力量石碑 -->
+		<item_modifier name="modArmorStrengthStele" installable_tags="armor,clothing" modifier_tags="StrengthStele" type="attachment">
+			<property name="DisplayType" value="modArmorAttributeLevel"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="beabin_StrengthStele"/>
+			<property name="DescriptionKey" value="modArmorStrengthSteleDesc"/>
+			<property name="EconomicValue" value="500"/>
+			<property name="Group" value="Mods"/>
+			<effect_group name="modArmorStrengthStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attStrength" operation="base_add" value="1"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 堅毅石碑 -->
+		<item_modifier name="modArmorFortitudeStele" installable_tags="armor,clothing" modifier_tags="FortitudeStele" type="attachment">
+			<property name="DisplayType" value="modArmorAttributeLevel"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="beabin_FortitudeStele"/>
+			<property name="DescriptionKey" value="modArmorFortitudeSteleDesc"/>
+			<property name="EconomicValue" value="500"/>
+			<property name="Group" value="Mods"/>
+			<effect_group name="modArmorFortitudeStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attFortitude" operation="base_add" value="1"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 敏捷石碑 -->
+		<item_modifier name="modArmorAgilityStele" installable_tags="armor,clothing" modifier_tags="AgilityStele" type="attachment">
+			<property name="DisplayType" value="modArmorAttributeLevel"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="beabin_AgilityStele"/>
+			<property name="DescriptionKey" value="modArmorAgilitySteleDesc"/>
+			<property name="EconomicValue" value="500"/>
+			<property name="Group" value="Mods"/>
+			<effect_group name="modArmorAgilityStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attAgility" operation="base_add" value="1"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 智力石碑 -->
+		<item_modifier name="modArmorIntellectStele" installable_tags="armor,clothing" modifier_tags="IntellectStele" type="attachment">
+			<property name="DisplayType" value="modArmorAttributeLevel"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="beabin_IntellectStele"/>
+			<property name="DescriptionKey" value="modArmorIntellectSteleDesc"/>
+			<property name="EconomicValue" value="500"/>
+			<property name="Group" value="Mods"/>
+			<effect_group name="modArmorIntellectStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attIntellect" operation="base_add" value="1"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 感知2~5級石碑 -->
+		<item_modifier name="modArmorPerceptionStele02" installable_tags="armor,clothing" modifier_tags="PerceptionStele" type="attachment">
+			<property name="Extends" value="modArmorPerceptionStele"/>
+			<property name="CustomIcon" value="beabin_PerceptionStele02"/>
+			<effect_group name="modArmorPerceptionStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attPerception" operation="base_add" value="2"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorPerceptionStele03" installable_tags="armor,clothing" modifier_tags="PerceptionStele" type="attachment">
+			<property name="Extends" value="modArmorPerceptionStele"/>
+			<property name="CustomIcon" value="beabin_PerceptionStele03"/>
+			<effect_group name="modArmorPerceptionStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attPerception" operation="base_add" value="3"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorPerceptionStele04" installable_tags="armor,clothing" modifier_tags="PerceptionStele" type="attachment">
+			<property name="Extends" value="modArmorPerceptionStele"/>
+			<property name="CustomIcon" value="beabin_PerceptionStele04"/>
+			<effect_group name="modArmorPerceptionStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attPerception" operation="base_add" value="4"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorPerceptionStele05" installable_tags="armor,clothing" modifier_tags="PerceptionStele" type="attachment">
+			<property name="Extends" value="modArmorPerceptionStele"/>
+			<property name="CustomIcon" value="beabin_PerceptionStele05"/>
+			<effect_group name="modArmorPerceptionStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attPerception" operation="base_add" value="5"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 力量2~5級石碑 -->
+		<item_modifier name="modArmorStrengthStele02" installable_tags="armor,clothing" modifier_tags="StrengthStele" type="attachment">
+			<property name="Extends" value="modArmorStrengthStele"/>
+			<property name="CustomIcon" value="beabin_StrengthStele02"/>
+			<effect_group name="modArmorStrengthStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attStrength" operation="base_add" value="2"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorStrengthStele03" installable_tags="armor,clothing" modifier_tags="StrengthStele" type="attachment">
+			<property name="Extends" value="modArmorStrengthStele"/>
+			<property name="CustomIcon" value="beabin_StrengthStele03"/>
+			<effect_group name="modArmorStrengthStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attStrength" operation="base_add" value="3"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorStrengthStele04" installable_tags="armor,clothing" modifier_tags="StrengthStele" type="attachment">
+			<property name="Extends" value="modArmorStrengthStele"/>
+			<property name="CustomIcon" value="beabin_StrengthStele04"/>
+			<effect_group name="modArmorStrengthStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attStrength" operation="base_add" value="4"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorStrengthStele05" installable_tags="armor,clothing" modifier_tags="StrengthStele" type="attachment">
+			<property name="Extends" value="modArmorStrengthStele"/>
+			<property name="CustomIcon" value="beabin_StrengthStele05"/>
+			<effect_group name="modArmorStrengthStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attStrength" operation="base_add" value="5"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 堅毅2~5級石碑 -->
+		<item_modifier name="modArmorFortitudeStele02" installable_tags="armor,clothing" modifier_tags="FortitudeStele" type="attachment">
+			<property name="Extends" value="modArmorFortitudeStele"/>
+			<property name="CustomIcon" value="beabin_FortitudeStele02"/>
+			<effect_group name="modArmorFortitudeStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attFortitude" operation="base_add" value="2"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorFortitudeStele03" installable_tags="armor,clothing" modifier_tags="FortitudeStele" type="attachment">
+			<property name="Extends" value="modArmorFortitudeStele"/>
+			<property name="CustomIcon" value="beabin_FortitudeStele03"/>
+			<effect_group name="modArmorFortitudeStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attFortitude" operation="base_add" value="3"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorFortitudeStele04" installable_tags="armor,clothing" modifier_tags="FortitudeStele" type="attachment">
+			<property name="Extends" value="modArmorFortitudeStele"/>
+			<property name="CustomIcon" value="beabin_FortitudeStele04"/>
+			<effect_group name="modArmorFortitudeStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attFortitude" operation="base_add" value="4"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorFortitudeStele05" installable_tags="armor,clothing" modifier_tags="FortitudeStele" type="attachment">
+			<property name="Extends" value="modArmorFortitudeStele"/>
+			<property name="CustomIcon" value="beabin_FortitudeStele05"/>
+			<effect_group name="modArmorFortitudeStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attFortitude" operation="base_add" value="5"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 敏捷2~5級石碑 -->
+		<item_modifier name="modArmorAgilityStele02" installable_tags="armor,clothing" modifier_tags="AgilityStele" type="attachment">
+			<property name="Extends" value="modArmorAgilityStele"/>
+			<property name="CustomIcon" value="beabin_AgilityStele02"/>
+			<effect_group name="modArmorAgilityStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attAgility" operation="base_add" value="2"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorAgilityStele03" installable_tags="armor,clothing" modifier_tags="AgilityStele" type="attachment">
+			<property name="Extends" value="modArmorAgilityStele"/>
+			<property name="CustomIcon" value="beabin_AgilityStele03"/>
+			<effect_group name="modArmorAgilityStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attAgility" operation="base_add" value="3"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorAgilityStele04" installable_tags="armor,clothing" modifier_tags="AgilityStele" type="attachment">
+			<property name="Extends" value="modArmorAgilityStele"/>
+			<property name="CustomIcon" value="beabin_AgilityStele04"/>
+			<effect_group name="modArmorAgilityStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attAgility" operation="base_add" value="4"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorAgilityStele05" installable_tags="armor,clothing" modifier_tags="AgilityStele" type="attachment">
+			<property name="Extends" value="modArmorAgilityStele"/>
+			<property name="CustomIcon" value="beabin_AgilityStele05"/>
+			<effect_group name="modArmorAgilityStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attAgility" operation="base_add" value="5"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 智力2~5級石碑 -->
+		<item_modifier name="modArmorIntellectStele02" installable_tags="armor,clothing" modifier_tags="IntellectStele" type="attachment">
+			<property name="Extends" value="modArmorIntellectStele"/>
+			<property name="CustomIcon" value="beabin_IntellectStele02"/>
+			<effect_group name="modArmorIntellectStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attIntellect" operation="base_add" value="2"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorIntellectStele03" installable_tags="armor,clothing" modifier_tags="IntellectStele" type="attachment">
+			<property name="Extends" value="modArmorIntellectStele"/>
+			<property name="CustomIcon" value="beabin_IntellectStele03"/>
+			<effect_group name="modArmorIntellectStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attIntellect" operation="base_add" value="3"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorIntellectStele04" installable_tags="armor,clothing" modifier_tags="IntellectStele" type="attachment">
+			<property name="Extends" value="modArmorIntellectStele"/>
+			<property name="CustomIcon" value="beabin_IntellectStele04"/>
+			<effect_group name="modArmorIntellectStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attIntellect" operation="base_add" value="4"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorIntellectStele05" installable_tags="armor,clothing" modifier_tags="IntellectStele" type="attachment">
+			<property name="Extends" value="modArmorIntellectStele"/>
+			<property name="CustomIcon" value="beabin_IntellectStele05"/>
+			<effect_group name="modArmorIntellectStele" tiered="false">
+				<passive_effect name="AttributeLevel" tags="attIntellect" operation="base_add" value="5"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 經驗提升石碑 -->
+		<item_modifier name="modArmorExperienceUpStele" installable_tags="armor,clothing" modifier_tags="ExpUpStele" type="attachment">
+			<property name="DisplayType" value="modArmorExperienceUpStele"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="beabin_ExperienceUp"/>
+			<property name="DescriptionKey" value="modArmorExperienceUpSteleDesc"/>
+			<property name="EconomicValue" value="500"/>
+			<property name="Group" value="Mods"/>
+			<effect_group name="modArmorExperienceUpStele" tiered="false">
+				<passive_effect name="PlayerExpGain" operation="perc_add" value=".2"/>
+				<display_value name="dExpGain" value="0.2"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorExperienceUpSteleII" installable_tags="armor,clothing" modifier_tags="ExpUpStele" type="attachment">
+			<property name="Extends" value="modArmorExperienceUpStele"/>
+			<property name="CustomIcon" value="beabin_ExperienceUp02"/>
+			<effect_group name="modArmorExperienceUpSteleII" tiered="false">
+				<passive_effect name="PlayerExpGain" operation="perc_add" value=".4"/>
+				<display_value name="dExpGain" value="0.4"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorExperienceUpSteleIII" installable_tags="armor,clothing" modifier_tags="ExpUpStele" type="attachment">
+			<property name="Extends" value="modArmorExperienceUpStele"/>
+			<property name="CustomIcon" value="beabin_ExperienceUp03"/>
+			<effect_group name="modArmorExperienceUpSteleIII" tiered="false">
+				<passive_effect name="PlayerExpGain" operation="perc_add" value=".6"/>
+				<display_value name="dExpGain" value="0.6"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorExperienceUpSteleIV" installable_tags="armor,clothing" modifier_tags="ExpUpStele" type="attachment">
+			<property name="Extends" value="modArmorExperienceUpStele"/>
+			<property name="CustomIcon" value="beabin_ExperienceUp04"/>
+			<effect_group name="modArmorExperienceUpSteleIV" tiered="false">
+				<passive_effect name="PlayerExpGain" operation="perc_add" value=".8"/>
+				<display_value name="dExpGain" value="0.8"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorExperienceUpSteleV" installable_tags="armor,clothing" modifier_tags="ExpUpStele" type="attachment">
+			<property name="Extends" value="modArmorExperienceUpStele"/>
+			<property name="CustomIcon" value="beabin_ExperienceUp05"/>
+			<effect_group name="modArmorExperienceUpSteleV" tiered="false">
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="1"/>
+				<display_value name="dExpGain" value="1"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="modArmorExperienceUpSteleVI" installable_tags="armor,clothing" modifier_tags="ExpUpStele" type="attachment">
+			<property name="Extends" value="modArmorExperienceUpStele"/>
+			<property name="CustomIcon" value="beabin_ExperienceUp06"/>
+			<effect_group name="modArmorExperienceUpSteleVI" tiered="false">
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="2"/>
+				<display_value name="dExpGain" value="2"/>
+			</effect_group>
+		</item_modifier>
+	</append>
+	<!-- 印記系統 -->
+	<append xpath="/item_modifiers">
+		<!-- 金牛(Taurus) -->
+		<item_modifier name="modArmorImprintTaurus" installable_tags="hands" modifier_tags="SupernaturalPower" type="attachment">
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="beabin_ImprintTaurus"/>
+			<property name="DescriptionKey" value="modArmorImprintTaurusDesc"/>
+			<property name="EconomicValue" value="50000"/>
+			<property name="Group" value="Mods"/>
+			<effect_group name="modArmorImprintTaurus" tiered="false">
+				<triggered_effect trigger="onSelfEquipStop" action="RemoveBuff" target="self" buff="buffImprintTaurusSpiritArmor,buffImprintTaurusSpiritArmorAddPhysicalDefense"/>
+				<triggered_effect trigger="onSelfItemActivate" action="AddBuff" target="self" buff="buffImprintTaurusSpiritArmor"/>
+				<triggered_effect trigger="onSelfItemDeactivate" action="RemoveBuff" target="self" buff="buffImprintTaurusSpiritArmor,buffImprintTaurusSpiritArmorAddPhysicalDefense"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 雪狼(SnowWolf) -->
+		<item_modifier name="modArmorImprintSnowWolf" installable_tags="hands" modifier_tags="SupernaturalPower" type="attachment">
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="beabin_ImprintSnowWolf"/>
+			<property name="DescriptionKey" value="modArmorImprintSnowWolfDesc"/>
+			<property name="EconomicValue" value="50000"/>
+			<property name="Group" value="Mods"/>
+			<effect_group name="modArmorImprintSnowWolf" tiered="false">
+				<triggered_effect trigger="onSelfEquipStop" action="RemoveBuff" target="self" buff="buffImprintSnowWolfLatentHunter"/>
+				<triggered_effect trigger="onSelfItemActivate" action="AddBuff" target="self" buff="buffImprintSnowWolfLatentHunter"/>
+				<triggered_effect trigger="onSelfItemDeactivate" action="RemoveBuff" target="self" buff="buffImprintSnowWolfLatentHunter"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 灰熊(GrizzlyBear) -->
+		<item_modifier name="modArmorImprintGrizzlyBear" installable_tags="hands" modifier_tags="SupernaturalPower" type="attachment">
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="beabin_ImprintGrizzlyBear"/>
+			<property name="DescriptionKey" value="modArmorImprintGrizzlyBearDesc"/>
+			<property name="EconomicValue" value="50000"/>
+			<property name="Group" value="Mods"/>
+			<effect_group name="modArmorImprintGrizzlyBear" tiered="false">
+				<triggered_effect trigger="onSelfEquipStop" action="RemoveBuff" target="self" buff="buffImprintGrizzlyBearEarthshaker"/>
+				<triggered_effect trigger="onSelfItemActivate" action="AddBuff" target="self" buff="buffImprintGrizzlyBearEarthshaker"/>
+				<triggered_effect trigger="onSelfItemDeactivate" action="RemoveBuff" target="self" buff="buffImprintGrizzlyBearEarthshaker"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 麋鹿(Elk) -->
+		<item_modifier name="modArmorImprintElk" installable_tags="hands" modifier_tags="SupernaturalPower" type="attachment">
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="beabin_ImprintElk"/>
+			<property name="DescriptionKey" value="modArmorImprintElkDesc"/>
+			<property name="EconomicValue" value="50000"/>
+			<property name="Group" value="Mods"/>
+			<effect_group name="modArmorImprintElk" tiered="false">
+				<triggered_effect trigger="onSelfEquipStop" action="RemoveBuff" target="self" buff="buffImprintElkAtFullSpeed"/>
+				<triggered_effect trigger="onSelfItemActivate" action="AddBuff" target="self" buff="buffImprintElkAtFullSpeed"/>
+				<triggered_effect trigger="onSelfItemDeactivate" action="RemoveBuff" target="self" buff="buffImprintElkAtFullSpeed"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 豹(Jaguar) -->
+		<item_modifier name="modArmorImprintJaguar" installable_tags="hands" modifier_tags="SupernaturalPower" type="attachment">
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="beabin_ImprintJaguar"/>
+			<property name="DescriptionKey" value="modArmorImprintJaguarDesc"/>
+			<property name="EconomicValue" value="50000"/>
+			<property name="Group" value="Mods"/>
+			<effect_group name="modArmorImprintJaguar" tiered="false">
+				<triggered_effect trigger="onSelfEquipStop" action="RemoveBuff" target="self" buff="buffImprintJaguarTravelThousandMiles"/>
+				<triggered_effect trigger="onSelfItemActivate" action="AddBuff" target="self" buff="buffImprintJaguarTravelThousandMiles"/>
+				<triggered_effect trigger="onSelfItemDeactivate" action="RemoveBuff" target="self" buff="buffImprintJaguarTravelThousandMiles"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 鯊魚(Shark) -->
+		<item_modifier name="modArmorImprintShark" installable_tags="hands" modifier_tags="SupernaturalPower" type="attachment">
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="beabin_ImprintShark"/>
+			<property name="DescriptionKey" value="modArmorImprintSharkDesc"/>
+			<property name="EconomicValue" value="50000"/>
+			<property name="Group" value="Mods"/>
+			<effect_group name="modArmorImprintShark" tiered="false">
+				<triggered_effect trigger="onSelfEquipStop" action="RemoveBuff" target="self" buff="buffImprintSharkEasyToDo"/>
+				<triggered_effect trigger="onSelfItemActivate" action="AddBuff" target="self" buff="buffImprintSharkEasyToDo"/>
+				<triggered_effect trigger="onSelfItemDeactivate" action="RemoveBuff" target="self" buff="buffImprintSharkEasyToDo"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 死神(GrimReaper) -->
+		<item_modifier name="modArmorImprintGrimReaper" installable_tags="hands" modifier_tags="SupernaturalPower" type="attachment">
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="beabin_ImprintGrimReaper"/>
+			<property name="DescriptionKey" value="modArmorImprintGrimReaperDesc"/>
+			<property name="EconomicValue" value="50000"/>
+			<property name="Group" value="Mods"/>
+			<effect_group name="modArmorImprintGrimReaper" tiered="false">
+				<triggered_effect trigger="onSelfEquipStop" action="RemoveBuff" target="self" buff="buffImprintGrimReaperChimesAtMidnight"/>
+				<triggered_effect trigger="onSelfItemActivate" action="AddBuff" target="self" buff="buffImprintGrimReaperChimesAtMidnight"/>
+				<triggered_effect trigger="onSelfItemDeactivate" action="RemoveBuff" target="self" buff="buffImprintGrimReaperChimesAtMidnight"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 巨龍(GiantDragon) -->
+		<item_modifier name="modArmorImprintGiantDragon" installable_tags="hands" modifier_tags="SupernaturalPower" type="attachment">
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="beabin_ImprintGiantDragon"/>
+			<property name="DescriptionKey" value="modArmorImprintGiantDragonDesc"/>
+			<property name="EconomicValue" value="50000"/>
+			<property name="Group" value="Mods"/>
+			<effect_group name="modArmorImprintGiantDragon" tiered="false">
+				<triggered_effect trigger="onSelfEquipStop" action="RemoveBuff" target="self" buff="buffImprintGiantDragonUtterMisery"/>
+				<triggered_effect trigger="onSelfItemActivate" action="AddBuff" target="self" buff="buffImprintGiantDragonUtterMisery"/>
+				<triggered_effect trigger="onSelfItemDeactivate" action="RemoveBuff" target="self" buff="buffImprintGiantDragonUtterMisery"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 巫師(Sorcerer) -->
+		<item_modifier name="modArmorImprintSorcerer" installable_tags="hands" modifier_tags="SupernaturalPower" type="attachment">
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="beabin_ImprintSorcerer"/>
+			<property name="DescriptionKey" value="modArmorImprintSorcererDesc"/>
+			<property name="EconomicValue" value="50000"/>
+			<property name="Group" value="Mods"/>
+			<effect_group name="modArmorImprintSorcerer" tiered="false">
+				<triggered_effect trigger="onSelfEquipStop" action="RemoveBuff" target="self" buff="buffImprintSorcererBloodSacrifice"/>
+				<triggered_effect trigger="onSelfItemActivate" action="AddBuff" target="self" buff="buffImprintSorcererBloodSacrifice"/>
+				<triggered_effect trigger="onSelfItemDeactivate" action="RemoveBuff" target="self" buff="buffImprintSorcererBloodSacrifice"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 騎士(Knight) -->
+		<item_modifier name="modArmorImprintKnight" installable_tags="hands" modifier_tags="SupernaturalPower" type="attachment">
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="beabin_ImprintKnight"/>
+			<property name="DescriptionKey" value="modArmorImprintKnightDesc"/>
+			<property name="EconomicValue" value="50000"/>
+			<property name="Group" value="Mods"/>
+			<effect_group name="modArmorImprintKnight" tiered="false">
+				<triggered_effect trigger="onSelfEquipStop" action="RemoveBuff" target="self" buff="buffImprintKnightRoundTableWarrior"/>
+				<triggered_effect trigger="onSelfItemActivate" action="AddBuff" target="self" buff="buffImprintKnightRoundTableWarrior"/>
+				<triggered_effect trigger="onSelfItemDeactivate" action="RemoveBuff" target="self" buff="buffImprintKnightRoundTableWarrior"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 祭司(Priest) -->
+		<item_modifier name="modArmorImprintPriest" installable_tags="hands" modifier_tags="SupernaturalPower" type="attachment">
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="beabin_ImprintPriest"/>
+			<property name="DescriptionKey" value="modArmorImprintPriestDesc"/>
+			<property name="EconomicValue" value="50000"/>
+			<property name="Group" value="Mods"/>
+			<effect_group name="modArmorImprintPriest" tiered="false">
+				<triggered_effect trigger="onSelfEquipStop" action="RemoveBuff" target="self" buff="buffImprintPriestBlessing"/>
+				<triggered_effect trigger="onSelfItemActivate" action="AddBuff" target="self" buff="buffImprintPriestBlessing"/>
+				<triggered_effect trigger="onSelfItemDeactivate" action="RemoveBuff" target="self" buff="buffImprintPriestBlessing"/>
+			</effect_group>
+		</item_modifier>
+		<!-- 雪鴞(Owl) -->
+		<item_modifier name="modArmorImprintOwl" installable_tags="hands" modifier_tags="SupernaturalPower" type="attachment">
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="beabin_ImprintOwl"/>
+			<property name="DescriptionKey" value="modArmorImprintOwlDesc"/>
+			<property name="EconomicValue" value="50000"/>
+			<property name="Group" value="Mods"/>
+			<effect_group name="modArmorImprintOwl" tiered="false">
+				<triggered_effect trigger="onSelfEquipStop" action="RemoveBuff" target="self" buff="buffImprintOwlRestrain"/>
+				<triggered_effect trigger="onSelfItemActivate" action="AddBuff" target="self" buff="buffImprintOwlRestrain"/>
+				<triggered_effect trigger="onSelfItemDeactivate" action="RemoveBuff" target="self" buff="buffImprintOwlRestrain"/>
 			</effect_group>
 		</item_modifier>
 	</append>

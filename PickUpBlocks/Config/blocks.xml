@@ -145,10 +145,6 @@
 	<append xpath="/blocks/block[@name='endTable']">
 		<property name="CanPickup" value="true"/>
 	</append>
-	<!-- 茶几燈 -->
-	<append xpath="/blocks/block[@name='endTableLamp']">
-		<property name="CanPickup" value="true"/>
-	</append>
 	<!-- 空的烘衣機 -->
 	<append xpath="/blocks/block[@name='cntDryerOpen']">
 		<property name="CanPickup" value="true"/>
@@ -199,6 +195,7 @@
 	<append xpath="/blocks/block[@name='burningBarrel']">
 		<property name="EconomicValue" value="100"/>
 	</append>
+	<set xpath="/blocks/block[@name='burningBarrel']/property[@name='CanPickup']/@value">true</set>
 	<!-- 附燈吊扇 -->
 	<append xpath="/blocks/block[@name='ceilingFanLight']">
 		<property name="CanPickup" value="true"/>
@@ -248,20 +245,6 @@
 	<append xpath="/blocks/block[@name='birdBathPlanter']">
 		<property name="CanPickup" value="true"/>
 		<property name="EconomicValue" value="2000"/>
-	</append>
-	<!-- 舊沙發 -->
-	<append xpath="/blocks/block[@name='sectionalPlaidCouchSofaMiddle']">
-		<property name="CanPickup" value="true"/>
-	</append>
-	<!-- 皮沙發 -->
-	<append xpath="/blocks/block[@name='leatherChairCouchSofa2']">
-		<property name="CanPickup" value="true"/>
-		<property name="EconomicValue" value="200"/>
-	</append>
-	<!-- 皮沙發(長) -->
-	<append xpath="/blocks/block[@name='leatherCouchSofa2']">
-		<property name="CanPickup" value="true"/>
-		<property name="EconomicValue" value="300"/>
 	</append>
 	<!-- 仰臥推舉健身器材 -->
 	<append xpath="/blocks/block[@name='decoBenchPress']">
@@ -339,6 +322,4 @@
 		<property name="CanPickup" value="true"/>
 		<property name="EconomicValue" value="10"/>
 	</append>
-	<!-- 燃燒桶 -->
-	<set xpath="/blocks/block[@name='burningBarrel']/property[@name='CanPickup']/@value">true</set>
 </configs>

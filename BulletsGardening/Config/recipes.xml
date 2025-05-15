@@ -1,0 +1,154 @@
+<configs>
+    <append xpath="/recipes">
+		<!-- 9mm子彈種子 -->
+		<recipe name="planted9mmBulletSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="ammo9mmBulletBall" count="1000"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- .44子彈種子 -->
+		<recipe name="planted44BulletSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="ammo44MagnumBulletBall" count="1000"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 7.62mm子彈種子 -->
+		<recipe name="planted762BulletSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="ammo762mmBulletBall" count="1000"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 散彈子彈種子 -->
+		<recipe name="plantedShotgunShellBulletSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="ammoShotgunShell" count="1000"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 散彈子彈種子(穿甲彈) -->
+		<recipe name="plantedShotgunSlugBulletSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="ammoShotgunSlug" count="1000"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 散彈子彈種子(突破彈) -->
+		<recipe name="plantedShotgunBreachingSlugBulletSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="ammoShotgunBreachingSlug" count="1000"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 雷筒子彈種子 -->
+		<recipe name="plantedBlunderbussBulletSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="ammoBlunderbuss" count="1000"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 機器人大砲常規子彈種子 -->
+		<recipe name="plantedJunkTurretRegularBulletSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="ammoJunkTurretRegular" count="1000"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 火箭高爆彈種子 -->
+		<recipe name="plantedRocketHEBulletSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="ammoRocketHE" count="100"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 火箭破片彈種子 -->
+		<recipe name="plantedRocketFragBulletSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="ammoRocketFrag" count="100"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 鐵箭種子 -->
+		<recipe name="plantedArrowIronBulletSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="ammoArrowIron" count="500"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 鋼箭種子 -->
+		<recipe name="plantedArrowSteelAPBulletSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="ammoArrowSteelAP" count="500"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 火焰箭種子 -->
+		<recipe name="plantedArrowFlamingBulletSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="ammoArrowFlaming" count="500"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 爆炸箭種子 -->
+		<recipe name="plantedArrowExplodingBulletSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="ammoArrowExploding" count="500"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 鐵十字弓箭種子 -->
+		<recipe name="plantedCrossbowBoltIronBulletSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="ammoCrossbowBoltIron" count="500"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 鋼十字弓箭種子 -->
+		<recipe name="plantedCrossbowBoltSteelAPBulletSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="ammoCrossbowBoltSteelAP" count="500"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 火焰十字弓箭種子 -->
+		<recipe name="plantedCrossbowBoltFlamingBulletSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="ammoCrossbowBoltFlaming" count="500"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 爆炸十字弓箭種子 -->
+		<recipe name="plantedCrossbowBoltExplodingBulletSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="ammoCrossbowBoltExploding" count="500"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 管狀炸彈種子 -->
+		<recipe name="plantedPipeBombSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="thrownAmmoPipeBomb" count="100"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 柱狀炸藥包種子 -->
+		<recipe name="plantedDynamiteBombSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="thrownDynamite" count="100"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 手榴彈種子 -->
+		<recipe name="plantedGrenadeSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="thrownGrenade" count="100"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 觸發手榴彈種子 -->
+		<recipe name="plantedGrenadeContactSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="thrownGrenadeContact" count="100"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 定時炸彈種子 -->
+		<recipe name="plantedTimedChargeSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="thrownTimedCharge" count="100"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 汽油彈種子 -->
+		<recipe name="plantedMolotovCocktailSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="thrownAmmoMolotovCocktail" count="100"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+		<!-- 輪穀地雷種子 -->
+		<recipe name="plantedMineHubcapSeedling" count="1" craft_time="10" tags="learnable">
+			<ingredient name="mineHubcap" count="100"/>
+			<ingredient name="resourceCropHopsFlower" count="1"/>
+			<ingredient name="resourceClayLump" count="1000"/>
+		</recipe>
+    </append>
+</configs>
